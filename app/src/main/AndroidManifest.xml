@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="sfami.softwares.k53reliable">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.K53Reliable">
+        <activity
+            android:name=".RoadSignsMainActivity"
+            android:exported="false"
+            android:parentActivityName=".FragmentsActivity" />
+        <activity
+            android:name=".RoadRulesMainActivity"
+            android:exported="false"
+            android:parentActivityName=".FragmentsActivity" />
+        <activity
+            android:name=".ControlsActivity"
+            android:exported="false"
+            android:parentActivityName=".FragmentsActivity" />
+        <activity
+            android:name=".RoadSignsActivity"
+            android:exported="false"
+            android:parentActivityName=".RoadSignsMainActivity" />
+        <activity
+            android:name=".RoadRulesActivity"
+            android:exported="false"
+            android:parentActivityName=".RoadRulesMainActivity" />
+        <activity
+            android:name=".RegulatoryRoadSignsActivity"
+            android:exported="false"
+            android:parentActivityName=".RoadSignsMainActivity" />
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GuidanceRoadSignsActivity"
+            android:exported="false"
+            android:parentActivityName=".RoadSignsMainActivity" />
+        <activity
+            android:name=".WarningRoadSignsActivity"
+            android:exported="false"
+            android:parentActivityName=".RoadSignsMainActivity" />
+        <activity
+            android:name=".TemporaryRoadSignsActivity"
+            android:exported="false"
+            android:parentActivityName=".RoadSignsMainActivity" />
+        <activity
+            android:name=".RoadMarkingRoadSignsActivity"
+            android:exported="false"
+            android:parentActivityName=".RoadSignsMainActivity" />
+        <activity
+            android:name=".FragmentsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2673466865976859~6894590531" />
+    </application>
+
+</manifest>
