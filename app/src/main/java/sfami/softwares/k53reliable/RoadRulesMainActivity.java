@@ -45,11 +45,30 @@ public class RoadRulesMainActivity extends AppCompatActivity {
 
 
         MyRoadRuleData[] myRoadRuleData = new MyRoadRuleData[]{
-                new MyRoadRuleData(GlobalElements.overTakingLanesFreewayRules),
-                new MyRoadRuleData(GlobalElements.parkingAndStoppingAreasRules),
-                new MyRoadRuleData(GlobalElements.directionIndicatorsRoadLanesRules),
-                new MyRoadRuleData(GlobalElements.generalRoadRules),
-                new MyRoadRuleData(GlobalElements.speedRules)
+                new MyRoadRuleData(GlobalElements.lightsRules),
+                new MyRoadRuleData(GlobalElements.dipBeamRules),
+                new MyRoadRuleData(GlobalElements.mainBeamOrBrightRules),
+                new MyRoadRuleData(GlobalElements.parkingLampsRules),
+                new MyRoadRuleData(GlobalElements.rearLampsRules),
+                new MyRoadRuleData(GlobalElements.spotLampRules),
+                new MyRoadRuleData(GlobalElements.fogLampsRules),
+                new MyRoadRuleData(GlobalElements.stopLampsRules),
+                new MyRoadRuleData(GlobalElements.numberPlateLampRules),
+                new MyRoadRuleData(GlobalElements.numberPlatesRules),
+                new MyRoadRuleData(GlobalElements.rearViewMirrorsRules),
+                new MyRoadRuleData(GlobalElements.steeringGearRules),
+                new MyRoadRuleData(GlobalElements.turningRadiusRules),
+                new MyRoadRuleData(GlobalElements.brakesRules),
+                new MyRoadRuleData(GlobalElements.hooterRules),
+                new MyRoadRuleData(GlobalElements.seatBeltsRules),
+                new MyRoadRuleData(GlobalElements.protectiveHelmetRules),
+                new MyRoadRuleData(GlobalElements.engineRules),
+                new MyRoadRuleData(GlobalElements.windscreenWipersRules),
+                new MyRoadRuleData(GlobalElements.windscreenRules),
+                new MyRoadRuleData(GlobalElements.exhaustPipesRules),
+                new MyRoadRuleData(GlobalElements.fuelTankRules),
+                new MyRoadRuleData(GlobalElements.engineRules),
+                new MyRoadRuleData(GlobalElements.trianglesRules),
         };
 
         ActionBar actionBar = getSupportActionBar();
@@ -65,12 +84,6 @@ public class RoadRulesMainActivity extends AppCompatActivity {
 
         MyRoadRulesAdapter myRoadRulesAdapter = new MyRoadRulesAdapter(myRoadRuleData,RoadRulesMainActivity.this);
         recyclerView.setAdapter(myRoadRulesAdapter);
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-            }
-        });
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

@@ -3,6 +3,8 @@ package sfami.softwares.k53reliable;
 import static android.content.ContentValues.TAG;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -88,7 +90,7 @@ public class LearnersManualFragment extends Fragment {
         });
 
 
-        RewardedAd.load(getContext(), "ca-app-pub-3940256099942544/5224354917",
+        RewardedAd.load(getContext(), "ca-app-pub-2673466865976859/1247420299",
                 adRequest, new RewardedAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
@@ -112,7 +114,42 @@ public class LearnersManualFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(),button.getText(), Toast.LENGTH_SHORT).show();
-                startFragmentsActivity();
+
+                submitDialog();
+
+//                if (mInterstitialAd != null) {
+//                    mInterstitialAd.show(getActivity());
+//                    startFragmentsActivity();
+//                } else {
+//                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
+//                }
+            }
+        });
+
+        return view;
+    }
+
+
+    public void submitDialog(){
+        AlertDialog.Builder builder
+                = new AlertDialog
+                .Builder(getContext());
+
+        // Set the message show for the Alert time
+        builder.setMessage("Please watch video Ad to be able to continue.");
+
+        // Set Alert Title
+        builder.setTitle("Welcome and Happy Learning!");
+
+        // Set Cancelable false
+        // for when the user clicks on the outside
+        // the Dialog Box then it will remain show
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
                 if (mRewardedAd != null) {
                     Activity activityContext = getActivity();
                     mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
@@ -122,22 +159,21 @@ public class LearnersManualFragment extends Fragment {
                             Log.d(TAG, "The user earned the reward.");
                             int rewardAmount = rewardItem.getAmount();
                             String rewardType = rewardItem.getType();
+                            startFragmentsActivity();
                         }
                     });
                 } else {
                     Log.d(TAG, "The rewarded ad wasn't ready yet.");
                 }
-
-
-//                if (mInterstitialAd != null) {
-//                    mInterstitialAd.show(getActivity());
-//                } else {
-//                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-//                }
+                // When the user click yes button
+                // then app will close
+//                finish();
             }
         });
-
-        return view;
+        // Create the Alert dialog
+        AlertDialog alertDialog = builder.create();
+        // Show the Alert Dialog box
+        alertDialog.show();
     }
     public void startFragmentsActivity(){
         Intent faqs = new Intent(this.getContext(), FragmentsActivity.class);

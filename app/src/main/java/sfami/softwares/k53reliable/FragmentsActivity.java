@@ -55,11 +55,22 @@ public class FragmentsActivity extends AppCompatActivity {
 //        };
 
         MyRoadSignData[] myTestFragmentData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.stopSign),
-                new MyRoadSignData(GlobalElements.parkSign),
-                new MyRoadSignData(GlobalElements.noOvertakingSign),
-                new MyRoadSignData(GlobalElements.yieldSign),
-                new MyRoadSignData(GlobalElements.pedestrianCrossingSign)
+                new MyRoadSignData(new Sign("Controls Test", "R.drawable.signs","","","",R.drawable.controls)),
+                new MyRoadSignData(new Sign("Road Signs Test", "R.drawable.signs","","","",R.drawable.signs)),
+                new MyRoadSignData(new Sign("Road Rules Test", "R.drawable.signs","","","",R.drawable.rules)),
+                new MyRoadSignData(new Sign("K53 Test", "R.drawable.signs","","","",R.drawable.k53)),
+                new MyRoadSignData(new Sign("Book Test", "R.drawable.signs","","","",R.drawable.books)),
+        };
+
+        MyRoadSignData[] myProgressFragmentData = new MyRoadSignData[]{
+                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.gold)),
+                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.gold)),
+                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.bronze)),
+                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.gold)),
+                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.silver)),
+                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.silver)),
+                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.bronze)),
+                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.gold)),
         };
 
         //Get title using intent like before
@@ -79,14 +90,14 @@ public class FragmentsActivity extends AppCompatActivity {
 
         learnFragment = new LearnFragment(myLearnFragmentData);
         testFragment = new TestFragment(myTestFragmentData);
-        progressFragment = new ProgressFragment();
+        progressFragment = new ProgressFragment(myProgressFragmentData);
 
 
         tabLayout.setupWithViewPager(viewPager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
-        viewPagerAdapter.addFragment(learnFragment, "LEARN");
         viewPagerAdapter.addFragment(testFragment, "TEST");
+        viewPagerAdapter.addFragment(learnFragment, "LEARN");
         viewPagerAdapter.addFragment(progressFragment, "PROGRESS");
 
         viewPager.setAdapter(viewPagerAdapter);

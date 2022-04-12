@@ -33,7 +33,7 @@ public class MySpecificRoadSignAdapter extends RecyclerView.Adapter<MySpecificRo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.specific_road_rule_item_list,parent,false);
+        View view = layoutInflater.inflate(R.layout.specific_road_sign_item_list,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
