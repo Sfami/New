@@ -49,12 +49,6 @@ public class LearnFragment extends Fragment {
         MyMenuAdapter myMenuAdapter = new MyMenuAdapter(myRoadSignData,this.getActivity());
         recyclerView.setAdapter(myMenuAdapter);
 
-        MobileAds.initialize(this.getContext(), new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-            }
-        });
-
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

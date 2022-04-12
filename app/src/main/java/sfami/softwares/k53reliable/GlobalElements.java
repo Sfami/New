@@ -1271,6 +1271,340 @@ public class GlobalElements {
      * Rules
      * */
 
+    public static String lightsRulesTitle = "LIGHTS";
+    public static String lightsRulesInstruction = "Motorcycles\n" +
+            "You may not operate any motorcycle, on a public road unless all lamps fitted to such " +
+            "motorcycles are undamaged, properly secured and capable of being lighted at all times;\n" +
+            "When riding a motorcycle on a public road, the headlamp must be lighted at all times." +
+            "(During night and day)\n" +
+            "6.1.2 Light and Heavy Motor Vehicles\n" +
+            "When using any light or heavy motor vehicle on a public road; all lamps must be \n" +
+            "undamaged, unobscured, properly secured, and capable of being lit at all times; \n" +
+            "The headlamps, rear lamps and number plate lamps must be kept lighted during the period;\n" +
+            "\uF0B7 between sunset and sunrise, and \n" +
+            "\uF0B7 at any other time when, due to insufficient light or unfavourable weather \n" +
+            "conditions, persons and vehicles upon the public road are not clearly discernible at a \n" +
+            "distance of 150 metres. \n" +
+            "Provided that these provisions shall not apply to a motor vehicle, which is parked;\n" +
+            "\uF0B7 off the roadway of a public road, \n" +
+            "\uF0B7 in a parking place demarcated by an appropriate road traffic sign, or\n" +
+            "\uF0B7 within a distance of 12 metres from a lighted street lamp illuminating the road on \n" +
+            "which such vehicle is parked.";
+    public static Integer lightsRulesImage = 0;
+    public static Rule lightsRules = new Rule(lightsRulesTitle, lightsRulesInstruction, lightsRulesImage);
+
+    public static String mainBeamOrBrightRulesTitle = "MAIN BEAM (BRIGHT)";
+    public static String mainBeamOrBrightRulesInstruction = "Every headlamp emitting a main-beam (bright), must be so adjusted and maintained that it \n" +
+            "shall be capable of adequately illuminating an area ahead of the motor vehicle, enabling the \n" +
+            "driver/rider to see any person, vehicle or substantial object at a distance of at least 100\n" +
+            "metres.\n" +
+            "Remember to dip the main-beam (bright) of your vehicle for oncoming traffic, as well as \n" +
+            "when following another vehicle";
+    public static Integer mainBeamOrBrightRulesImage = 0;
+    public static Rule mainBeamOrBrightRules = new Rule(mainBeamOrBrightRulesTitle, mainBeamOrBrightRulesInstruction, mainBeamOrBrightRulesImage);
+
+    public static String dipBeamRulesTitle = "DIPPED BEAM";
+    public static String dipBeamRulesInstruction = "Every headlamp emitting a dipped-beam must be so adjusted and maintained to be capable \n" +
+            "of adequately illuminating an area ahead of the motor vehicle, enabling the driver/rider to \n" +
+            "Version Draft\n" +
+            "Copyright © 2012 by SA Department Transport June 2012 17\n" +
+            "see any person, vehicle or substantial object at a distance of at least 45 metres ahead of the \n" +
+            "motor vehicle.";
+    public static Integer dipBeamRulesImage = 0;
+    public static Rule dipBeamRules = new Rule(dipBeamRulesTitle, dipBeamRulesInstruction, dipBeamRulesImage);
+
+    public static String parkingLampsRulesTitle = "REAR LAMPS";
+    public static String parkingLampsRulesInstruction = "A vehicle may not be driven on a public road with only the parking lamps lighted while such \n" +
+            "vehicle is in motion";
+    public static Integer parkingLampsRulesImage = 0;
+    public static Rule parkingLampsRules = new Rule(parkingLampsRulesTitle, parkingLampsRulesInstruction, parkingLampsRulesImage);
+
+    public static String rearLampsRulesTitle = "REAR LAMPS";
+    public static String rearLampsRulesInstruction = "You may not ride any motorcycle or a motor tricycle on a public road unless such cycle is \n" +
+            "fitted with a rear lamp emitting a red light to the rear.\n" +
+            "You may not drive a light motor vehicle on a public road unless it is fitted with lamps at the \n" +
+            "rear, emitting a red light to the rear.\n" +
+            "You may not drive a heavy motor vehicle on a public road unless such motor vehicle is fitted \n" +
+            "with at least one lamp on each side at the rear emitting a red light to the rear.\n";
+    public static Integer rearLampsRulesImage = 0;
+    public static Rule rearLampsRules = new Rule(rearLampsRulesTitle, rearLampsRulesInstruction, rearLampsRulesImage);
+
+    public static String stopLampsRulesTitle = "STOP LAMP";
+    public static String stopLampsRulesInstruction = "You may not drive a light motor vehicle or motorcycle on a public road unless it is fitted with \n" +
+            "stop lamps at the rear. When in use, they must emit a red light, which must be greater \n" +
+            "than that of the light emitted by the rear lamps and must be visible in normal sunlight at a \n" +
+            "distance of 30 metres to a person of normal eyesight.\n" +
+            "A person may not drive a heavy motor vehicle on a public road unless it is fitted with at least \n" +
+            "one stop lamp on each side at the rear of the motor vehicle which shall, when in use, emit a \n" +
+            "red light and the intensity of which shall be greater than that of the light emitted by the rear \n" +
+            "lamp on the motor vehicle and shall be visible in normal sunlight at a distance of not less \n" +
+            "than 30 metres to a person of normal eyesight.\n" +
+            "When a stop lamp is illuminated, this indicates that the vehicle is decreasing speed and may \n" +
+            "stop.\n";
+    public static Integer stopLampsRulesImage = 0;
+    public static Rule stopLampsRules = new Rule(stopLampsRulesTitle, stopLampsRulesInstruction, stopLampsRulesImage);
+
+    public static String numberPlateLampRulesTitle = "NUMBER PLATE LAMP";
+    public static String numberPlateLampRulesInstruction = "You may not drive a motor vehicle on a public road, unless it is fitted with at least one \n" +
+            "number-plate lamp at the rear, illuminating the number plate. Every letter and figure of \n" +
+            "such plate must be visible from a distance of 20 metres by a person of normal eyesight.";
+    public static Integer numberPlateLampRulesImage = 0;
+    public static Rule numberPlateLampRules = new Rule(numberPlateLampRulesTitle, numberPlateLampRulesInstruction, numberPlateLampRulesImage);
+
+    public static String numberPlatesRulesTitle = "NUMBER PLATES";
+    public static String numberPlatesRulesInstruction = "A South African Bureau of Standards (SABS) approve number plate shall be affixed—\n" +
+            "(a) in such a manner that it is not easily detachable;\n" +
+            "(b) in an upright position or within 30 degrees of such position;\n" +
+            "(c) in such a manner that each letter and figure thereon is clearly legible;\n" +
+            "(d) in such a manner that the whole number plate is clearly visible;\n" +
+            "(e) to the back of a motor cycle, motor tricycle, or trailer; and\n" +
+            "(f) one to the back and one to the front of all other motor vehicles.\n";
+    public static Integer numberPlatesRulesImage = 0;
+    public static Rule numberPlatesRules = new Rule(numberPlatesRulesTitle, numberPlatesRulesInstruction, numberPlatesRulesImage);
+
+    public static String fogLampsRulesTitle = "FOG LAMPS";
+    public static String fogLampsRulesInstruction = "No vehicle may be driven on a public road while any fog lamp fitted to such vehicle is lit, \n" +
+            "except in conditions of poor visibility caused by;\n" +
+            "\uF0B7 snow, \n" +
+            "\uF0B7 fog, \n" +
+            "\uF0B7 mist, \n" +
+            "\uF0B7 dust, or \n" +
+            "\uF0B7 smoke.";
+    public static Integer fogLampsRulesImage = 0;
+    public static Rule fogLampsRules = new Rule(fogLampsRulesTitle, fogLampsRulesInstruction, fogLampsRulesImage);
+
+    public static String spotLampRulesTitle = " SPOT LAMP";
+    public static String spotLampRulesInstruction = "A motor vehicle may not be used on a public road if it is fitted with a spot lamp, which can \n" +
+            "be so adjusted as to enable a beam of light emit therefrom to be deflect in any direction;\n" +
+            "Provided that a spot lamp which is adjustable—\n" +
+            "\uF0B7 may be fitted and used for official purposes on any ambulance, rescue vehicle, fire\u0002fighting vehicle, police vehicle or traffic control vehicle,\n" +
+            "\uF0B7 may be fitted to a vehicle owned by a medical practitioner or veterinarian, and used \n" +
+            "for professional duties only; or\n" +
+            "\uF0B7 may be fitted to a breakdown vehicle or a vehicle employed in connection with the \n" +
+            "supply of electricity or other public essential services: Provided that it is used solely \n" +
+            "at the scene of an accident or breakdown or for the examination of overhead \n" +
+            "telephone, telegraph or power lines.\n";
+    public static Integer spotLampRulesImage = 0;
+    public static Rule spotLampRules = new Rule(spotLampRulesTitle, spotLampRulesInstruction, spotLampRulesImage);
+
+    public static String rearViewMirrorsRulesTitle = "DRIVING VIEW TO BE UNOBSTRUCTED – (REAR-VIEW MIRRORS)";
+    public static String rearViewMirrorsRulesInstruction = "No person shall operate on a public road a motor vehicle—\n" +
+            "\uF0B7 if the driver/rider thereof have a full and clear view of the roadway ahead and to his \n" +
+            "or her right and left when the vehicle is in use;\n" +
+            "\uF0B7 which is not fitted with a rear-view mirror or mirrors enabling the driver/rider of \n" +
+            "such vehicle, to see in clear weather, a clear reflection of traffic to the rear: Provided \n" +
+            "that this shall not apply in respect of a tractor;\n" +
+            "Version Draft\n" +
+            "Copyright © 2012 by SA Department Transport June 2012 19\n" +
+            "\uF0B7 which is a motor car, minibus, bus or goods vehicle, unless it is fitted with an \n" +
+            "exterior rear-view mirror on the driving side and an interior rear-view mirror: \n" +
+            "Provided that where the interior rear-view mirror does not enable the driver, when \n" +
+            "he or she is in the driving position, to see in clear weather, a clear reflection of \n" +
+            "traffic to the rear, an additional exterior rear-view mirror shall be fitted on the side \n" +
+            "opposite to the driving seat and in such a case it shall not be necessary to fit an \n" +
+            "interior rear-view mirror;";
+    public static Integer rearViewMirrorsRulesImage = 0;
+    public static Rule rearViewMirrorsRules = new Rule(rearViewMirrorsRulesTitle, rearViewMirrorsRulesInstruction, rearViewMirrorsRulesImage);
+
+    public static String steeringGearRulesTitle = "STEERING GEAR";
+    public static String steeringGearRulesInstruction = "6.12.1 Motorcycle\n" +
+            "You may not use a motorcycle on a public road\u0002unless all parts of the steering gear are maintained in a condition, which enables the \n" +
+            "motorcycle to be steered safely and efficiently;\n" +
+            "unless the distance between the outside edges of the handlebars is \n" +
+            "(i) between 600 and 800 millimetres in respect of motorcycles having an \n" +
+            "engine with a cylinder capacity of 200 cubic centimetres more, and\n" +
+            "(ii) between 500 and 800 millimetres in respect of motorcycles having an \n" +
+            "engine with a cylinder capacity of less than 200 cubic centimetres.\n" +
+            "of which the outer ends of the handgrips on the handlebars are-\n" +
+            "(i) higher than 500 millimetres above the seat height; or \n" +
+            "(ii) lower than the seat height,\n" +
+            "6.12.2 Light and Heavy motor vehicles\n" +
+            "A motor vehicle may not be used on a public road unless all parts of the steering are \n" +
+            "maintained in a condition, which enables the vehicle to be steered safely and efficiently\n";
+    public static Integer steeringGearRulesImage = 0;
+    public static Rule steeringGearRules = new Rule(steeringGearRulesTitle, steeringGearRulesInstruction, steeringGearRulesImage);
+
+    public static String turningRadiusRulesTitle = "TURNING RADIUS";
+    public static String turningRadiusRulesInstruction = "A motor vehicle may not be used on a public road if the turning radius of such vehicle \n" +
+            "exceeds 13,1 metres.\n";
+    public static Integer turningRadiusRulesImage = 0;
+    public static Rule turningRadiusRules = new Rule(turningRadiusRulesTitle, turningRadiusRulesInstruction, turningRadiusRulesImage);
+
+    public static String brakesRulesTitle = "BRAKES";
+    public static String brakesRulesInstruction = "6.14.1 Motorcycle\n" +
+            "You may not ride a motorcycle on a public road, which is not equipped with two \n" +
+            "independent braking systems -\n" +
+            "\uF0B7 one of which shall act on the front wheel, and\n" +
+            "\uF0B7 and the other which shall act on the rear wheel or wheels.\n" +
+            "Version Draft\n" +
+            "Copyright © 2012 by SA Department Transport June 2012 20\n" +
+            "which is in good working order.\n" +
+            "6.14.2 Light and Heavy motor vehicles\n" +
+            "Every light and heavy motor vehicle used on a public road must be equipped with;\n" +
+            "\uF0B7 a service brake, \n" +
+            "\uF0B7 a parking brake, and \n" +
+            "\uF0B7 an emergency brake. (Same as parking brake)\n" +
+            "which is in good working order.\n" +
+            "Provided that the emergency brake and parking brake may be one and the same brake.\n";
+    public static Integer brakesRulesImage = 0;
+    public static Rule brakesRules = new Rule(brakesRulesTitle, brakesRulesInstruction, brakesRulesImage);
+
+    public static String hooterRulesTitle = "HOOTER";
+    public static String hooterRulesInstruction = "No person shall use the hooter of a vehicle except when such use is necessary on the \n" +
+            "grounds of safety.\n" +
+            "You may not use a light motor vehicle on a public road unless-\n" +
+            "\uF0B7 it is equipped with a warning device (hooter), which is in good working order and, \n" +
+            "\uF0B7 when used, capable of emitting a sound, which is clearly audible by a person of \n" +
+            "normal hearing from a distance of 90 metres.\n" +
+            "\uF0B7 Sirens or warning devices that play a tune may not be used in private vehicles.";
+    public static Integer hooterRulesImage = 0;
+    public static Rule hooterRules = new Rule(hooterRulesTitle, hooterRulesInstruction, hooterRulesImage);
+
+    public static String sirenRulesTitle = "EMERGENCY WARNING DEVICE (SIREN)";
+    public static String sirenRulesInstruction = "The driver/rider of a motor vehicle shall give immediate right of way to all emergency \n" +
+            "vehicles sounding a siren and displaying emergency warning lights.\n" +
+            "The following vehicles are regarded as an emergency vehicles-\n" +
+            "\uF0B7 a fire-fighting vehicle (red warning light), \n" +
+            "\uF0B7 a fire-fighting response vehicle (red warning light), \n" +
+            "\uF0B7 a rescue vehicle (red warning light), \n" +
+            "\uF0B7 a emergency medical response vehicle (red warning light), \n" +
+            "\uF0B7 ambulance (red warning light),\n" +
+            "\uF0B7 vehicle driven by a traffic officer in the carrying out of his or her duties (blue warning \n" +
+            "light), \n" +
+            "\uF0B7 to a vehicle driven by a person while engaged in civil protection (green warning \n" +
+            "light).\n";
+    public static Integer sirenRulesImage = 0;
+    public static Rule sirenRules = new Rule(sirenRulesTitle, sirenRulesInstruction, sirenRulesImage);
+
+    public static String seatBeltsRulesTitle = "SEATBELTS";
+    public static String seatBeltsRulesInstruction = "Seatbelts are compulsory to wear when moving forward for children and adults but it only \n" +
+            "covers persons 3 years of age and older.\n" +
+            "Version Draft\n" +
+            "Copyright © 2012 by SA Department Transport June 2012 21\n" +
+            "If seatbelts are fitted, rear-seat passengers must wear such seatbelts whilst the vehicle is \n" +
+            "driven.\n" +
+            "A child is defined as a person between the ages of 3 and 14 years, except when such person \n" +
+            "is taller than 1,5 metres, then he or she is regarded as an adult, irrespective of age. A person\n" +
+            "older than 14 years is defined as an adult.\n" +
+            "No adult shall; \n" +
+            "\uF0B7 occupy a seat in any motor vehicle unless such person wears a seatbelt: \n" +
+            "\uF0B7 occupy a seat on a row of seats, which is not fitted with a seatbelt, unless all other \n" +
+            "seats on such row which are fitted with seatbelts, are already occupied.\n" +
+            "6.17.1 Children\n" +
+            "The driver of a motor vehicle shall ensure that a child seated on a seat;\n" +
+            "\uF0B7 where it is available, uses an appropriate child restraint; or\n" +
+            "\uF0B7 if no child restraint is available, wears a seatbelt when available.\n" +
+            "If a seat, equipped with a seatbelt, is not available, the driver shall ensure that a child shall, \n" +
+            "if such motor vehicle is equipped with a rear seat, be seated on the rear seat.\n" +
+            "It is not compulsory to wear a seatbelt while reversing or moving in or out of a parking bay \n" +
+            "or area.\n" +
+            "The driver of a motor vehicle shall ensure that all persons travelling in such motor vehicle \n" +
+            "shall wear a seat belt.";
+    public static Integer seatBeltsRulesImage = 0;
+    public static Rule seatBeltsRules = new Rule(seatBeltsRulesTitle, seatBeltsRulesInstruction, seatBeltsRulesImage);
+
+    public static String protectiveHelmetRulesTitle = "PROTECTIVE HELMET FOR MOTORCYCLE RIDERS";
+    public static String protectiveHelmetRulesInstruction = "You may not ride a motorcycle or be a passenger on a motorcycle, motor tricycle or a motor \n" +
+            "quadru cycle, or be a passenger in the sidecar attached to a motorcycle, on a public road, \n" +
+            "unless a protective helmet is worn-\n" +
+            "\uF0B7 which is specially designed for use in connection with such cycle; and \n" +
+            "\uF0B7 which fits properly and of which the chin strap is properly fastened under the chin.\n" +
+            "The rider of a motorcycle shall ensure that any passenger in or on such cycle who is younger \n" +
+            "than 14 years, wears such protective helmet.\n" +
+            "The rider and passenger on a motorcycle may not wear a protective helmet when the \n" +
+            "motorcycle is equipped with a seatbelt that complies with the requirements of the SABS, \n" +
+            "and the engine can not move unless the driver and passengers (if any), of the motorcycle \n" +
+            "wear such seatbelt.\n";
+    public static Integer protectiveHelmetRulesImage = 0;
+    public static Rule protectiveHelmetRules = new Rule(protectiveHelmetRulesTitle, protectiveHelmetRulesInstruction, protectiveHelmetRulesImage);
+
+    public static String windscreenWipersRulesTitle = "WINDSCREEN";
+    public static String windscreenWipersRulesInstruction = "The transparent windscreen of a light motor vehicle, must;\n" +
+            "\uF0B7 afford the driver sufficient visibility for safe driving,\n" +
+            "\uF0B7 be of safety glass, and\n" +
+            "\uF0B7 have visible light transmittance through the windscreen of at least 70%";
+    public static Integer windscreenWipersRulesImage = 0;
+    public static Rule windscreenWipersRules = new Rule(windscreenWipersRulesTitle, windscreenWipersRulesInstruction, windscreenWipersRulesImage);
+
+    public static String windscreenRulesTitle = "WINDSCREEN WIPERS";
+    public static String windscreenRulesInstruction = "A light and heavy motor vehicle with a windscreen must be fitted with at least one \n" +
+            "windscreen wiper and must, when in operation, wipe the outside of the windscreen directly \n" +
+            "in front of the driver, continuously, evenly and adequately.";
+    public static Integer windscreenRulesImage = 0;
+    public static Rule windscreenRules = new Rule(windscreenRulesTitle, windscreenRulesInstruction, windscreenRulesImage);
+
+    public static String exhaustPipesRulesTitle = " EXHAUST SILENCERS / EXHAUST PIPES";
+    public static String exhaustPipesRulesInstruction = "A motor vehicle must be equipped with an efficient exhaust silencer, which must;\n" +
+            "\uF0B7 allow the exhaust gas from the engine to be projected through such silencer; \n" +
+            "\uF0B7 not emit exhaust gas or smoke from the engine which is so dense as to cause a \n" +
+            "nuisance to, or obstruct the vision of other road users, or\n" +
+            "\uF0B7 be in such a position that oil or other flammable liquid or material cannot drip or fall \n" +
+            "onto it, \n" +
+            "\uF0B7 be so maintained that exhaust gas or smoke does not leak into the driving cab or \n" +
+            "passenger compartment of the vehicle.\n" +
+            "A motor vehicle may not be used on a public road-\n" +
+            "\uF0B7 without an efficient exhaust silencer.\n" +
+            "\uF0B7 unless the gas from the engine is projected through such silencer \n" +
+            "\uF0B7 if the exhaust gas or smoke from the engine is so dense as to cause a nuisance to, or \n" +
+            "obstruct the vision of other road users, or\n" +
+            "\uF0B7 if the exhaust pipe or silencer thereof is in such a position that oil or other \n" +
+            "flammable liquid or material can drip or fall onto it, or \n" +
+            "\uF0B7 is not in efficient working order, or \n" +
+            "\uF0B7 is so placed and maintained that exhaust gas or smoke leaks into the driving cab or \n" +
+            "passenger compartment of the vehicle.\n";
+    public static Integer exhaustPipesRulesImage = 0;
+    public static Rule exhaustPipesRules = new Rule(exhaustPipesRulesTitle, exhaustPipesRulesInstruction, exhaustPipesRulesImage);
+
+    public static String fuelTankRulesTitle = " FUEL TANK, ELECTRICAL WIRING AND BATTERY";
+    public static String fuelTankRulesInstruction = "A motor vehicle may not be used on a public road—\n" +
+            "\uF0B7 if the fuel tank, carburettor, fuel receptacle or fuel pipes thereof is defective or so \n" +
+            "exposed that it constitutes a source of danger; \n" +
+            "\uF0B7 if the fuel tank is not fitted with an effective cap; or \n" +
+            "\uF0B7 unless the electrical wiring and battery are properly installed, insulated and \n" +
+            "maintained so that such wiring and battery do not constitute a source of danger.";
+    public static Integer fuelTankRulesImage = 0;
+    public static Rule fuelTankRules = new Rule(fuelTankRulesTitle, fuelTankRulesInstruction, fuelTankRulesImage);
+
+    public static String engineRulesTitle = "ENGINE";
+    public static String engineRulesInstruction = "\uF0B7 A light and heavy motor vehicle may not be used on a public road, unless the engine \n" +
+            "thereof is so covered as not to be a source of danger.";
+    public static Integer engineRulesImage = 0;
+    public static Rule engineRules = new Rule(engineRulesTitle, engineRulesInstruction, engineRulesImage);
+
+    public static String trianglesRulesTitle = "EMERGENCY WARNING SIGNS (TRIANGLES)\n";
+    public static String trianglesRulesInstruction = "Any heavy motor vehicle (GVM exceeds 3500kg), all goods vehicles, minibuses and busses, \n" +
+            "(excluding motor cars, ambulances and motorcycles) may not be used on a public road, \n" +
+            "unless there is carried on such vehicle at least one emergency warning sign. \n" +
+            "Provided that in the case of a combination of motor vehicles (vehicle with one or more \n" +
+            "trailers), the emergency warning sign for every motor vehicle of such combination may be \n" +
+            "carried on the drawing vehicle.\n" +
+            "Where a motor vehicle is for any reason stationary on the roadway of a public road, the \n" +
+            "driver of such vehicle shall display at least one emergency warning sign in the following \n" +
+            "manner—\n" +
+            "\uF0B7 the sign shall be placed not less than 45 metres from the motor vehicle along \n" +
+            "the roadway of the public road concerned in the direction from which traffic \n" +
+            "will approach such vehicle when travelling on the side of the roadway closest \n" +
+            "to such motor vehicle;\n" +
+            "\uF0B7 the sign shall be placed approximately as far from the edge of the roadway as \n" +
+            "the transverse centre of the motor vehicle is from the edge of the roadway; \n" +
+            "and\n" +
+            "\uF0B7 the reflective side of the sign shall face in the direction from which any traffic \n" +
+            "will approach.\n" +
+            "This shall not apply where a motor vehicle is stationary—\n" +
+            "\uF0B7 in a place where a road traffic sign authorises the loading or unloading of a \n" +
+            "vehicle;\n" +
+            "\uF0B7 in compliance with any direction conveyed by a road traffic sign or given by a \n" +
+            "traffic officer;\n" +
+            "\uF0B7 on account of other traffic on the public road concerned and while the driver \n" +
+            "occupies the driving seat of such motor vehicle; or\n" +
+            "\uF0B7 in the course of events accompanying the carrying out of a State or municipal \n" +
+            "function.";
+    public static Integer trianglesRulesImage = 0;
+    public static Rule trianglesRules = new Rule(trianglesRulesTitle, trianglesRulesInstruction, trianglesRulesImage);
+
+
+
+
     public static String generalRoadRulesTitle = "General Rules";
     public static String generalRoadRulesInstruction = "Stop";
     public static Integer generalRoadRulesImage = 0;

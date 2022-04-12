@@ -28,14 +28,11 @@ public class TestFragment extends Fragment {
         this.myRoadSignData = myRoadSignData;
     }
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_learn, container, false);
+        View view = inflater.inflate(R.layout.fragment_test, container, false);
 
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
@@ -46,11 +43,6 @@ public class TestFragment extends Fragment {
         MyMenuAdapter myMenuAdapter = new MyMenuAdapter(myRoadSignData,this.getActivity());
         recyclerView.setAdapter(myMenuAdapter);
 
-        MobileAds.initialize(this.getContext(), new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-            }
-        });
 
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

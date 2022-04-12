@@ -62,29 +62,29 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("K53 Test")){
-                    Intent intent = new Intent(context, TemporaryRoadSignsActivity.class);
+                    Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
-//                    context.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Book Test")){
-                    Intent intent = new Intent(context, RoadMarkingRoadSignsActivity.class);
+                    Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
-//                    context.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Controls Test")){
-                    Intent intent = new Intent(context, TemporaryRoadSignsActivity.class);
+                    Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
-//                    context.startActivity(intent);
+                    context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Road Signs Test")){
-                    Intent intent = new Intent(context, TemporaryRoadSignsActivity.class);
+                    Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Road Rules Test")){
-                    Intent intent = new Intent(context, TemporaryRoadSignsActivity.class);
+                    Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
-//                    context.startActivity(intent);
+                    context.startActivity(intent);
                 }
             }
         });
