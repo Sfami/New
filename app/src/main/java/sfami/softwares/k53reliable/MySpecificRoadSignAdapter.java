@@ -51,8 +51,6 @@ public class MySpecificRoadSignAdapter extends RecyclerView.Adapter<MySpecificRo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, myRoadSignDataList.getSignName(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }

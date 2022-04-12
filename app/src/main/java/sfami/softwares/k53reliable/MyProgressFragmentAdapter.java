@@ -44,7 +44,7 @@ public class MyProgressFragmentAdapter extends RecyclerView.Adapter<MyProgressFr
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, myRoadSignDataList.getSignName(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }

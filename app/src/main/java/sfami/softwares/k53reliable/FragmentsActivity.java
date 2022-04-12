@@ -1,5 +1,6 @@
 package sfami.softwares.k53reliable;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,51 +27,36 @@ public class FragmentsActivity extends AppCompatActivity {
     private LearnFragment learnFragment;
     private ProgressFragment progressFragment;
     private TestFragment testFragment;
-
+    private String title, score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragments);
 
-//        MyRoadSignData[] myLearnFragmentData = new MyRoadSignData[]{
-//                new MyRoadSignData("Road Signs", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//                new MyRoadSignData("Road Rules", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//                new MyRoadSignData("Controls", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//        };
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         MyRoadSignData[] myLearnFragmentData = new MyRoadSignData[]{
                 new MyRoadSignData(GlobalElements.roadSignsSign),
                 new MyRoadSignData(GlobalElements.roadRulesSign),
                 new MyRoadSignData(GlobalElements.controlsSign),
-//                new MyRoadSignData(GlobalElements.yieldSign),
-//                new MyRoadSignData(GlobalElements.pedestrianCrossingSign)
         };
 
-//        MyRoadSignData[] myTestFragmentData = new MyRoadSignData[]{
-//                new MyRoadSignData("K53 Test", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//                new MyRoadSignData("Book Test", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//                new MyRoadSignData("Controls Test", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//                new MyRoadSignData("Road Signs Test", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//                new MyRoadSignData("Road Rules Test", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//        };
 
         MyRoadSignData[] myTestFragmentData = new MyRoadSignData[]{
-                new MyRoadSignData(new Sign("Controls Test", "R.drawable.signs","","","",R.drawable.controls)),
-                new MyRoadSignData(new Sign("Road Signs Test", "R.drawable.signs","","","",R.drawable.signs)),
-                new MyRoadSignData(new Sign("Road Rules Test", "R.drawable.signs","","","",R.drawable.rules)),
-                new MyRoadSignData(new Sign("K53 Test", "R.drawable.signs","","","",R.drawable.k53)),
-                new MyRoadSignData(new Sign("Book Test", "R.drawable.signs","","","",R.drawable.books)),
+                new MyRoadSignData(new Sign("Controls Test", "Take Controls example test.","","","",R.drawable.controls)),
+                new MyRoadSignData(new Sign("Road Signs Test", "Take Controls example test.","","","",R.drawable.signs)),
+                new MyRoadSignData(new Sign("Road Rules Test", "Take Controls example test.","","","",R.drawable.rules)),
+                new MyRoadSignData(new Sign("K53 Test", "Take Controls example test.","","","",R.drawable.k53)),
+                new MyRoadSignData(new Sign("Book Test", "Take Controls example test.","","","",R.drawable.books)),
         };
 
         MyRoadSignData[] myProgressFragmentData = new MyRoadSignData[]{
-                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.gold)),
-                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.gold)),
-                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.bronze)),
-                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.gold)),
-                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.silver)),
-                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.silver)),
-                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.bronze)),
-                new MyRoadSignData(new Sign("K53 TEST", "24/26 (86%)","","","",R.drawable.gold)),
+//                new MyRoadSignData(new Sign(title, score,"","","",R.drawable.gold)),
         };
 
         //Get title using intent like before
@@ -101,15 +87,6 @@ public class FragmentsActivity extends AppCompatActivity {
         viewPagerAdapter.addFragment(progressFragment, "PROGRESS");
 
         viewPager.setAdapter(viewPagerAdapter);
-
-//        tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_explore_24);
-//        tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_flight_24);
-//        tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_card_travel_24);
-
-//        BadgeDrawable badgeDrawable = tabLayout.getTabAt(0).getOrCreateBadge();
-//        badgeDrawable.setVisible(true);
-//        badgeDrawable.setNumber(12);
-
 
     }
 
