@@ -98,9 +98,9 @@ public class LearnersManualFragment extends Fragment {
 
     public void submitDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        String msg = String.format("Welcome!%s\nPlease Watch full Video Ad to support us.", "");
+        String msg = String.format("Kindly watch Video Ad to support us.%s", "");
         builder.setMessage(msg);
-        builder.setTitle("Test Completed");
+        builder.setTitle("Welcome!");
         builder.setCancelable(false);
 
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {

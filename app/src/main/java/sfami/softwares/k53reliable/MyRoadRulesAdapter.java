@@ -55,6 +55,11 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                             new MyRoadRuleData(GlobalElements.speedRules)
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
 
@@ -69,6 +74,11 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                             new MyRoadRuleData(GlobalElements.speedRules)
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getRuleTitle().equals("General road rules.")){
@@ -82,6 +92,11 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                             new MyRoadRuleData(GlobalElements.speedRules)
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getRuleTitle().equals("General road rules.")){
@@ -95,6 +110,11 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                             new MyRoadRuleData(GlobalElements.speedRules)
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getRuleTitle().equals("General road rules.")){
@@ -108,6 +128,11 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                             new MyRoadRuleData(GlobalElements.speedRules)
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
             }

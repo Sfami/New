@@ -24,10 +24,11 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.OnUserEarnedRewardListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+
+import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
     private AdView mAdView;
@@ -39,6 +40,9 @@ public class QuizActivity extends AppCompatActivity {
     private InterstitialAd mInterstitialAd;
     private RewardedAd mRewardedAd;
     private RadioButton ans1Btn, ans2Btn, ans3Btn, ans4Btn;
+
+    private ArrayList<String> answersArray = new ArrayList<>();
+    private ArrayList<String> correctAnswersArray = new ArrayList<>();
 
     private CountDownTimer countDownTimer;
     private MyRoadSignData[] myTestFragmentData = new MyRoadSignData[]{
@@ -55,12 +59,12 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         long start = System.currentTimeMillis();
 
-        Intent titleIntent = getIntent();
-        title = titleIntent.getStringExtra("title");
-
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("title");
+        myTestFragmentData  = (MyRoadSignData[]) intent.getSerializableExtra("data");
+        String toolbarTitle = String.format("%s (%s)", title, myTestFragmentData.length);
 
         time = findViewById(R.id.time);
-        timer();
 
         question = findViewById(R.id.question);
         question.setText(myTestFragmentData[0].getSignPurpose());
@@ -90,7 +94,6 @@ public class QuizActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                countDownTimer.cancel();
                 nextQuestion();
             }
         });
@@ -115,21 +118,12 @@ public class QuizActivity extends AppCompatActivity {
 
     private void nextQuestion() {
         if (nextButton.getText().equals("Submit")){
-            countDownTimer.cancel();
             submitDialog();
         }
 
         if (index < myTestFragmentData.length - 1) {
-            timer();
             checkAnswer();
             index++;
-
-            image = findViewById(R.id.image);
-            question = findViewById(R.id.question);
-            ans1 = findViewById(R.id.ans);
-            ans2 = findViewById(R.id.ans2);
-            ans3 = findViewById(R.id.ans3);
-            ans4 = findViewById(R.id.ans4);
 
             image.setImageResource(myTestFragmentData[index].getSignImage());
             question.setText(myTestFragmentData[index].getSignPurpose());
@@ -146,6 +140,46 @@ public class QuizActivity extends AppCompatActivity {
         else {
             nextButton.setText("Submit");
         }
+    }
+
+    public void submitDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
+        float percentage = score.floatValue()/myTestFragmentData.length;
+        String scoreString = String.format("%s/%s (%s)",score,myTestFragmentData.length, percentage);
+
+        String msg = String.format("Congratulations!\nScore: %s/%s (%s)\nWatch full Video Ad to get your full test results.",score,myTestFragmentData.length, percentage);
+        builder.setMessage(msg);
+        builder.setTitle("Test Completed");
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                if (mRewardedAd != null) {
+                    Activity activityContext = QuizActivity.this;
+                    mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                        @Override
+                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                            // Handle the reward.
+                            Log.d(TAG, "The user earned the reward.");
+                            int rewardAmount = rewardItem.getAmount();
+                            String rewardType = rewardItem.getType();
+//                            startResultsActivity(title, myTestFragmentData, answersArray, correctAnswersArray);
+                        }
+                    });
+                } else {
+                    Log.d(TAG, "The rewarded ad wasn't ready yet.");
+//                    startFragmentsActivity(score);
+                    startResultsActivity(title, myTestFragmentData, answersArray, correctAnswersArray);
+                }
+//                startResultsActivity(title, myTestFragmentData, answersArray, correctAnswersArray);
+
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     private void timer() {
@@ -180,6 +214,8 @@ public class QuizActivity extends AppCompatActivity {
             score++;
         }
         else Toast.makeText(QuizActivity.this,"Wrong Answer.",Toast.LENGTH_SHORT).show();
+        answersArray.add(answers);
+        correctAnswersArray.add(trueAnswers);
         answers = "";
     }
 
@@ -217,7 +253,7 @@ public class QuizActivity extends AppCompatActivity {
                 // When the user click yes button
                 // then app will close
                 finish();
-                nextQuestion();
+                startFragmentsActivity(score);
             }
         });
 
@@ -234,42 +270,26 @@ public class QuizActivity extends AppCompatActivity {
     }
 
 
-    public void submitDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
-        String msg = String.format("Congratulations!\nScore: %s/%s (%s)\nWatch full Video Ad to get your full test results.",score,myTestFragmentData.length,score.floatValue()/myTestFragmentData.length);
-        builder.setMessage(msg);
-        builder.setTitle("Test Completed");
-        builder.setCancelable(false);
-
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                if (mRewardedAd != null) {
-                    Activity activityContext = QuizActivity.this;
-                    mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
-                        @Override
-                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                                            // Handle the reward.
-                            Log.d(TAG, "The user earned the reward.");
-                            int rewardAmount = rewardItem.getAmount();
-                            String rewardType = rewardItem.getType();
-                            startFragmentsActivity(rewardType);
-                        }
-                    });
-                } else {
-                    Log.d(TAG, "The rewarded ad wasn't ready yet.");
-                }
-                finish();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+    private void startResultsActivity(String title, MyRoadSignData[] data, ArrayList<String> answersArray, ArrayList<String> correctAnswersArray) {
+        Intent faqs = new Intent(this, ResultsActivity.class);
+        faqs.putExtra("title", title);
+        faqs.putExtra("data", data);
+        faqs.putExtra("answers", answersArray);
+        faqs.putExtra("correctAnswers", correctAnswersArray);
+        startActivity(faqs);
     }
 
-    public void startFragmentsActivity(String reward){
+    public void startFragmentsActivity(Integer score){
         Intent faqs = new Intent(this, FragmentsActivity.class);
-        faqs.putExtra("reward",reward);
+        faqs.putExtra("score", score);
+        faqs.putExtra("title", title);
+        startActivity(faqs);
+    }
+
+    public void startResultsActivity(String score, String testTitle){
+        Intent faqs = new Intent(this, ResultsActivity.class);
+        faqs.putExtra("score", score);
+        faqs.putExtra("title", testTitle);
         startActivity(faqs);
     }
 }

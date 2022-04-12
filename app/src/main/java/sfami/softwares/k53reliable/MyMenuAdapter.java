@@ -23,8 +23,6 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
         this.context = activity;
     }
 
-
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,46 +42,165 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, myRoadSignDataList.getSignName(), Toast.LENGTH_SHORT).show();
 
                 if (myRoadSignDataList.getSignName().equals("Road Signs")){
                     Intent intent = new Intent(context, RoadSignsMainActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
+                    MyRoadSignData[] d = new MyRoadSignData[]{
+                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
+                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                    };
+                    intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Road Rules")){
                     Intent intent = new Intent(context, RoadRulesMainActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
+                    MyRoadSignData[] d = new MyRoadSignData[]{
+                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
+                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                    };
+                    intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Controls")){
-                    Intent intent = new Intent(context, RoadRulesMainActivity.class);
+                    Intent intent = new Intent(context, ControlsActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
+                    MyRoadSignData[] d = new MyRoadSignData[]{
+                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
+                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                    };
+                    intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("K53 Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
+                    MyRoadSignData[] d = new MyRoadSignData[]{
+                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
+                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                    };
+                    intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Book Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
+                    MyRoadSignData[] d = new MyRoadSignData[]{
+                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
+                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                    };
+                    intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Controls Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
+                    MyRoadSignData[] d = new MyRoadSignData[]{
+                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
+                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                    };
+                    intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Road Signs Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
+                    MyRoadSignData[] d = new MyRoadSignData[]{
+                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
+                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                    };
+                    intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Road Rules Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
+                    MyRoadSignData[] d = new MyRoadSignData[]{
+                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
+                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedSignalSign),
+                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
+                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                    };
+                    intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
             }

@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 new MyRoadRuleData(GlobalElements.learnerFAQ9),
                 new MyRoadRuleData(GlobalElements.learnerFAQ10),
                 new MyRoadRuleData(GlobalElements.dummyRule),
-                new MyRoadRuleData(GlobalElements.dummyRule),
+//                new MyRoadRuleData(GlobalElements.dummyRule),
         };
 
         String toolbarTitle = String.format("FAQs (%s)", myRoadRuleData.length);

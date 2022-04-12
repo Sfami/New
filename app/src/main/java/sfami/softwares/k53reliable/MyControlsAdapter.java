@@ -2,6 +2,7 @@ package sfami.softwares.k53reliable;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,30 +12,32 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MySpecificRoadRuleAdapter extends RecyclerView.Adapter<MySpecificRoadRuleAdapter.ViewHolder> {
+public class MyControlsAdapter extends RecyclerView.Adapter<MyControlsAdapter.ViewHolder> {
 
-    MyRoadSignData[] myRoadSignData;
+    MyRoadRuleData[] myRoadRuleData;
     Context context;
 
-    public MySpecificRoadRuleAdapter(MyRoadSignData[] myRoadSignData, Activity activity) {
-        this.myRoadSignData = myRoadSignData;
+    public MyControlsAdapter(MyRoadRuleData[] myRoadRuleData, Activity activity) {
+        this.myRoadRuleData = myRoadRuleData;
         this.context = activity;
     }
+
+
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.specific_road_rule_item_list,parent,false);
+        View view = layoutInflater.inflate(R.layout.road_rule_item_list,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final MyRoadSignData myRoadSignDataList = myRoadSignData[position];
-        holder.name.setText(myRoadSignDataList.getSignName());
-        holder.instructions.setText(myRoadSignDataList.getSignDescriptions());
+        final MyRoadRuleData myRoadSignDataList = myRoadRuleData[position];
+        holder.textViewName.setText(myRoadSignDataList.getRuleTitle());
+        holder.textViewDate.setText(myRoadSignDataList.getRuleInstruction());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,18 +48,20 @@ public class MySpecificRoadRuleAdapter extends RecyclerView.Adapter<MySpecificRo
 
     @Override
     public int getItemCount() {
-        return myRoadSignData.length;
+        return myRoadRuleData.length;
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView name;
-        TextView instructions;
+//        ImageView movieImage;
+        TextView textViewName;
+        TextView textViewDate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.name);
-            instructions = itemView.findViewById(R.id.instructions);
+//            movieImage = itemView.findViewById(R.id.imageview);
+            textViewName = itemView.findViewById(R.id.textName);
+            textViewDate = itemView.findViewById(R.id.textdate);
 
         }
     }
