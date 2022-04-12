@@ -61,7 +61,6 @@ public class QuizActivity extends AppCompatActivity {
 
         time = findViewById(R.id.time);
         timer();
-//        time.setText(score.toString());
 
         question = findViewById(R.id.question);
         question.setText(myTestFragmentData[0].getSignPurpose());
@@ -87,7 +86,6 @@ public class QuizActivity extends AppCompatActivity {
         ans4Btn = findViewById(R.id.ans4_btn);
 
         nextButton = findViewById(R.id.next);
-//        previousButton = findViewById(R.id.previous);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,27 +95,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-//        mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-//        mAdView.loadAd(adRequest);
-
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-                        Log.i(TAG, "onAdLoaded");
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        Log.i(TAG, loadAdError.getMessage());
-                        mInterstitialAd = null;
-                    }
-                });
 
         RewardedAd.load(this, "ca-app-pub-2673466865976859/1247420299",
                 adRequest, new RewardedAdLoadCallback() {
@@ -139,31 +117,25 @@ public class QuizActivity extends AppCompatActivity {
         if (nextButton.getText().equals("Submit")){
             countDownTimer.cancel();
             submitDialog();
-//            previousButton.setVisibility(View.INVISIBLE);
-//                        nextButton.setVisibility(View.INVISIBLE);
         }
-        timer();
-        if (index >= 0 && index < myTestFragmentData.length - 1) {
+
+        if (index < myTestFragmentData.length - 1) {
+            timer();
             checkAnswer();
-//                        previousButton.setText("Prev");
             index++;
 
-            question = findViewById(R.id.question);
-            question.setText(myTestFragmentData[index].getSignPurpose());
-
             image = findViewById(R.id.image);
-            image.setImageResource(myTestFragmentData[index].getSignImage());
-
+            question = findViewById(R.id.question);
             ans1 = findViewById(R.id.ans);
-            ans1.setText(myTestFragmentData[index].getSignWhere());
-
             ans2 = findViewById(R.id.ans2);
-            ans2.setText(myTestFragmentData[index].getSignWhere());
-
             ans3 = findViewById(R.id.ans3);
-            ans3.setText(myTestFragmentData[index].getSignWhere());
-
             ans4 = findViewById(R.id.ans4);
+
+            image.setImageResource(myTestFragmentData[index].getSignImage());
+            question.setText(myTestFragmentData[index].getSignPurpose());
+            ans1.setText(myTestFragmentData[index].getSignWhere());
+            ans2.setText(myTestFragmentData[index].getSignWhere());
+            ans3.setText(myTestFragmentData[index].getSignWhere());
             ans4.setText(myTestFragmentData[index].getSignWhere());
 
             ans1Btn.setChecked(false);
@@ -202,119 +174,71 @@ public class QuizActivity extends AppCompatActivity {
         if (ans2Btn.isChecked()) answers += ans2.getText() + ",";
         if (ans3Btn.isChecked()) answers += ans3.getText() + ",";
         if (ans4Btn.isChecked()) answers += ans4.getText() +  ",";
-
         trueAnswers = String.format("%s,%s,%s,", ans1.getText(),ans2.getText(),ans3.getText());
-//        Toast.makeText(this,answers,Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this,trueAnswers,Toast.LENGTH_SHORT).show();
         if (answers.equals(trueAnswers)){
-//            Toast.makeText(QuizActivity.this,String.format("Correct: %s and %s", answers,trueAnswers),Toast.LENGTH_SHORT).show();
+            Toast.makeText(QuizActivity.this, "Correct Answer.",Toast.LENGTH_SHORT).show();
             score++;
         }
-//        else Toast.makeText(QuizActivity.this,"Wrong.",Toast.LENGTH_SHORT).show();
+        else Toast.makeText(QuizActivity.this,"Wrong Answer.",Toast.LENGTH_SHORT).show();
         answers = "";
     }
 
     public void timeOverDialog(){
-        AlertDialog.Builder builder
-                = new AlertDialog
-                .Builder(QuizActivity.this);
-        // Set the message show for the Alert time
+        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
         builder.setMessage("Press Ok to proceed.");
-
-        // Set Alert Title
         builder.setTitle("Time up!");
-
-        // Set Cancelable false
-        // for when the user clicks on the outside
-        // the Dialog Box then it will remain show
         builder.setCancelable(false);
 
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                nextQuestion();
                 // When the user click yes button
                 // then app will close
-//                finish();
+                finish();
+                nextQuestion();
             }
         });
-        // Create the Alert dialog
+
         AlertDialog alertDialog = builder.create();
-        // Show the Alert Dialog box
         alertDialog.show();
     }
 
     @Override
     public void onBackPressed() {
-
-        // Create the object of
-        // AlertDialog Builder class
-        AlertDialog.Builder builder
-                = new AlertDialog
-                .Builder(QuizActivity.this);
-
-        // Set the message show for the Alert time
+        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
         builder.setMessage("Do you want to exit ?");
-
-        // Set Alert Title
         builder.setTitle("Warning !");
-
-        // Set Cancelable false
-        // for when the user clicks on the outside
-        // the Dialog Box then it will remain show
         builder.setCancelable(false);
-
-        // Set the positive button with yes name
-        // OnClickListener method is use of
-        // DialogInterface interface.
-
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which)
-                            {
-                                // When the user click yes button
-                                // then app will close
-                                finish();
-                            }
-                        });
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                // When the user click yes button
+                // then app will close
+                finish();
+                nextQuestion();
+            }
+        });
 
-        // Set the Negative button with No name
-        // OnClickListener method is use
-        // of DialogInterface interface.
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which)
-                            {
-                                // If user click no
-                                // then dialog box is canceled.
-                                dialog.cancel();
-                            }
-                        });
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.cancel();
+            }
+        });
 
-        // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
-        // Show the Alert Dialog box
         alertDialog.show();
     }
 
 
     public void submitDialog(){
-        AlertDialog.Builder builder
-                = new AlertDialog
-                .Builder(QuizActivity.this);
-        // Set the message show for the Alert time
+        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
         String msg = String.format("Congratulations!\nScore: %s/%s (%s)\nWatch full Video Ad to get your full test results.",score,myTestFragmentData.length,score.floatValue()/myTestFragmentData.length);
         builder.setMessage(msg);
-
-        // Set Alert Title
         builder.setTitle("Test Completed");
-
-        // Set Cancelable false
-        // for when the user clicks on the outside
-        // the Dialog Box then it will remain show
         builder.setCancelable(false);
 
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -336,14 +260,10 @@ public class QuizActivity extends AppCompatActivity {
                 } else {
                     Log.d(TAG, "The rewarded ad wasn't ready yet.");
                 }
-                // When the user click yes button
-                // then app will close
                 finish();
             }
         });
-        // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
-        // Show the Alert Dialog box
         alertDialog.show();
     }
 
