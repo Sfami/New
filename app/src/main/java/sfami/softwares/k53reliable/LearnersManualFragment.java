@@ -54,41 +54,16 @@ public class LearnersManualFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_learners_manual, container, false);
 
-
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
         MyRoadRulesAdapter myRoadRulesAdapter = new MyRoadRulesAdapter(myRoadRuleData,this.getActivity());
         recyclerView.setAdapter(myRoadRulesAdapter);
-
-
 
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-//        AdRequest adRequest = new AdRequest.Builder().build();
-
-        InterstitialAd.load(getContext(),"ca-app-pub-3940256099942544/1033173712", adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-                        Log.i(TAG, "onAdLoaded");
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        Log.i(TAG, loadAdError.getMessage());
-                        mInterstitialAd = null;
-                    }
-        });
-
 
         RewardedAd.load(getContext(), "ca-app-pub-2673466865976859/1247420299",
                 adRequest, new RewardedAdLoadCallback() {
@@ -107,22 +82,13 @@ public class LearnersManualFragment extends Fragment {
                 });
 
 
-
         button = view.findViewById(R.id.button);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(),button.getText(), Toast.LENGTH_SHORT).show();
-
                 submitDialog();
-
-//                if (mInterstitialAd != null) {
-//                    mInterstitialAd.show(getActivity());
-//                    startFragmentsActivity();
-//                } else {
-//                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-//                }
             }
         });
 
@@ -131,19 +97,10 @@ public class LearnersManualFragment extends Fragment {
 
 
     public void submitDialog(){
-        AlertDialog.Builder builder
-                = new AlertDialog
-                .Builder(getContext());
-
-        // Set the message show for the Alert time
-        builder.setMessage("Please watch video Ad to be able to continue.");
-
-        // Set Alert Title
-        builder.setTitle("Welcome and Happy Learning!");
-
-        // Set Cancelable false
-        // for when the user clicks on the outside
-        // the Dialog Box then it will remain show
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        String msg = String.format("Kindly watch Video Ad to support us.%s", "");
+        builder.setMessage(msg);
+        builder.setTitle("Welcome!");
         builder.setCancelable(false);
 
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -163,18 +120,16 @@ public class LearnersManualFragment extends Fragment {
                         }
                     });
                 } else {
+                    startFragmentsActivity();
                     Log.d(TAG, "The rewarded ad wasn't ready yet.");
                 }
-                // When the user click yes button
-                // then app will close
-//                finish();
+
             }
         });
-        // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
-        // Show the Alert Dialog box
         alertDialog.show();
     }
+
     public void startFragmentsActivity(){
         Intent faqs = new Intent(this.getContext(), FragmentsActivity.class);
         startActivity(faqs);

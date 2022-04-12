@@ -73,6 +73,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.yieldToOncomingTrafficSignPurposeSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.commandSignsSignName)){
@@ -99,6 +104,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
 
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.prohibitionsSignsSignName)){
@@ -117,6 +127,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.stoppingProhibitedSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.reservationSignsSignName)){
@@ -130,6 +145,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.motorcycleReservationSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.comprehensiveSignsSignName)){
@@ -141,6 +161,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.woonerfSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.secondarySignsSignName)){
@@ -155,6 +180,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.maxNumberOfVehiclesSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.deRestrictionSignsSignName)){
@@ -164,6 +194,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.deRestrictionSignsSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
 
@@ -184,6 +219,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.endOfDualRoadwaySign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.directionOfMovementSignsSignName)){
@@ -200,6 +240,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.concealedDrivewaySign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.symbolicSignsSignName)){
@@ -235,6 +280,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.overheadFreewayDirectionSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.diagrammaticSignsSignName)){
@@ -245,6 +295,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.diagrammaticSignsSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.exampleOfTemporarySignsSignName)){
@@ -254,6 +309,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.exampleOfTemporarySignsSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
 
@@ -264,6 +324,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.roadMarkingsSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
 
@@ -274,6 +339,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
 
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
 
@@ -284,6 +354,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
 
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
 
@@ -294,6 +369,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
 
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals(GlobalElements.otherRegulatorySignalsSignName)){
@@ -309,6 +389,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                             new MyRoadSignData(GlobalElements.warningFlagSignalSign),
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
 
@@ -319,6 +404,11 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
 
                     };
                     intent.putExtra("data", d);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     context.startActivity(intent);
                 }
             }

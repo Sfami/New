@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.K53Reliable">
+
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false"
+            android:parentActivityName=".FragmentsActivity" />
+        <activity
+            android:name=".ResultsActivity"
+            android:exported="false"
+            android:parentActivityName=".FragmentsActivity" />
         <activity
             android:name=".RoadSignsMainActivity"
             android:exported="false"
@@ -33,9 +42,6 @@
             android:name=".RegulatoryRoadSignsActivity"
             android:exported="false"
             android:parentActivityName=".RoadSignsMainActivity" />
-        <activity
-            android:name=".QuizActivity"
-            android:exported="false" />
         <activity
             android:name=".GuidanceRoadSignsActivity"
             android:exported="false"
