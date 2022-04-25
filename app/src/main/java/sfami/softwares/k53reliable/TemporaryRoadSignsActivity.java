@@ -54,12 +54,6 @@ public class TemporaryRoadSignsActivity extends AppCompatActivity {
         MySpecificRoadSignAdapter myRoadSignAdapter = new MySpecificRoadSignAdapter(myRoadSignData, TemporaryRoadSignsActivity.this);
         recyclerView.setAdapter(myRoadSignAdapter);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-            }
-        });
-
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

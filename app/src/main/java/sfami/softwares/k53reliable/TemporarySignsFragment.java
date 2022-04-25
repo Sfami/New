@@ -36,7 +36,6 @@ public class TemporarySignsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_learn, container, false);
 
-
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -44,12 +43,6 @@ public class TemporarySignsFragment extends Fragment {
 
         MyRoadSignAdapter myRoadSignAdapter = new MyRoadSignAdapter(myRoadSignData,this.getActivity());
         recyclerView.setAdapter(myRoadSignAdapter);
-
-//        MobileAds.initialize(this.getContext(), new OnInitializationCompleteListener() {
-//            @Override
-//            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-//            }
-//        });
 
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

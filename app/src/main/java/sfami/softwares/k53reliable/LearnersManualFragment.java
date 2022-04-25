@@ -69,6 +69,9 @@ public class LearnersManualFragment extends Fragment {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+//        Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
+//        Production AdMob app ID: ca-app-pub-2673466865976859~6894590531
+
         RewardedAd.load(getContext(), "ca-app-pub-2673466865976859/1247420299",
                 adRequest, new RewardedAdLoadCallback() {
                     @Override

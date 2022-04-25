@@ -50,11 +50,6 @@ public class WarningSignsFragment extends Fragment {
         MyRoadSignAdapter myRoadSignAdapter = new MyRoadSignAdapter(myRoadSignData,this.getActivity());
         recyclerView.setAdapter(myRoadSignAdapter);
 
-//        MobileAds.initialize(this.getContext(), new OnInitializationCompleteListener() {
-//            @Override
-//            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-//            }
-//        });
 
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
