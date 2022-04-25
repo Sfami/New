@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
         viewPagerAdapter.addFragment(learnersManualFragment, "LEARNER'S");
         viewPagerAdapter.addFragment(driversManualFragment, "DRIVER'S");
-        viewPagerAdapter.addFragment(moreFragment, "MORE");
+//        viewPagerAdapter.addFragment(moreFragment, "MORE");
         viewPager.setAdapter(viewPagerAdapter);
 
 //        tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_explore_24);
