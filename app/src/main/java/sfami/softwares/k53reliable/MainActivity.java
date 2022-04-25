@@ -62,16 +62,12 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-//        toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
 
         learnersManualFragment = new LearnersManualFragment(myRoadRuleData);
         driversManualFragment = new DriversManualFragment(myRoadRuleData);
         moreFragment = new MoreFragment();
-
 
         tabLayout.setupWithViewPager(viewPager);
 
@@ -80,15 +76,6 @@ public class MainActivity extends AppCompatActivity {
         viewPagerAdapter.addFragment(driversManualFragment, "DRIVER'S");
 //        viewPagerAdapter.addFragment(moreFragment, "MORE");
         viewPager.setAdapter(viewPagerAdapter);
-
-//        tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_explore_24);
-//        tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_flight_24);
-//        tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_card_travel_24);
-
-//        BadgeDrawable badgeDrawable = tabLayout.getTabAt(0).getOrCreateBadge();
-//        badgeDrawable.setVisible(true);
-//        badgeDrawable.setNumber(12);
-
 
     }
 

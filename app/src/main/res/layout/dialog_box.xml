@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Kindly watch video ad to support us."
+            android:text="@string/welcome_dialog"
             android:gravity="center"
             android:textStyle="bold"
             android:fontFamily="monospace"

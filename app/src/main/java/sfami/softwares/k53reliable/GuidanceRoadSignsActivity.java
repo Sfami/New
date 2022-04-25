@@ -68,11 +68,6 @@ public class GuidanceRoadSignsActivity extends AppCompatActivity {
         MyRoadSignAdapter myRoadSignAdapter = new MyRoadSignAdapter(myRoadSignData, GuidanceRoadSignsActivity.this);
         recyclerView.setAdapter(myRoadSignAdapter);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-            }
-        });
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
