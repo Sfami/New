@@ -14,16 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.util.List;
+
 public class ProgressFragment extends Fragment {
 
-    private final MyRoadSignData[] myRoadSignData;
+    private final List<TestResultModel> myRoadSignData;
 
     private int count = 0;
     private AdView mAdView;
     private Button button;
 
 
-    public ProgressFragment(MyRoadSignData[] myRoadSignData) {
+    public ProgressFragment(List<TestResultModel> myRoadSignData) {
         // Required empty public constructor
         this.myRoadSignData = myRoadSignData;
     }
