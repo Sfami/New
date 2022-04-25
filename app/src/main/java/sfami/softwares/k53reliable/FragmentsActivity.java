@@ -55,10 +55,8 @@ public class FragmentsActivity extends AppCompatActivity {
                 new MyRoadSignData(new Sign("Book Test", "Take Controls example test.","","","",R.drawable.books)),
         };
 
-        MyRoadSignData[] myProgressFragmentData = new MyRoadSignData[]{
-//                new MyRoadSignData(new Sign(title, score,"","","",R.drawable.gold)),
-        };
-
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(FragmentsActivity.this);
+        List<TestResultModel> allTestsResults = dataBaseHelper.getAllTestsResults();
         //Get title using intent like before
 
         String toolbarTitle = String.format("Learner's Manual", myLearnFragmentData.length);
@@ -76,7 +74,7 @@ public class FragmentsActivity extends AppCompatActivity {
 
         learnFragment = new LearnFragment(myLearnFragmentData);
         testFragment = new TestFragment(myTestFragmentData);
-        progressFragment = new ProgressFragment(myProgressFragmentData);
+        progressFragment = new ProgressFragment(allTestsResults);
 
 
         tabLayout.setupWithViewPager(viewPager);

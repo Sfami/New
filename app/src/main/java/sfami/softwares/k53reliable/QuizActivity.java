@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -57,67 +59,91 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        long start = System.currentTimeMillis();
 
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
-        myTestFragmentData  = (MyRoadSignData[]) intent.getSerializableExtra("data");
-        String toolbarTitle = String.format("%s (%s)", title, myTestFragmentData.length);
+        nextButton = findViewById(R.id.submit);
 
-        time = findViewById(R.id.time);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        question = findViewById(R.id.question);
-        question.setText(myTestFragmentData[0].getSignPurpose());
 
-        image = findViewById(R.id.image);
-        image.setImageResource(myTestFragmentData[0].getSignImage());
+        MyQuizActivityAdapter myControlsAdapter = new MyQuizActivityAdapter(nextButton, myTestFragmentData,this);
+        recyclerView.setAdapter(myControlsAdapter);
+//        long start = System.currentTimeMillis();
+//
+//        Intent intent = getIntent();
+//        title = intent.getStringExtra("title");
+//        myTestFragmentData  = (MyRoadSignData[]) intent.getSerializableExtra("data");
+//        String toolbarTitle = String.format("%s (%s)", title, myTestFragmentData.length);
+//
+//        time = findViewById(R.id.time);
+//
+//        question = findViewById(R.id.question);
+//        question.setText(myTestFragmentData[0].getSignPurpose());
+//
+//        image = findViewById(R.id.image);
+//        image.setImageResource(myTestFragmentData[0].getSignImage());
+//
+//        ans1 = findViewById(R.id.ans);
+//        ans1.setText(myTestFragmentData[0].getSignWhere());
+//
+//        ans2 = findViewById(R.id.ans2);
+//        ans2.setText(myTestFragmentData[0].getSignWhere());
+//
+//        ans3 = findViewById(R.id.ans3);
+//        ans3.setText(myTestFragmentData[0].getSignWhere());
+//
+//        ans4 = findViewById(R.id.ans4);
+//        ans4.setText(myTestFragmentData[0].getSignWhere());
+//
+//        ans1Btn = findViewById(R.id.ans1_btn);
+//        ans2Btn = findViewById(R.id.ans2_btn);
+//        ans3Btn = findViewById(R.id.ans3_btn);
+//        ans4Btn = findViewById(R.id.ans4_btn);
+//
 
-        ans1 = findViewById(R.id.ans);
-        ans1.setText(myTestFragmentData[0].getSignWhere());
-
-        ans2 = findViewById(R.id.ans2);
-        ans2.setText(myTestFragmentData[0].getSignWhere());
-
-        ans3 = findViewById(R.id.ans3);
-        ans3.setText(myTestFragmentData[0].getSignWhere());
-
-        ans4 = findViewById(R.id.ans4);
-        ans4.setText(myTestFragmentData[0].getSignWhere());
-
-        ans1Btn = findViewById(R.id.ans1_btn);
-        ans2Btn = findViewById(R.id.ans2_btn);
-        ans3Btn = findViewById(R.id.ans3_btn);
-        ans4Btn = findViewById(R.id.ans4_btn);
-
-        nextButton = findViewById(R.id.next);
-
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nextQuestion();
-            }
-        });
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        RewardedAd.load(this, "ca-app-pub-2673466865976859/1247420299",
-                adRequest, new RewardedAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        mRewardedAd = null;
-                    }
-
-                    @Override
-                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                        mRewardedAd = rewardedAd;
-                        Log.d(TAG, "Ad was loaded.");
-                    }
-                });
+//
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//
+//        RewardedAd.load(this, "ca-app-pub-2673466865976859/1247420299",
+//                adRequest, new RewardedAdLoadCallback() {
+//                    @Override
+//                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+//                        mRewardedAd = null;
+//                    }
+//
+//                    @Override
+//                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+//                        mRewardedAd = rewardedAd;
+//                        Log.d(TAG, "Ad was loaded.");
+//                    }
+//                });
 
     }
 
+
+    private void saveTestResults(){
+        TestResultModel results;
+//        results = new TestResultModel(-1, "This test", 0, 0);
+//        Toast.makeText(QuizActivity.this, results.getTotal(), Toast.LENGTH_SHORT).show();
+        try {
+            results = new TestResultModel(-1, title.toString(), score, myTestFragmentData.length);
+            Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
+        } catch (Exception e){
+            Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            results = new TestResultModel(-1, "error", 0, 0);
+        }
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(QuizActivity.this);
+        boolean success = dataBaseHelper.addOne(results);
+        Toast.makeText(QuizActivity.this, "Success = " + success, Toast.LENGTH_SHORT).show();
+    }
+
+
+
+
     private void nextQuestion() {
         if (nextButton.getText().equals("Submit")){
+            saveTestResults();
             submitDialog();
         }
 

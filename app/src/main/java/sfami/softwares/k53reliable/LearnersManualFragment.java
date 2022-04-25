@@ -4,14 +4,17 @@ import static android.content.ContentValues.TAG;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,6 +44,7 @@ public class LearnersManualFragment extends Fragment {
     private MyRoadRuleData[] myRoadRuleData;
     private InterstitialAd mInterstitialAd;
     private RewardedAd mRewardedAd;
+    private Dialog dialog;
 
     public LearnersManualFragment(MyRoadRuleData[] myRoadRuleData) {
         // Required empty public constructor
@@ -88,7 +92,35 @@ public class LearnersManualFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(),button.getText(), Toast.LENGTH_SHORT).show();
-                submitDialog();
+                dialog.show();
+//                submitDialog();
+            }
+        });
+
+        dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.dialog_box);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//        }
+//        dialog.getWindow().setBackgroundDrawableResource(R.drawable.background);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+        Button cancel = dialog.findViewById(R.id.cancel);
+        Button okay = dialog.findViewById(R.id.okay);
+
+        okay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                startFragmentsActivity();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
             }
         });
 

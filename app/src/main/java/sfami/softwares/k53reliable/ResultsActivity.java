@@ -48,62 +48,62 @@ public class ResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
-        myTestFragmentData  = (MyRoadSignData[]) intent.getSerializableExtra("data");
-        answersArray  = (ArrayList<String>) intent.getSerializableExtra("answers");
-        correctAnswersArray  = (ArrayList<String>) intent.getSerializableExtra("correctAnswers");
-        String toolbarTitle = String.format("%s (%s)", title, myTestFragmentData.length);
-
-        time = findViewById(R.id.time);
-        question = findViewById(R.id.question);
-        image = findViewById(R.id.image);
-        ans1 = findViewById(R.id.ans);
-        ans2 = findViewById(R.id.ans2);
-        ans3 = findViewById(R.id.ans3);
-        ans4 = findViewById(R.id.ans4);
-
-        ans1Btn = findViewById(R.id.ans1_btn);
-        ans2Btn = findViewById(R.id.ans2_btn);
-        ans3Btn = findViewById(R.id.ans3_btn);
-        ans4Btn = findViewById(R.id.ans4_btn);
-        nextButton = findViewById(R.id.next);
-
-        question.setText(myTestFragmentData[index].getSignPurpose());
-        image.setImageResource(myTestFragmentData[index].getSignImage());
-
-        ans1.setText(myTestFragmentData[index].getSignWhere());
-        ans2.setText(myTestFragmentData[index].getSignWhere());
-        ans3.setText(myTestFragmentData[index].getSignWhere());
-        ans4.setText(myTestFragmentData[index].getSignWhere());
-
-        markQuestions();
-
-
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nextQuestion();
-                markQuestions();
-            }
-        });
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        RewardedAd.load(this, "ca-app-pub-2673466865976859/1247420299",
-                adRequest, new RewardedAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        mRewardedAd = null;
-                    }
-
-                    @Override
-                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                        mRewardedAd = rewardedAd;
-                        Log.d(TAG, "Ad was loaded.");
-                    }
-                });
+//
+//        Intent intent = getIntent();
+//        String title = intent.getStringExtra("title");
+//        myTestFragmentData  = (MyRoadSignData[]) intent.getSerializableExtra("data");
+//        answersArray  = (ArrayList<String>) intent.getSerializableExtra("answers");
+//        correctAnswersArray  = (ArrayList<String>) intent.getSerializableExtra("correctAnswers");
+//        String toolbarTitle = String.format("%s (%s)", title, myTestFragmentData.length);
+//
+//        time = findViewById(R.id.time);
+//        question = findViewById(R.id.question);
+//        image = findViewById(R.id.image);
+//        ans1 = findViewById(R.id.ans);
+//        ans2 = findViewById(R.id.ans2);
+//        ans3 = findViewById(R.id.ans3);
+//        ans4 = findViewById(R.id.ans4);
+//
+//        ans1Btn = findViewById(R.id.ans1_btn);
+//        ans2Btn = findViewById(R.id.ans2_btn);
+//        ans3Btn = findViewById(R.id.ans3_btn);
+//        ans4Btn = findViewById(R.id.ans4_btn);
+//        nextButton = findViewById(R.id.next);
+//
+//        question.setText(myTestFragmentData[index].getSignPurpose());
+//        image.setImageResource(myTestFragmentData[index].getSignImage());
+//
+//        ans1.setText(myTestFragmentData[index].getSignWhere());
+//        ans2.setText(myTestFragmentData[index].getSignWhere());
+//        ans3.setText(myTestFragmentData[index].getSignWhere());
+//        ans4.setText(myTestFragmentData[index].getSignWhere());
+//
+//        markQuestions();
+//
+//
+//        nextButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                nextQuestion();
+//                markQuestions();
+//            }
+//        });
+//
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//
+//        RewardedAd.load(this, "ca-app-pub-2673466865976859/1247420299",
+//                adRequest, new RewardedAdLoadCallback() {
+//                    @Override
+//                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+//                        mRewardedAd = null;
+//                    }
+//
+//                    @Override
+//                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+//                        mRewardedAd = rewardedAd;
+//                        Log.d(TAG, "Ad was loaded.");
+//                    }
+//                });
 
     }
 

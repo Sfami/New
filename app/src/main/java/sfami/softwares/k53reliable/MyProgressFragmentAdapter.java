@@ -13,12 +13,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class MyProgressFragmentAdapter extends RecyclerView.Adapter<MyProgressFragmentAdapter.ViewHolder> {
 
-    MyRoadSignData[] myRoadSignData;
+    List<TestResultModel> myRoadSignData;
     Context context;
 
-    public MyProgressFragmentAdapter(MyRoadSignData[] myRoadSignData, Activity activity) {
+    public MyProgressFragmentAdapter(List<TestResultModel> myRoadSignData, Activity activity) {
         this.myRoadSignData = myRoadSignData;
         this.context = activity;
     }
@@ -36,10 +38,15 @@ public class MyProgressFragmentAdapter extends RecyclerView.Adapter<MyProgressFr
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final MyRoadSignData myRoadSignDataList = myRoadSignData[position];
-        holder.test.setText(myRoadSignDataList.getSignName());
-        holder.score.setText(myRoadSignDataList.getSignDescriptions());
-        holder.image.setImageResource(myRoadSignDataList.getSignImage());
+        final TestResultModel myRoadSignDataList = myRoadSignData.get(position);
+        holder.test.setText(myRoadSignDataList.getTestName().toString());
+        holder.score.setText(myRoadSignDataList.getScore().toString());
+        // TO-DO: Create image for this card.
+        int img = 0;
+        if (myRoadSignDataList.getScore() > 4) img = R.drawable.gold;
+        else if (myRoadSignDataList.getScore() > 2 && myRoadSignDataList.getScore() < 5 ) img = R.drawable.silver;
+        else img = R.drawable.bronze;
+        holder.image.setImageResource(img);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +58,7 @@ public class MyProgressFragmentAdapter extends RecyclerView.Adapter<MyProgressFr
 
     @Override
     public int getItemCount() {
-        return myRoadSignData.length;
+        return myRoadSignData.size();
     }
 
 
