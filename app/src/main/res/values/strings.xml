@@ -12,4 +12,6 @@
     <string name="production_banner">ca-app-pub-2673466865976859/4595730258</string>
     <string name="sample_banner">ca-app-pub-3940256099942544/6300978111</string>
     <string name="welcome_dialog">All material in this app is adapted from the NATIS offocial website. \nEnjoy!</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_next">Next</string>
 </resources>
