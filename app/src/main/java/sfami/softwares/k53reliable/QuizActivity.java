@@ -6,13 +6,18 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,240 +36,191 @@ import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
-    private AdView mAdView;
-    private ImageView image;
-    private Button nextButton, previousButton;
-    private TextView time, question, ans1, ans2, ans3, ans4;
-    private String title, answers = "", trueAnswers;
-    private Integer index = 0, score = 0;
-    private InterstitialAd mInterstitialAd;
-    private RewardedAd mRewardedAd;
-    private RadioButton ans1Btn, ans2Btn, ans3Btn, ans4Btn;
 
-    private ArrayList<String> answersArray = new ArrayList<>();
-    private ArrayList<String> correctAnswersArray = new ArrayList<>();
+    private List<QuestionModel> questionList;
+    private TextView timer, question;
+    private RadioGroup radioGroup;
+    private RadioButton rb1, rb2, rb3, rb4;
+    private Button nextBtn;
 
+    int totalQuestions;
+    int qCounter = 0;
+    int score = 0;
+    int ticks = 0;
+
+    private QuestionModel currentQuestion;
+
+    ColorStateList dfRbColor;
+    boolean answered;
     private CountDownTimer countDownTimer;
-    private MyRoadSignData[] myTestFragmentData = new MyRoadSignData[]{
-            new MyRoadSignData(GlobalElements.stopSign),
-            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
-            new MyRoadSignData(GlobalElements.overheadDirectionSign),
-            new MyRoadSignData(GlobalElements.staggeredJunctionsSign),
-            new MyRoadSignData(GlobalElements.secondarySignsSign),
-    };
+    private ProgressBar progressBar;
+
+    enum TimerState {
+        Running, Paused, Stopped
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        nextButton = findViewById(R.id.submit);
+        questionList = new ArrayList<>();
+        timer = findViewById(R.id.time);
+        progressBar = findViewById(R.id.progress);
+        progressBar.setProgress(0);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        question = findViewById(R.id.question);
+        radioGroup = findViewById(R.id.rdg);
+        rb1 = findViewById(R.id.rb1);
+        rb2 = findViewById(R.id.rb2);
+        rb3 = findViewById(R.id.rb3);
+        rb4 = findViewById(R.id.rb4);
+        nextBtn = findViewById(R.id.next);
 
+        dfRbColor = rb1.getTextColors();
 
-        MyQuizActivityAdapter myControlsAdapter = new MyQuizActivityAdapter(nextButton, myTestFragmentData,this);
-        recyclerView.setAdapter(myControlsAdapter);
-//        long start = System.currentTimeMillis();
-//
-//        Intent intent = getIntent();
-//        title = intent.getStringExtra("title");
-//        myTestFragmentData  = (MyRoadSignData[]) intent.getSerializableExtra("data");
-//        String toolbarTitle = String.format("%s (%s)", title, myTestFragmentData.length);
-//
-//        time = findViewById(R.id.time);
-//
-//        question = findViewById(R.id.question);
-//        question.setText(myTestFragmentData[0].getSignPurpose());
-//
-//        image = findViewById(R.id.image);
-//        image.setImageResource(myTestFragmentData[0].getSignImage());
-//
-//        ans1 = findViewById(R.id.ans);
-//        ans1.setText(myTestFragmentData[0].getSignWhere());
-//
-//        ans2 = findViewById(R.id.ans2);
-//        ans2.setText(myTestFragmentData[0].getSignWhere());
-//
-//        ans3 = findViewById(R.id.ans3);
-//        ans3.setText(myTestFragmentData[0].getSignWhere());
-//
-//        ans4 = findViewById(R.id.ans4);
-//        ans4.setText(myTestFragmentData[0].getSignWhere());
-//
-//        ans1Btn = findViewById(R.id.ans1_btn);
-//        ans2Btn = findViewById(R.id.ans2_btn);
-//        ans3Btn = findViewById(R.id.ans3_btn);
-//        ans4Btn = findViewById(R.id.ans4_btn);
-//
+        addQuestions();
+        totalQuestions = questionList.size();
+        showNextQuestion();
 
-//
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//
-//        RewardedAd.load(this, "ca-app-pub-2673466865976859/1247420299",
-//                adRequest, new RewardedAdLoadCallback() {
-//                    @Override
-//                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-//                        mRewardedAd = null;
-//                    }
-//
-//                    @Override
-//                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-//                        mRewardedAd = rewardedAd;
-//                        Log.d(TAG, "Ad was loaded.");
-//                    }
-//                });
-
-    }
-
-
-    private void saveTestResults(){
-        TestResultModel results;
-//        results = new TestResultModel(-1, "This test", 0, 0);
-//        Toast.makeText(QuizActivity.this, results.getTotal(), Toast.LENGTH_SHORT).show();
-        try {
-            results = new TestResultModel(-1, title.toString(), score, myTestFragmentData.length);
-            Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
-        } catch (Exception e){
-            Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-            results = new TestResultModel(-1, "error", 0, 0);
-        }
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(QuizActivity.this);
-        boolean success = dataBaseHelper.addOne(results);
-        Toast.makeText(QuizActivity.this, "Success = " + success, Toast.LENGTH_SHORT).show();
-    }
-
-
-
-
-    private void nextQuestion() {
-        if (nextButton.getText().equals("Submit")){
-            saveTestResults();
-            submitDialog();
-        }
-
-        if (index < myTestFragmentData.length - 1) {
-            checkAnswer();
-            index++;
-
-            image.setImageResource(myTestFragmentData[index].getSignImage());
-            question.setText(myTestFragmentData[index].getSignPurpose());
-            ans1.setText(myTestFragmentData[index].getSignWhere());
-            ans2.setText(myTestFragmentData[index].getSignWhere());
-            ans3.setText(myTestFragmentData[index].getSignWhere());
-            ans4.setText(myTestFragmentData[index].getSignWhere());
-
-            ans1Btn.setChecked(false);
-            ans2Btn.setChecked(false);
-            ans3Btn.setChecked(false);
-            ans4Btn.setChecked(false);
-        }
-        else {
-            nextButton.setText("Submit");
-        }
-    }
-
-    public void submitDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
-        float percentage = score.floatValue()/myTestFragmentData.length;
-        String scoreString = String.format("%s/%s (%s)",score,myTestFragmentData.length, percentage);
-
-        String msg = String.format("Congratulations!\nScore: %s/%s (%s)\nWatch full Video Ad to get your full test results.",score,myTestFragmentData.length, percentage);
-        builder.setMessage(msg);
-        builder.setTitle("Test Completed");
-        builder.setCancelable(false);
-
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                if (mRewardedAd != null) {
-                    Activity activityContext = QuizActivity.this;
-                    mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
-                        @Override
-                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                            // Handle the reward.
-                            Log.d(TAG, "The user earned the reward.");
-                            int rewardAmount = rewardItem.getAmount();
-                            String rewardType = rewardItem.getType();
-//                            startResultsActivity(title, myTestFragmentData, answersArray, correctAnswersArray);
-                        }
-                    });
-                } else {
-                    Log.d(TAG, "The rewarded ad wasn't ready yet.");
-//                    startFragmentsActivity(score);
-                    startResultsActivity(title, myTestFragmentData, answersArray, correctAnswersArray);
+            public void onClick(View view) {
+                if (answered == false){
+                    if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()){
+                        checkAnswer();
+                        countDownTimer.cancel();
+                        updateCountdownUI();
+                    }
+                    else {
+                        Toast.makeText(QuizActivity.this, "Please select one.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-//                startResultsActivity(title, myTestFragmentData, answersArray, correctAnswersArray);
-
-                finish();
+                else {
+                    showNextQuestion();
+                }
             }
         });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+
     }
+
+    private void checkAnswer() {
+        answered = true;
+        RadioButton rbSelected = findViewById(radioGroup.getCheckedRadioButtonId());
+        int answerNo = radioGroup.indexOfChild(rbSelected) + 1;
+        if (answerNo == currentQuestion.getCorrectAnsNo()){
+            score++;
+        }
+        rb1.setTextColor(Color.RED);
+        rb2.setTextColor(Color.RED);
+        rb3.setTextColor(Color.RED);
+        rb4.setTextColor(Color.RED);
+
+        switch (currentQuestion.getCorrectAnsNo()){
+            case 1:
+                rb1.setTextColor(Color.GREEN);
+                break;
+            case 2:
+                rb2.setTextColor(Color.GREEN);
+                break;
+            case 3:
+                rb3.setTextColor(Color.GREEN);
+                break;
+            case 4:
+                rb4.setTextColor(Color.GREEN);
+                break;
+        }
+        if (qCounter < totalQuestions){
+            nextBtn.setText(R.string.btn_next);
+        }
+        else {
+            nextBtn.setText(R.string.btn_submit);
+        }
+
+    }
+
+    private void showNextQuestion() {
+        radioGroup.clearCheck();
+        rb1.setTextColor(dfRbColor);
+        rb2.setTextColor(dfRbColor);
+        rb3.setTextColor(dfRbColor);
+        rb4.setTextColor(dfRbColor);
+
+        if (qCounter < totalQuestions){
+            timer();
+            currentQuestion = questionList.get(qCounter);
+            question.setText(currentQuestion.getQuestion());
+            rb1.setText(currentQuestion.getOption1());
+            rb2.setText(currentQuestion.getOption2());
+            rb3.setText(currentQuestion.getOption3());
+            rb4.setText(currentQuestion.getOption4());
+            qCounter++;
+            nextBtn.setText("Check");
+            answered = false;
+        }
+        else {
+            nextBtn.setText(R.string.btn_submit);
+            finish();
+        }
+    }
+
+    private void addQuestions() {
+        questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",2));
+        questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",1));
+        questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",5));
+        questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",4));
+        questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",3));
+    }
+
 
     private void timer() {
         countDownTimer = new CountDownTimer(20000, 1000) {
             @Override
             public void onTick(long l) {
                 String string = Long.toString((l/1000));
-                time.setText("00:" + string);
+                timer.setText("00:" + string);
+                ticks++;
+                updateCountdownUI();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    progressBar.setProgress(ticks, true);
+                }
             }
-
             @Override
             public void onFinish() {
-                if (index == myTestFragmentData.length - 1) submitDialog();
-                else {
-                    if (!ans1Btn.isChecked() && !ans2Btn.isChecked() && !ans3Btn.isChecked() && !ans4Btn.isChecked()){
-                        timeOverDialog();
-                    }
-                }
+                showNextQuestion();
+                updateCountdownUI();
             }
         }.start();
     }
 
-
-    public void checkAnswer(){
-        if (ans1Btn.isChecked()) answers += ans1.getText() + ",";
-        if (ans2Btn.isChecked()) answers += ans2.getText() + ",";
-        if (ans3Btn.isChecked()) answers += ans3.getText() + ",";
-        if (ans4Btn.isChecked()) answers += ans4.getText() +  ",";
-        trueAnswers = String.format("%s,%s,%s,", ans1.getText(),ans2.getText(),ans3.getText());
-        if (answers.equals(trueAnswers)){
-            Toast.makeText(QuizActivity.this, "Correct Answer.",Toast.LENGTH_SHORT).show();
-            score++;
-        }
-        else Toast.makeText(QuizActivity.this,"Wrong Answer.",Toast.LENGTH_SHORT).show();
-        answersArray.add(answers);
-        correctAnswersArray.add(trueAnswers);
-        answers = "";
+    private void updateCountdownUI(){
+        progressBar.setProgress(ticks);
     }
 
-    public void timeOverDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
-        builder.setMessage("Press Ok to proceed.");
-        builder.setTitle("Time up!");
-        builder.setCancelable(false);
 
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                // When the user click yes button
-                // then app will close
-                finish();
-                nextQuestion();
-            }
-        });
 
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+
+    private void saveTestResults(){
+//        TestResultModel results;
+////        results = new TestResultModel(-1, "This test", 0, 0);
+////        Toast.makeText(QuizActivity.this, results.getTotal(), Toast.LENGTH_SHORT).show();
+//        try {
+////            results = new TestResultModel(-1, title.toString(), score, myTestFragmentData.length);
+//            Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
+//        } catch (Exception e){
+//            Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+//            results = new TestResultModel(-1, "error", 0, 0);
+//        }
+//        DataBaseHelper dataBaseHelper = new DataBaseHelper(QuizActivity.this);
+//        boolean success = dataBaseHelper.addOne(results);
+//        Toast.makeText(QuizActivity.this, "Success = " + success, Toast.LENGTH_SHORT).show();
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -279,7 +235,7 @@ public class QuizActivity extends AppCompatActivity {
                 // When the user click yes button
                 // then app will close
                 finish();
-                startFragmentsActivity(score);
+//                startFragmentsActivity(score);
             }
         });
 
@@ -308,7 +264,7 @@ public class QuizActivity extends AppCompatActivity {
     public void startFragmentsActivity(Integer score){
         Intent faqs = new Intent(this, FragmentsActivity.class);
         faqs.putExtra("score", score);
-        faqs.putExtra("title", title);
+//        faqs.putExtra("title", title);
         startActivity(faqs);
     }
 
