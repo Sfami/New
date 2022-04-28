@@ -37,13 +37,6 @@ public class RoadSignsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_road_signs);
-//        MyRoadSignData[] myRoadSignData = new MyRoadSignData[]{
-//                new MyRoadSignData("Stop Sign","Regulatory road signs are used to regulate the actions of road users.", R.drawable.stop),
-//                new MyRoadSignData("Park Sign","Used to alert drivers to dangerous situations on or bordering the roadway.",R.drawable.park),
-//                new MyRoadSignData("No overtaking Sign","Provided to help navigate our increasingly complex and developing road network.",R.drawable.no_overtaking),
-//                new MyRoadSignData("Yield Sign","2019 film",R.drawable.yield),
-//                new MyRoadSignData("Pedestrian Crossing","2012 film",R.drawable.pedestrian_crossing)
-//        };
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
