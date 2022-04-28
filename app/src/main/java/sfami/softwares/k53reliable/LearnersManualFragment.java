@@ -69,25 +69,26 @@ public class LearnersManualFragment extends Fragment {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-//        Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-//        Production AdMob app ID: ca-app-pub-2673466865976859~6894590531
+//        Sample AdMob InterstitialAd ID: ca-app-pub-3940256099942544/1033173712
+//        Production AdMob InterstitialAd ID: ca-app-pub-2673466865976859/7429685266
 
-        RewardedAd.load(getContext(), "ca-app-pub-2673466865976859/1247420299",
-                adRequest, new RewardedAdLoadCallback() {
+        InterstitialAd.load(getContext(),"ca-app-pub-3940256099942544/1033173712", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error.
-//                        Log.d(TAG, loadAdError.getMessage());
-                        mRewardedAd = null;
-                    }
-
-                    @Override
-                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                        mRewardedAd = rewardedAd;
-                        Log.d(TAG, "Ad was loaded.");
+                        // Handle the error
+                        Log.i(TAG, loadAdError.getMessage());
+                        mInterstitialAd = null;
                     }
                 });
-
 
         button = view.findViewById(R.id.button);
 
@@ -117,6 +118,11 @@ public class LearnersManualFragment extends Fragment {
             public void onClick(View view) {
                 dialog.dismiss();
                 startFragmentsActivity();
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(getActivity());
+                } else {
+                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
+                }
             }
         });
 

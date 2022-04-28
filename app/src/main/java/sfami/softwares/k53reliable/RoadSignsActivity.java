@@ -64,12 +64,6 @@ public class RoadSignsActivity extends AppCompatActivity {
         MySpecificRoadSignAdapter mySpecificRoadSignAdapter = new MySpecificRoadSignAdapter(myRoadSignData, RoadSignsActivity.this);
         recyclerView.setAdapter(mySpecificRoadSignAdapter);
 
-        recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(RoadSignsActivity.this, "Works", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

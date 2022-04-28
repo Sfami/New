@@ -58,15 +58,17 @@ public class QuizActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private ProgressBar progressBar;
 
-    enum TimerState {
-        Running, Paused, Stopped
-    }
+    private ArrayList<String> answers;
+    private String title;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        Intent i = getIntent();
+        title = i.getStringExtra("title");
 
         questionList = new ArrayList<>();
         timer = findViewById(R.id.time);
@@ -85,11 +87,17 @@ public class QuizActivity extends AppCompatActivity {
 
         addQuestions();
         totalQuestions = questionList.size();
+        answers = new ArrayList<>();
         showNextQuestion();
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                if (nextBtn.getText().equals(R.string.btn_submit)){
+//                    startResultsActivity();
+//                    Toast.makeText(QuizActivity.this, "Submitting.", Toast.LENGTH_SHORT).show();
+//
+//                }
                 if (answered == false){
                     if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()){
                         checkAnswer();
@@ -115,6 +123,8 @@ public class QuizActivity extends AppCompatActivity {
         if (answerNo == currentQuestion.getCorrectAnsNo()){
             score++;
         }
+
+        answers.add(Integer.toString(answerNo));
         rb1.setTextColor(Color.RED);
         rb2.setTextColor(Color.RED);
         rb3.setTextColor(Color.RED);
@@ -164,14 +174,21 @@ public class QuizActivity extends AppCompatActivity {
         }
         else {
             nextBtn.setText(R.string.btn_submit);
-            finish();
+
+            if (answers.size() > 0) {
+                saveTestResults();
+                Toast.makeText(QuizActivity.this, "Results saved.", Toast.LENGTH_SHORT).show();
+                startResultsActivity();
+            }
+            else finish();
         }
+
     }
 
     private void addQuestions() {
         questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",2));
         questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",1));
-        questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",5));
+        questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",1));
         questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",4));
         questionList.add(new QuestionModel("What is the speed limit here.", "50 km/h","20 km/h","100 km/h","60 km/h",3));
     }
@@ -191,8 +208,9 @@ public class QuizActivity extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-                showNextQuestion();
-                updateCountdownUI();
+                finish();
+//                showNextQuestion();
+//                updateCountdownUI();
             }
         }.start();
     }
@@ -201,26 +219,20 @@ public class QuizActivity extends AppCompatActivity {
         progressBar.setProgress(ticks);
     }
 
-
-
-
     private void saveTestResults(){
-//        TestResultModel results;
-////        results = new TestResultModel(-1, "This test", 0, 0);
-////        Toast.makeText(QuizActivity.this, results.getTotal(), Toast.LENGTH_SHORT).show();
-//        try {
-////            results = new TestResultModel(-1, title.toString(), score, myTestFragmentData.length);
-//            Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
-//        } catch (Exception e){
-//            Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-//            results = new TestResultModel(-1, "error", 0, 0);
-//        }
-//        DataBaseHelper dataBaseHelper = new DataBaseHelper(QuizActivity.this);
-//        boolean success = dataBaseHelper.addOne(results);
-//        Toast.makeText(QuizActivity.this, "Success = " + success, Toast.LENGTH_SHORT).show();
+        TestResultModel results;
+        results = new TestResultModel(-1, "This test", 0, 0);
+        try {
+            results = new TestResultModel(-1, title.toString(), score, totalQuestions);
+            Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
+        } catch (Exception e){
+            Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            results = new TestResultModel(-1, "error", 0, 0);
+        }
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(QuizActivity.this);
+        boolean success = dataBaseHelper.addOne(results);
+        Toast.makeText(QuizActivity.this, "Success = " + success, Toast.LENGTH_SHORT).show();
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -261,17 +273,17 @@ public class QuizActivity extends AppCompatActivity {
         startActivity(faqs);
     }
 
-    public void startFragmentsActivity(Integer score){
-        Intent faqs = new Intent(this, FragmentsActivity.class);
+    public void startResultsActivity(){
+        Intent faqs = new Intent(this, ResultsActivity.class);
         faqs.putExtra("score", score);
-//        faqs.putExtra("title", title);
+        faqs.putExtra("title", title);
+        faqs.putExtra("answers", answers);
         startActivity(faqs);
     }
 
-    public void startResultsActivity(String score, String testTitle){
-        Intent faqs = new Intent(this, ResultsActivity.class);
+    public void startFragmentsActivity(Integer score){
+        Intent faqs = new Intent(this, FragmentsActivity.class);
         faqs.putExtra("score", score);
-        faqs.putExtra("title", testTitle);
         startActivity(faqs);
     }
 }
