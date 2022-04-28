@@ -82,7 +82,7 @@ public class FragmentsActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
         viewPagerAdapter.addFragment(testFragment, "TEST");
         viewPagerAdapter.addFragment(learnFragment, "LEARN");
-//        viewPagerAdapter.addFragment(progressFragment, "PROGRESS");
+        viewPagerAdapter.addFragment(progressFragment, "PROGRESS");
 
         viewPager.setAdapter(viewPagerAdapter);
 
