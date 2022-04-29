@@ -61,6 +61,8 @@ public class QuizActivity extends AppCompatActivity {
     private ArrayList<String> answers;
     private String title;
 
+    private QuestionModel[] data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,8 @@ public class QuizActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         title = i.getStringExtra("title");
+        data = (QuestionModel[]) i.getSerializableExtra("data");
+
 
         questionList = new ArrayList<>();
         timer = findViewById(R.id.time);
@@ -93,11 +97,6 @@ public class QuizActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (nextBtn.getText().equals(R.string.btn_submit)){
-//                    startResultsActivity();
-//                    Toast.makeText(QuizActivity.this, "Submitting.", Toast.LENGTH_SHORT).show();
-//
-//                }
                 if (answered == false){
                     if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()){
                         checkAnswer();
@@ -162,7 +161,8 @@ public class QuizActivity extends AppCompatActivity {
 
         if (qCounter < totalQuestions){
             timer();
-            currentQuestion = questionList.get(qCounter);
+//            currentQuestion = questionList.get(qCounter);
+            currentQuestion = data[qCounter];
             question.setText(currentQuestion.getQuestion());
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
