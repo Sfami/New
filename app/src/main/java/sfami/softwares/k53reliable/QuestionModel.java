@@ -1,6 +1,8 @@
 package sfami.softwares.k53reliable;
 
-public class QuestionModel {
+import java.io.Serializable;
+
+public class QuestionModel implements Serializable {
 
     private String question, option1, option2, option3, option4;
     private int correctAnsNo;
