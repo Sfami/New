@@ -13,58 +13,72 @@
         <activity
             android:name=".QuizActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".FragmentsActivity" />
         <activity
             android:name=".ResultsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".FragmentsActivity" />
         <activity
             android:name=".RoadSignsMainActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".FragmentsActivity" />
         <activity
             android:name=".RoadRulesMainActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".FragmentsActivity" />
         <activity
             android:name=".ControlsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".FragmentsActivity" />
         <activity
             android:name=".RoadSignsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".RoadSignsMainActivity" />
         <activity
             android:name=".RoadRulesActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".RoadRulesMainActivity" />
         <activity
             android:name=".RegulatoryRoadSignsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".RoadSignsMainActivity" />
         <activity
             android:name=".GuidanceRoadSignsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".RoadSignsMainActivity" />
         <activity
             android:name=".WarningRoadSignsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".RoadSignsMainActivity" />
         <activity
             android:name=".TemporaryRoadSignsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".RoadSignsMainActivity" />
         <activity
             android:name=".RoadMarkingRoadSignsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".RoadSignsMainActivity" />
         <activity
             android:name=".FragmentsActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

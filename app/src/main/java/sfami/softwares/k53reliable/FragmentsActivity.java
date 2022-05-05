@@ -48,11 +48,11 @@ public class FragmentsActivity extends AppCompatActivity {
 
 
         MyRoadSignData[] myTestFragmentData = new MyRoadSignData[]{
-                new MyRoadSignData(new Sign("Controls Test", "Take Controls example test.","","","",R.drawable.controls)),
-                new MyRoadSignData(new Sign("Road Signs Test", "Take Controls example test.","","","",R.drawable.signs)),
-                new MyRoadSignData(new Sign("Road Rules Test", "Take Controls example test.","","","",R.drawable.rules)),
-                new MyRoadSignData(new Sign("K53 Test", "Take Controls example test.","","","",R.drawable.k53)),
-                new MyRoadSignData(new Sign("Book Test", "Take Controls example test.","","","",R.drawable.books)),
+                new MyRoadSignData(new Sign("Controls Test", "Test your knowledge of Vehicle Controls by taking example test.","","","",R.drawable.controls)),
+                new MyRoadSignData(new Sign("Road Signs Test", "Test your knowledge of Road Signs by taking example test.","","","",R.drawable.signs)),
+                new MyRoadSignData(new Sign("Road Rules Test", "Test your knowledge of Road Signs by taking example test.","","","",R.drawable.rules)),
+                new MyRoadSignData(new Sign("K53 Test", "Prepare for K53 Test by taking this test which includes Vehicle Controls, Road Rules and Road Signs.","","","",R.drawable.k53)),
+//                new MyRoadSignData(new Sign("Book Test", "Test your knowledge of Road Signs by taking example test.","","","",R.drawable.books)),
         };
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper(FragmentsActivity.this);
