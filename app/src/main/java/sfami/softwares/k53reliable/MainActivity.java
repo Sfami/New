@@ -52,7 +52,19 @@ public class MainActivity extends AppCompatActivity {
                 new MyRoadRuleData(GlobalElements.learnerFAQ9),
                 new MyRoadRuleData(GlobalElements.learnerFAQ10),
                 new MyRoadRuleData(GlobalElements.dummyRule),
-//                new MyRoadRuleData(GlobalElements.dummyRule),
+        };
+
+        MyRoadRuleData[] myDriverFAQs = new MyRoadRuleData[]{
+                new MyRoadRuleData(GlobalElements.driverFAQs[0]),
+                new MyRoadRuleData(GlobalElements.driverFAQs[1]),
+                new MyRoadRuleData(GlobalElements.driverFAQs[2]),
+                new MyRoadRuleData(GlobalElements.driverFAQs[3]),
+                new MyRoadRuleData(GlobalElements.driverFAQs[4]),
+                new MyRoadRuleData(GlobalElements.driverFAQs[5]),
+                new MyRoadRuleData(GlobalElements.driverFAQs[6]),
+                new MyRoadRuleData(GlobalElements.driverFAQs[7]),
+                new MyRoadRuleData(GlobalElements.driverFAQs[8]),
+                new MyRoadRuleData(GlobalElements.dummyRule),
         };
 
         String toolbarTitle = String.format("FAQs (%s)", myRoadRuleData.length);
@@ -66,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
 
         learnersManualFragment = new LearnersManualFragment(myRoadRuleData);
-        driversManualFragment = new DriversManualFragment(myRoadRuleData);
+        driversManualFragment = new DriversManualFragment(myDriverFAQs);
         moreFragment = new MoreFragment();
 
         tabLayout.setupWithViewPager(viewPager);
