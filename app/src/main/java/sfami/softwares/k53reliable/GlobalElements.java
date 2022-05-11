@@ -2,89 +2,117 @@ package sfami.softwares.k53reliable;
 public class GlobalElements {
 
     /*
-    * Questions
-    * */
+     * Questions
+     * */
 
     public static QuestionModel[] roadRulesQuestions = new QuestionModel[]{
 
             // New
 
-            new QuestionModel("A driver may:", "A. In an emergency use hand signals on a freeway.","B. While the engine is running leave the vehicle unattended.","C. Let passengers ride on the outside of the vehicle.","D. Allow passengers to help steer the vehicle.",1),
-            new QuestionModel("An accident which no one had or has been injured must be reported within ... hours. \n(i) 24\n(ii) 72\n(iii) 48", "A. (i) only is correct.","B. (ii) only is correct.","C. (iii) only is correct.","D. None of the above are correct.",1),
-            new QuestionModel("If you see that someone wants to overtake you, you must:\n(i) Keep left as far as it is safe.\n(ii) Not drive faster.\n(iii) Give hand signals to allow the person to ass safely.", "A. (i) and (ii) are correct.","B. (ii) only is correct.","C. None of the above are correct.","D. All of the above are correct.",1),
-            new QuestionModel("You may NOT drive to the left of the edge line marking to overtake on the left:", "A. True","B. False","C. This is permitted in an emergency.","D. None of the above.",1),
-            new QuestionModel("Your vehicle's headlights must be switched on:\n(i) At any time of the day when you cannot see persons and vehicles 150m in front of you.\n(ii) From sunset to sunrise.\n(iii) When it rains and you cannot see vehicles 100m in front of you.", "A. (i) and (ii)","B. (i) only is correct.","C. (ii) and (iii) are correct.","D. All of the above are correct.",4),
-            new QuestionModel("When you drive:", "A. Always check your blind spot.","B. You must have ywo hands on the steering wheel.","C. Your vision of the road and the traffic must be unobstructed.","D. None of the above.",3),
-            new QuestionModel("You must give way to pedestrians:\n(i) who need to cross the freeway\n(ii) who are approaching your half of a pedestrian crossing.\n(iii) both of these", "A. (i) only is correct.","B. (ii) only is correct.","C. (iii) only is correct.","D. All of the above are correct.",2),
+            new QuestionModel("A driver may:", "A. In an emergency use hand signals on a freeway.","B. While the engine is running leave the vehicle unattended.","C. Let passengers ride on the outside of the vehicle.","D. Allow passengers to help steer the vehicle.",1, 0),
+            new QuestionModel("An accident which no one had or has been injured must be reported within ... hours. \n(i) 24\n(ii) 72\n(iii) 48", "A. (i) only is correct.","B. (ii) only is correct.","C. (iii) only is correct.","D. None of the above are correct.",1, 0),
+            new QuestionModel("If you see that someone wants to overtake you, you must:\n(i) Keep left as far as it is safe.\n(ii) Not drive faster.\n(iii) Give hand signals to allow the person to ass safely.", "A. (i) and (ii) are correct.","B. (ii) only is correct.","C. None of the above are correct.","D. All of the above are correct.",1, 0),
+            new QuestionModel("You may NOT drive to the left of the edge line marking to overtake on the left:", "A. True","B. False","C. This is permitted in an emergency.","D. None of the above.",1, 0),
+            new QuestionModel("Your vehicle's headlights must be switched on:\n(i) At any time of the day when you cannot see persons and vehicles 150m in front of you.\n(ii) From sunset to sunrise.\n(iii) When it rains and you cannot see vehicles 100m in front of you.", "A. (i) and (ii)","B. (i) only is correct.","C. (ii) and (iii) are correct.","D. All of the above are correct.",4, 0),
+            new QuestionModel("When you drive:", "A. Always check your blind spot.","B. You must have ywo hands on the steering wheel.","C. Your vision of the road and the traffic must be unobstructed.","D. None of the above.",3, 0),
+            new QuestionModel("You must give way to pedestrians:\n(i) who need to cross the freeway\n(ii) who are approaching your half of a pedestrian crossing.\n(iii) both of these", "A. (i) only is correct.","B. (ii) only is correct.","C. (iii) only is correct.","D. All of the above are correct.",2, 0),
 
-            new QuestionModel("You may not drive a motor vehicle on a public road while the concentration of alcohol in your blood is ...", "A. 0,05 grams per 100ml of blood or more","B. 0,005 grams per 100ml of blood or more","A. 0,0005 grams per 100ml of blood or more","",2),
-            new QuestionModel("A driver/rider should not drive/ride a vehicle on a public road ...", "A. If it does not have a sunroof.","B. In such a manner that willfully disregard the safety of individuals or property.","C. If it does not have a car stereo.","",2),
-            new QuestionModel("If your vehicle is involved in an accident you are supposed to\n(i) Immediately stop your vehicle\n(ii) Ascertain the nature and extent of any injuries.\n(iii) Drink a bit to calm your nerves.", "A. (iii) only is correct.","B. All of the above.","C. (i) and (ii) are correct.","",2),
-            new QuestionModel("Vehicles must be fitted with pneumatic tyres and maintain a tread depth of at least ...", "A. 1 millimetre","B. 0.1 millimetre","C. 0.10 millimetre","",2),
-            new QuestionModel("A vehicle may not be used on a public road if ...", "A. The fuel tank is fitted with an effective yellow cap.","B. The fuel tank is not fitted with an effective yellow cap.","C. The fuel tank is fitted with an effective red cap.","",2),
-            new QuestionModel("A driver/rider of a vehicle on a public road should stop if ...\n(i) Is in compliance with an instruction conveyed by a traffic sign.\n(ii) He was signaled by a person leading or driving any bovine animal on the road.\n Animals are seen crossing the road and can only move on when all the animals have crossed and the road is safe to continue.", "A. (i) only is correct.","B. (ii) and (iii)  is correct.","C. All the above.","",2),
-            new QuestionModel("A driver/rider of a vehicle may not enter/cross a public road if ...", "A. There is an obstruction and moving traffic","B. The vehicle can cross the road without obstructing or endangering any traffic.","C. The road is clear of moving traffic.","",2),
-            new QuestionModel("You may tow another vehicle on a public road if ...", "A. The length of the tow-rope, chain or tow-bar between the two vehicles is less than 3,5 metres.","B. The length of the tow-rope, chain or tow-bar between the two vehicles is 3,5 metres.","A. The length of the tow-rope, chain or tow-bar between the two vehicles is 2,5 metres.","",2),
-            new QuestionModel("Which of the following vehicles are not allowed on a freeway\n(i) Vehicle drawn by animal.\n(ii) Pedal cycle.\n(iii) A tractor", "A. (i) and (ii) are correct.","B. (i) only is correct.","C. All of the above.","",2),
-            new QuestionModel("Pedestrians should cross a roadway only at a pedestrian crossing, at an intersection or a distance further than ... from such pedestrian or intersection crossing.", "A. 9m","B. 12m","C. 50m","",2),
-            new QuestionModel("When can you use your emergency warning triangle", "A. When you vehicle has broken down.","B. When parked outside a friend's house on the wrong side of the road, facing oncoming traffic.","C. When you want to stop for a lunch break next to the road.","",2),
-            new QuestionModel("How many windscreen wipers should a light or heavy motor vehicle have and when in operation they should wipe the outside of the windscreen continuously, evenly, and adequately.", "A. At least one windscreen wiper, to wipe the windscreen directly in front if the driver.","B. Two windscreen wipers, to clean","","",2),
-            new QuestionModel("A general speed limit of ... should apply in every freeway respectfully.", "A. 120 km/h","B. 100 km/h","C. 60 km/h","",2),
-            new QuestionModel("A vehicle is deemed abandoned if it is left for ...", "A. 5 days in an urban area.","B. 7 days in the same place on a public road within an urban area.","C. 1 day in the same place on a public road.","",2),
-            new QuestionModel("A cellular, mobile telephone or any other communication device should ... while driving.", "A. Be handled with both hands.","B. Be handled with one hand.","C. Not handled with either hands or any other part of the body.","",2),
-            new QuestionModel("A driver/rider can disobey any road traffic sign or rule of the road if ...", "A. Ordered to do so by a traffic officer.","B. He/she feels like.","C. He/she is under the influence of alcohol.","",2),
-            new QuestionModel("You should not park your vehicle on the roadway of a road if ...", "A. It is beyond your control.","B. You have a flat tyre.","C. It will obstruct any private or public vehicular entrance.","",2),
-            new QuestionModel("You should not park your vehicle on the roadway of a road within an urban area if ...", "A. You have a flat tyre.","B. It is beyond your control.","C. You are within 5 metres of any intersection.","",2),
-            new QuestionModel("A driver/rider of a vehicle can never ...", "A. Exceed the speed limit when overtaking/passing","B. Pass to the right at a safe distance when overtaking.","C. Have passengers when overtaking.","",2),
-            new QuestionModel("The driver/rider of a vehicle may not overtake another vehicle moving in the same direction on a public road when ... ", "A. He/She can do so without encroaching on the right-hand side of the roadway.","B. The roadway of such a road is restricted to vehicles moving in one direction.","C. Approaching a curve.","",2),
-            new QuestionModel("A load that projects more than 150 millimeters to the side or 300 millimeters to the rear must be marked by a ...", "A. Reg flag or flags (30mm x 30mm) during the day, and retro reflectors at night.","B. Reg flag or flags (100mm x 100mm) during the day, and retro reflectors at night.","C. Reg flag or flags (300mm x 300mm) during the day, and retro reflectors at night.","",2),
-            new QuestionModel("Goods should not be loaded on the vehicle in a way ...", "A. That is securely fastened to such vehicle.","B. That is safely contained within the body of such vehicle.","C. That they may obscure the drivers/riders view of traffic at the front, on either sides or to the rear.","",2),
-            new QuestionModel("A speed limit of ... should apply in respect of every public road other than a freeway situated outside an urban area.", "60 km/h","120 km/h","100 km/h","",2),
-            new QuestionModel("You can tow another vehicle on a public road if ...", "A. You are using a tow-rope or chain and travelling 30 km/h.","B. You are using a draw bar or a tow-bar and travelling 30 km/h.","C. You are using a chain.","",2),
-            new QuestionModel("A vehicle is deemed abandoned if it is left for ...", "A. 20 hours in the same place on a public road.","B. 12 hours in the same place on a public road outside an urban area.","C. 24 hours in the same place on a public road outside an urban area.","",2),
-            new QuestionModel("A South African Bureau of Standards (SABS) approved number plate should ...\n(i) be affixed in such a manner that each letter and figure thereon is clearly legible.\n(ii) be affixed in an upright position or within degrees of such position.\n(iii) have a dark background.", "A. (i) and (ii) are correct.","B. (i) only is correct.","C. All of the above.","",2),
+            new QuestionModel("You may not drive a motor vehicle on a public road while the concentration of alcohol in your blood is ...", "A. 0,05 grams per 100ml of blood or more","B. 0,005 grams per 100ml of blood or more","A. 0,0005 grams per 100ml of blood or more","",2, 0),
+            new QuestionModel("A driver/rider should not drive/ride a vehicle on a public road ...", "A. If it does not have a sunroof.","B. In such a manner that willfully disregard the safety of individuals or property.","C. If it does not have a car stereo.","",2, 0),
+            new QuestionModel("If your vehicle is involved in an accident you are supposed to\n(i) Immediately stop your vehicle\n(ii) Ascertain the nature and extent of any injuries.\n(iii) Drink a bit to calm your nerves.", "A. (iii) only is correct.","B. All of the above.","C. (i) and (ii) are correct.","",2, 0),
+            new QuestionModel("Vehicles must be fitted with pneumatic tyres and maintain a tread depth of at least ...", "A. 1 millimetre","B. 0.1 millimetre","C. 0.10 millimetre","",2, 0),
+            new QuestionModel("A vehicle may not be used on a public road if ...", "A. The fuel tank is fitted with an effective yellow cap.","B. The fuel tank is not fitted with an effective yellow cap.","C. The fuel tank is fitted with an effective red cap.","",2, 0),
+            new QuestionModel("A driver/rider of a vehicle on a public road should stop if ...\n(i) Is in compliance with an instruction conveyed by a traffic sign.\n(ii) He was signaled by a person leading or driving any bovine animal on the road.\n Animals are seen crossing the road and can only move on when all the animals have crossed and the road is safe to continue.", "A. (i) only is correct.","B. (ii) and (iii)  is correct.","C. All the above.","",2, 0),
+            new QuestionModel("A driver/rider of a vehicle may not enter/cross a public road if ...", "A. There is an obstruction and moving traffic","B. The vehicle can cross the road without obstructing or endangering any traffic.","C. The road is clear of moving traffic.","",2, 0),
+            new QuestionModel("You may tow another vehicle on a public road if ...", "A. The length of the tow-rope, chain or tow-bar between the two vehicles is less than 3,5 metres.","B. The length of the tow-rope, chain or tow-bar between the two vehicles is 3,5 metres.","A. The length of the tow-rope, chain or tow-bar between the two vehicles is 2,5 metres.","",2, 0),
+            new QuestionModel("Which of the following vehicles are not allowed on a freeway\n(i) Vehicle drawn by animal.\n(ii) Pedal cycle.\n(iii) A tractor", "A. (i) and (ii) are correct.","B. (i) only is correct.","C. All of the above.","",2, 0),
+            new QuestionModel("Pedestrians should cross a roadway only at a pedestrian crossing, at an intersection or a distance further than ... from such pedestrian or intersection crossing.", "A. 9m","B. 12m","C. 50m","",2, 0),
+            new QuestionModel("When can you use your emergency warning triangle", "A. When you vehicle has broken down.","B. When parked outside a friend's house on the wrong side of the road, facing oncoming traffic.","C. When you want to stop for a lunch break next to the road.","",2, 0),
+            new QuestionModel("How many windscreen wipers should a light or heavy motor vehicle have and when in operation they should wipe the outside of the windscreen continuously, evenly, and adequately.", "A. At least one windscreen wiper, to wipe the windscreen directly in front if the driver.","B. Two windscreen wipers, to clean","","",2, 0),
+            new QuestionModel("A general speed limit of ... should apply in every freeway respectfully.", "A. 120 km/h","B. 100 km/h","C. 60 km/h","",2, 00),
+            new QuestionModel("A vehicle is deemed abandoned if it is left for ...", "A. 5 days in an urban area.","B. 7 days in the same place on a public road within an urban area.","C. 1 day in the same place on a public road.","",2, 0),
+            new QuestionModel("A cellular, mobile telephone or any other communication device should ... while driving.", "A. Be handled with both hands.","B. Be handled with one hand.","C. Not handled with either hands or any other part of the body.","",2, 0),
+            new QuestionModel("A driver/rider can disobey any road traffic sign or rule of the road if ...", "A. Ordered to do so by a traffic officer.","B. He/she feels like.","C. He/she is under the influence of alcohol.","",2, 0),
+            new QuestionModel("You should not park your vehicle on the roadway of a road if ...", "A. It is beyond your control.","B. You have a flat tyre.","C. It will obstruct any private or public vehicular entrance.","",2, 0),
+            new QuestionModel("You should not park your vehicle on the roadway of a road within an urban area if ...", "A. You have a flat tyre.","B. It is beyond your control.","C. You are within 5 metres of any intersection.","",2, 0),
+            new QuestionModel("A driver/rider of a vehicle can never ...", "A. Exceed the speed limit when overtaking/passing","B. Pass to the right at a safe distance when overtaking.","C. Have passengers when overtaking.","",2, 0),
+            new QuestionModel("The driver/rider of a vehicle may not overtake another vehicle moving in the same direction on a public road when ... ", "A. He/She can do so without encroaching on the right-hand side of the roadway.","B. The roadway of such a road is restricted to vehicles moving in one direction.","C. Approaching a curve.","",2, 0),
+            new QuestionModel("A load that projects more than 150 millimeters to the side or 300 millimeters to the rear must be marked by a ...", "A. Reg flag or flags (30mm x 30mm) during the day, and retro reflectors at night.","B. Reg flag or flags (100mm x 100mm) during the day, and retro reflectors at night.","C. Reg flag or flags (300mm x 300mm) during the day, and retro reflectors at night.","",2, 0),
+            new QuestionModel("Goods should not be loaded on the vehicle in a way ...", "A. That is securely fastened to such vehicle.","B. That is safely contained within the body of such vehicle.","C. That they may obscure the drivers/riders view of traffic at the front, on either sides or to the rear.","",2, 0),
+            new QuestionModel("A speed limit of ... should apply in respect of every public road other than a freeway situated outside an urban area.", "60 km/h","120 km/h","100 km/h","",2, 0),
+            new QuestionModel("You can tow another vehicle on a public road if ...", "A. You are using a tow-rope or chain and travelling 30 km/h.","B. You are using a draw bar or a tow-bar and travelling 30 km/h.","C. You are using a chain.","",2, 0),
+            new QuestionModel("A vehicle is deemed abandoned if it is left for ...", "A. 20 hours in the same place on a public road.","B. 12 hours in the same place on a public road outside an urban area.","C. 24 hours in the same place on a public road outside an urban area.","",2, 0),
+            new QuestionModel("A South African Bureau of Standards (SABS) approved number plate should ...\n(i) be affixed in such a manner that each letter and figure thereon is clearly legible.\n(ii) be affixed in an upright position or within degrees of such position.\n(iii) have a dark background.", "A. (i) and (ii) are correct.","B. (i) only is correct.","C. All of the above.","",2, 0),
 //            new QuestionModel("", "","","","",2),
 
 
             // Driver
-            new QuestionModel("You may not get a learner's licence if you:", "Are over 17 years old.","You already have a licence for the same class of vehicle","Wear glasses.","60 km/h",2),
-            new QuestionModel("When you only have a learner's licence you are not allowed to:", "Carry passengers in your car.","Drive faster than 100 km/h.","Drive without having your licence with you.","60 km/h",1),
+            new QuestionModel("You may not get a learner's licence if you:", "Are over 17 years old.","You already have a licence for the same class of vehicle","Wear glasses.","60 km/h",2, 0),
+            new QuestionModel("When you only have a learner's licence you are not allowed to:", "Carry passengers in your car.","Drive faster than 100 km/h.","Drive without having your licence with you.","60 km/h",1, 0),
 
             // Speed-limit
-            new QuestionModel("If there are no speed limit signs, the general speed limit in urban areas (towns and cities) is:", "80 km/h","60 km/h","100 km/h","20 km/h",2),
-            new QuestionModel("The general speed limit on national roads in 100 km/h for the following vehicles:\n(1) Light motor vehicles.\n(2)Bakkies.\n(3)Passenger buses.", "(1), (2), and (3) are all true.","Only (1) and (2) are true.","Only (1) is true.","60 km/h",2),
-            new QuestionModel("If you do not know what the speed limit on a national is, you should:", "Pull off the road immediately.","Drive at 80 km/h","Drive at 100 km/h","60 km/h",2),
-            new QuestionModel("Which of the following is false?", "The maximum speed limit for tractors on public roads is 80 km/h.","Minibuses carrying passengers may never travel faster than 100 km/h"," If a road sign gives a different speed limit than 60 km/h in an urban area it must be obeyed.","60 km/h",2),
-            new QuestionModel("The general speed limit on freeways roads in 120 km/h for the following vehicles:\n(1) Light motor vehicles.\n(2)Bakkies.\n(3)Passenger buses.", "(1), (2), and (3) are all true.","Only (1) and (2) are true.","Only (1) is true.","60 km/h",2),
+            new QuestionModel("If there are no speed limit signs, the general speed limit in urban areas (towns and cities) is:", "80 km/h","60 km/h","100 km/h","20 km/h",2, 0),
+            new QuestionModel("The general speed limit on national roads in 100 km/h for the following vehicles:\n(1) Light motor vehicles.\n(2)Bakkies.\n(3)Passenger buses.", "(1), (2), and (3) are all true.","Only (1) and (2) are true.","Only (1) is true.","60 km/h",2, 0),
+            new QuestionModel("If you do not know what the speed limit on a national is, you should:", "Pull off the road immediately.","Drive at 80 km/h","Drive at 100 km/h","60 km/h",2, 0),
+            new QuestionModel("Which of the following is false?", "The maximum speed limit for tractors on public roads is 80 km/h.","Minibuses carrying passengers may never travel faster than 100 km/h"," If a road sign gives a different speed limit than 60 km/h in an urban area it must be obeyed.","60 km/h",2, 0),
+            new QuestionModel("The general speed limit on freeways roads in 120 km/h for the following vehicles:\n(1) Light motor vehicles.\n(2)Bakkies.\n(3)Passenger buses.", "(1), (2), and (3) are all true.","Only (1) and (2) are true.","Only (1) is true.","60 km/h",2, 0),
 
             // General
-            new QuestionModel("You may not:", "Overtake on the left where there is only one lane but the road is wide enough for two cars outside and urban area.","Overtake when directed to do so by an officer.","Indicate to the left when you are overtaking on the left.","",2),
-            new QuestionModel("Your vehicle's clearance certificate (licence disc) is valid for:", "6 months","12 months","18 months","",2),
-            new QuestionModel("On a public road, you are allowed to:", "Pass other vehicles on the left-hand side if they are turning right.","Pass other vehicles on the left-hand side if they are turning right as long as you don't o onto the road shoulder.","You may not pass vehicles on the left-hand side.","",2),
-            new QuestionModel("You may drive on the right hand side of a two-way road if:", "There is a sign prohibiting overtaking.","You did not cross any barriers or solid road markings to get there.","The closest oncoming car is 2 seconds away.","",2),
-            new QuestionModel("Adjustable spotlights may be used by the following people on a public road:", "Vets","Farmers","Four-wheel drive vehicles.","",2),
-            new QuestionModel("You may not have any ... showing on your tyre:", "Tread pattern","Steel belts","Cuts of less than 10% of the tyre width.","",2),
-            new QuestionModel("Your tyre tread must be deeper than:", "25mm all over","1mm all over","10mm all over","",2),
-            new QuestionModel("Which one is not correct?", "You may not stop facing oncoming traffic.","If you are in a traffic circle you must yield to people entering the circle in front of you.","The maximum amount of time that a vehicle can be parked in one place without moving outside an urban area is 24 hours.","",2),
-            new QuestionModel("The service brake of a light motor vehicle is also known as the:", "Parking brake","Emergency brake","Foot brake","",2),
+            new QuestionModel("You may not:", "Overtake on the left where there is only one lane but the road is wide enough for two cars outside and urban area.","Overtake when directed to do so by an officer.","Indicate to the left when you are overtaking on the left.","",2, 0),
+            new QuestionModel("Your vehicle's clearance certificate (licence disc) is valid for:", "6 months","12 months","18 months","",2, 0),
+            new QuestionModel("On a public road, you are allowed to:", "Pass other vehicles on the left-hand side if they are turning right.","Pass other vehicles on the left-hand side if they are turning right as long as you don't o onto the road shoulder.","You may not pass vehicles on the left-hand side.","",2, 0),
+            new QuestionModel("You may drive on the right hand side of a two-way road if:", "There is a sign prohibiting overtaking.","You did not cross any barriers or solid road markings to get there.","The closest oncoming car is 2 seconds away.","",2, 0),
+            new QuestionModel("Adjustable spotlights may be used by the following people on a public road:", "Vets","Farmers","Four-wheel drive vehicles.","",2, 0),
+            new QuestionModel("You may not have any ... showing on your tyre:", "Tread pattern","Steel belts","Cuts of less than 10% of the tyre width.","",2, 0),
+            new QuestionModel("Your tyre tread must be deeper than:", "25mm all over","1mm all over","10mm all over","",2, 0),
+            new QuestionModel("Which one is not correct?", "You may not stop facing oncoming traffic.","If you are in a traffic circle you must yield to people entering the circle in front of you.","The maximum amount of time that a vehicle can be parked in one place without moving outside an urban area is 24 hours.","",2, 0),
+            new QuestionModel("The service brake of a light motor vehicle is also known as the:", "Parking brake","Emergency brake","Foot brake","",2, 0),
 //            new QuestionModel("", "","","","",2),
     };
 
     public static QuestionModel[] roadSignsQuestions = new QuestionModel[]{
-            new QuestionModel("What does this flag signal mean?", "A. Vehicles turning to the right may proceed.","B. Slow down and stop before reaching the flagman.","C. Potential hazard ahead. Proceed slowly and be alert.","",3),
-            new QuestionModel("What does this warn you about?", "A. That the traffic may be approaching you from the right hand side.","B. That the traffic may be approaching you from the left hand side.","C. That the traffic may be approaching you straight ahead.","",2),
-            new QuestionModel("What actions must you take when you see this sign?", "A. You may not turn left at the next intersection.","B. You must only turn right.","C. You may proceed either straight or turn right.","",2),
-            new QuestionModel("This command sign informs you that this part of the road may be used by ...", "A. Heavy motor vehicles.","B. Light motor vehicles.","C. Construction vehicles.","",2),
-            new QuestionModel("What do you do when you see this sign?", "A. Give right of way to pedestrians.","B. Leave your vehicle and travel by foot.","C. Control the traffic.","",2),
-            new QuestionModel("This sign tells you to be on the lookout for what?", "A. Temporary construction or maintenance works ahead.","B. Pedestrians ahead.","C. Road block ahead.","",2),
-            new QuestionModel("Where would you find this type of road sign?", "A. On the left hand side of a freeway about 2km after entering the freeway and every 20km thereafter.","B. On the far right hand side of any road before an intersection leading to a freeway.","C. On the left hand side of the road about 750m after entering a freeway and after that every 5 to 10km.","",2),
-            new QuestionModel("This road marking is a ...", "A. Painted island where you are not allowed to drive on or stop.","B. Pedestrian crossing where you must stop for pedestrians.","C. Chevron that indicates a curve to the left.","",2),
-            new QuestionModel("How should a driver respond to this road sign?", "A. Make sure, in time that there is a big enough gap in the traffic to merge with other traffic. Also yield to other traffic, which might merge.","B. Keep to the left and drive over the painted island, if necessary, until you can safely merge with traffic.","C. If you are driving in the lane that has to merge, you must drive to the front and stop. Only move off once it is safe to do so.","",2),
-            new QuestionModel("This sign indicates:", "A. The minimum speed limit","B. The maximum speed limit","C. The distance to the next town.","",2),
-            new QuestionModel("What does this sign tell vehicle drivers?", "A. A freeway begins and all freeway rules are effective now.","B. The road widens ahead.","C. There is a bridge ahead.","",2),
-            new QuestionModel("What is the purpose of this sign?", "A. To warn you of heavy cross winds on the road.","B. To warn that the one-way street you are driving on will soon be crossed by a street that carries two-way traffic.","C. To warn you about construction vehicles entering and crossing the road ahead.","",2),
-            new QuestionModel("This sign tells you to:", "A. Turn left if you want to","B. Look out for vehicles turning left","C. Proceed left only","",2),
-//            new QuestionModel("", "","","","",2),
+            // TEST 1
+            new QuestionModel("This road sign prohibits you from doing what on a public road.", "A. To park your vehicle in that area.","B. To drive slow for the next 100m.","C. To park your vehicle at the nearest park.","D. Stopping",2, R.drawable.no_parking),
+            new QuestionModel("What will you come by ahead of this warning sign?", "A. A hospital.","B. A crossroad.","C. A sharp curve.","D. A 4-way road.",2, R.drawable.crossroads),
+            new QuestionModel("This road sign prohibits you from doing what on a public road.", "A. To use your hooter at other road users.","B. To use your hooter and make sure the noise level of your vehicle is very low.","C. To play loud music from your stereo.","",2, R.drawable.no_parking),
+            new QuestionModel("This road sign reminds you of a ...", "A. A town ahead.","B. Right turn ahead.","C. T-Junction ahead.","D. Crossroads ahead.",2, R.drawable.t_junction),
+            new QuestionModel("This road sign disallows you from ... ", "A. Driving for 6 hours without stopping.","B. Using hand signals for other road users.","C. Picking up passengers or hitchhikers for the next 500m.","",2, R.drawable.no_hiking),
+            new QuestionModel("This road sign warns you of what?", "A. A dual roadway ending.","B. A dual roadway beginning.","C. Road widening.","",2, 0),
+            new QuestionModel("What does this road sign forbid you from doing?", "A. Entering a certain road or section of a road without special authorisation.","B. Driving your vehicle on the two solid line.","C. Overtaking another vehicle.","D. Parking in that area.",2, R.drawable.unauthorised_vehicles),
+            new QuestionModel("The road sign warns you of a ... ", "A. Primary school ahead.","B. Traffic signals ahead.","C. Pedestrian crossing ahead.","",2, 0),
+            new QuestionModel("What does this road sign prevent you from doing?", "A. Using hand signals.","B Turning left at an intersection.","C. Driving on the left lane of the road.","",2, R.drawable.no_left_turn),
+            new QuestionModel("What will you come by ahead of this warning sign.", "A. A yield sign.","B. A traffic circle.","C. A stop sign.","",2, R.drawable.yield),
+            new QuestionModel("This road sign warns you of what?", "A. A demarcated pedestrian crossing ahead.","B. A primary school.","C. Pedestrian walking ahead.","",2, R.drawable.pedestrian_crossing),
+            new QuestionModel("Which vehicle type is allowed on this part of the road?", "A. Only mini-buses may drive there.","A. Only buses may drive there.","A. Only tour buses may drive there.","",2, R.drawable.buses_only),
+            new QuestionModel("This road sign warns you of a ... ", "A. Dead end ahead.","B. Gravel road beginning ahead.","C. T-Junction ahead.","",2, R.drawable.gravel_begins),
+            new QuestionModel("Which vehicle type is allowed on this part of the road?", "A. Construction vehicles.","B. Buses.","C. Delivery vehicles.","",2, R.drawable.construction_vehicles_only),
+            new QuestionModel("What does this road sign warn you about?", "A. The road ahead is closed.","B. There is a gate on this road ahead.","C. The road narrows when crossing the bridge.","",3, 0),
+            new QuestionModel("What does this road sign command?.", "A. Only buses are allowed here.","B. Only abnormal vehicles are allowed here.","C. Only vehicles carrying dangerous substances are allowed here.","",2, R.drawable.abnormal_vehicles_only),
+            new QuestionModel("This road sign warns you of what?", "A. A one vehicle width structure ahead.","B. Only taxis may drive there.","C. A bus reservation only ahead.","",1, 0),
+            new QuestionModel("This road sign commands that only ... may use this part of the road.", "A. Motor cars.","B. Animal drawn vehicles.","C. Rickshaws","",3, 0),
+            new QuestionModel("This road sign warns you of what?", "A. Two way road ahead.","B Road narrows fro both sides ahead.","C. Pedestrian crossing ahead.","",2, 0),
+            new QuestionModel("What should be your reaction when you approach this road sign?", "A. Switch headlamps on.","B. Turn up the volume of your stereo.","C. Drive at high speed.","",1, R.drawable.headlights_on),
+            new QuestionModel("This road sign informs you of what?", "A. A tunnel ahead.","B. A pay toll.","C. A truck toll ahead. ","",2, 0),
+            new QuestionModel("", "","","","",2, 0),
+            new QuestionModel("", "","","","",2, 0),
+            new QuestionModel("", "","","","",2, 0),
+            new QuestionModel("", "","","","",2, 0),
+            new QuestionModel("", "","","","",2, 0),
+            new QuestionModel("", "","","","",2, 0),
+
+            new QuestionModel("What does this flag signal mean?", "A. Vehicles turning to the right may proceed.","B. Slow down and stop before reaching the flagman.","C. Potential hazard ahead. Proceed slowly and be alert.","",3, 0),
+            new QuestionModel("What does this warn you about?", "A. That the traffic may be approaching you from the right hand side.","B. That the traffic may be approaching you from the left hand side.","C. That the traffic may be approaching you straight ahead.","",2, 0),
+            new QuestionModel("What actions must you take when you see this sign?", "A. You may not turn left at the next intersection.","B. You must only turn right.","C. You may proceed either straight or turn right.","",2, 0),
+            new QuestionModel("This command sign informs you that this part of the road may be used by ...", "A. Heavy motor vehicles.","B. Light motor vehicles.","C. Construction vehicles.","",2, 0),
+            new QuestionModel("What do you do when you see this sign?", "A. Give right of way to pedestrians.","B. Leave your vehicle and travel by foot.","C. Control the traffic.","",2, 0),
+            new QuestionModel("This sign tells you to be on the lookout for what?", "A. Temporary construction or maintenance works ahead.","B. Pedestrians ahead.","C. Road block ahead.","",2, 0),
+            new QuestionModel("Where would you find this type of road sign?", "A. On the left hand side of a freeway about 2km after entering the freeway and every 20km thereafter.","B. On the far right hand side of any road before an intersection leading to a freeway.","C. On the left hand side of the road about 750m after entering a freeway and after that every 5 to 10km.","",2, 0),
+            new QuestionModel("This road marking is a ...", "A. Painted island where you are not allowed to drive on or stop.","B. Pedestrian crossing where you must stop for pedestrians.","C. Chevron that indicates a curve to the left.","",2, 0),
+            new QuestionModel("How should a driver respond to this road sign?", "A. Make sure, in time that there is a big enough gap in the traffic to merge with other traffic. Also yield to other traffic, which might merge.","B. Keep to the left and drive over the painted island, if necessary, until you can safely merge with traffic.","C. If you are driving in the lane that has to merge, you must drive to the front and stop. Only move off once it is safe to do so.","",2, 0),
+            new QuestionModel("This sign indicates:", "A. The minimum speed limit","B. The maximum speed limit","C. The distance to the next town.","",2, 0),
+            new QuestionModel("What does this sign tell vehicle drivers?", "A. A freeway begins and all freeway rules are effective now.","B. The road widens ahead.","C. There is a bridge ahead.","",2, 0),
+            new QuestionModel("What is the purpose of this sign?", "A. To warn you of heavy cross winds on the road.","B. To warn that the one-way street you are driving on will soon be crossed by a street that carries two-way traffic.","C. To warn you about construction vehicles entering and crossing the road ahead.","",2, 0),
+            new QuestionModel("This sign tells you to:", "A. Turn left if you want to","B. Look out for vehicles turning left","C. Proceed left only","",2, 0),
 //            new QuestionModel("", "","","","",2),
 //            new QuestionModel("", "","","","",2),
 //            new QuestionModel("", "","","","",2),
@@ -92,13 +120,13 @@ public class GlobalElements {
     };
 
     public static QuestionModel[] vehicleControlsQuestions = new QuestionModel[]{
-            new QuestionModel("Which control is used to keep the vehicle stationary after parking?", "A. 6","B. 9","C. 7","D. 11",3),
-            new QuestionModel("The ... is NOT found in an automatic vehicle.", "A. 8","B. 5","C. 3","D. 9",1),
-            new QuestionModel("The following control is used to alert other road users in order to avoid a collision?", "A. 11","B. 7","C. 4","D. 9",1),
-            new QuestionModel("Which control is used when you want to stop on a steep incline and preventing the vehicle from rolling backwards?", "A. 7","B. 8","C. 9","D. 3",1),
-            new QuestionModel("Which controls must be used in combination immediately before coming to a standstill?", "A. 8, 6 and 9.","B. 2, 6, and 7","C. 2, 5, and 1.","D. 6, 2, and 4",1),
-            new QuestionModel("Use ... to keep your vehicle stationary after parking", "A. 7","B. 5","C. 2","D. 3",1),
-            new QuestionModel("The control used to steer the vehicle to the left or right is?", "A. 3","B. 5","C. 4","D. 6",3),
+            new QuestionModel("Which control is used to keep the vehicle stationary after parking?", "A. 6","B. 9","C. 7","D. 11",3, R.drawable.light_motor_manual_controls),
+            new QuestionModel("The ... is NOT found in an automatic vehicle.", "A. 8","B. 5","C. 3","D. 9",1, R.drawable.light_motor_manual_controls),
+            new QuestionModel("The following control is used to alert other road users in order to avoid a collision?", "A. 11","B. 7","C. 4","D. 9",1, R.drawable.light_motor_manual_controls),
+            new QuestionModel("Which control is used when you want to stop on a steep incline and preventing the vehicle from rolling backwards?", "A. 7","B. 8","C. 9","D. 3",1, R.drawable.light_motor_manual_controls),
+            new QuestionModel("Which controls must be used in combination immediately before coming to a standstill?", "A. 8, 6 and 9.","B. 2, 6, and 7","C. 2, 5, and 1.","D. 6, 2, and 4",1, R.drawable.light_motor_manual_controls),
+            new QuestionModel("Use ... to keep your vehicle stationary after parking", "A. 7","B. 5","C. 2","D. 3",1, R.drawable.light_motor_manual_controls),
+            new QuestionModel("The control used to steer the vehicle to the left or right is?", "A. 3","B. 5","C. 4","D. 6",3, R.drawable.light_motor_manual_controls),
     };
 
     public static QuestionModel[] K53TestQuestions = new QuestionModel[]{
@@ -133,7 +161,7 @@ public class GlobalElements {
     public static String stopOrYieldSignWhere = "At intersections.";
     public static String stopOrYieldSignPurpose = "To allow traffic turning left, to do so (if it can be done without interfering with cross traffic) without stopping.";
     public static String stopOrYieldSignAction = "If you intend to carry straight on, bring your vehicle to a standstill behind the stop line. When turning left, yield to all traffic, which is close enough to pose a hazard.\n" +
-                                                 "Proceed only when it is safe.";
+            "Proceed only when it is safe.";
     public static String stopOrYieldSignDescription = String.format("Where:\n%s\n\nPurpose:\n%s\n\nAction:\n%s", stopOrYieldSignWhere, stopOrYieldSignPurpose, stopOrYieldSignAction);
     public static Integer stopOrYieldSignImage = R.drawable.stop_yield;
     public static Sign stopOrYieldSign = new Sign(stopOrYieldSignName, stopOrYieldSignDescription, stopOrYieldSignPurpose, stopOrYieldSignWhere, stopOrYieldSignAction, stopOrYieldSignImage);
@@ -166,8 +194,8 @@ public class GlobalElements {
     public static String yieldAtTrafficCircleSignWhere = "At traffic circles, particularly mini circles.";
     public static String yieldAtTrafficCircleSignPurpose = "To warn you that there is a traffic circle ahead where they must expect to yield.";
     public static String yieldAtTrafficCircleSignAction = "Look out for other vehicles and yield to vehicles already in the circle or that will cross the yield line at their entrance to the circle before you will cross yours. Stop if necessary.\n" +
-                                                          "The driver who reaches his/her yield line first may proceed first.\n" +
-                                                          "At a mini circle you must, as at a normal intersection, signal in time in which direction you want to turn.";
+            "The driver who reaches his/her yield line first may proceed first.\n" +
+            "At a mini circle you must, as at a normal intersection, signal in time in which direction you want to turn.";
     public static String yieldAtTrafficCircleSignDescription = String.format("Where:\n%s\n\nPurpose:\n%s\n\nAction:\n%s", yieldToPedestriansSignWhere, yieldToPedestriansSignPurpose, yieldToPedestriansSignAction);
     public static Integer yieldAtTrafficCircleSignImage = R.drawable.traffic_circle_ahead;
     public static Sign yieldAtTrafficCircleSign = new Sign(yieldAtTrafficCircleSignName, yieldAtTrafficCircleSignDescription, yieldAtTrafficCircleSignPurpose, yieldAtTrafficCircleSignWhere, yieldAtTrafficCircleSignAction, yieldAtTrafficCircleSignImage);
@@ -211,8 +239,8 @@ public class GlobalElements {
     public static String pedestrianPrioritySignWhere = "At the entrance to an area intended for pedestrians.";
     public static String pedestrianPrioritySignPurpose = "To give priority to pedestrians but limit other traffic to emergency vehicles, vehicles loading and off loading goods and maintenance vehicles.";
     public static String pedestrianPrioritySignAction = "When driving any of the above-mentioned vehicles, drive carefully in the area at a maximum speed of 15 km/h.\n" +
-                                                        "\uF0B7 Priority must be given to pedestrians crossing or wanting to cross the road.\n" +
-                                                        "\uF0B7 When loading or off loading goods, only do so in areas marked by road traffic signs. No other vehicles are permitted in such an area.";
+            "\uF0B7 Priority must be given to pedestrians crossing or wanting to cross the road.\n" +
+            "\uF0B7 When loading or off loading goods, only do so in areas marked by road traffic signs. No other vehicles are permitted in such an area.";
     public static String pedestrianPrioritySignDescription = String.format("Where:\n%s\n\nPurpose:\n%s\n\nAction:\n%s", pedestrianPrioritySignWhere, pedestrianPrioritySignPurpose, pedestrianPrioritySignAction);
     public static Integer pedestrianPrioritySignImage = R.drawable.pedestrian_priority;
     public static Sign pedestrianPrioritySign = new Sign(pedestrianPrioritySignName, pedestrianPrioritySignDescription, pedestrianPrioritySignPurpose, pedestrianPrioritySignWhere, pedestrianPrioritySignAction, pedestrianPrioritySignImage);

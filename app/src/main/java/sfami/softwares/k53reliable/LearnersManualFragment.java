@@ -72,7 +72,7 @@ public class LearnersManualFragment extends Fragment {
 //        Sample AdMob InterstitialAd ID: ca-app-pub-3940256099942544/1033173712
 //        Production AdMob InterstitialAd ID: ca-app-pub-2673466865976859/7429685266
 
-        InterstitialAd.load(getContext(), getString(R.string.InterstitialAd_production), adRequest,
+        InterstitialAd.load(getContext(), getString(R.string.InterstitialAd_sample), adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

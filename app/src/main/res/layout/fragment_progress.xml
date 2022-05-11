@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:background="@color/design_default_color_background"
             app:adSize="BANNER"
-            app:adUnitId="@string/production_banner" />
+            app:adUnitId="@string/sample_banner" />
 
     </LinearLayout>
 
