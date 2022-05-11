@@ -26,7 +26,7 @@ import java.util.List;
 public class ResultsActivity extends AppCompatActivity {
 
     private List<QuestionModel> questionList;
-    private TextView timer, question;
+    private TextView timer, question, questionNumber;
     private RadioGroup radioGroup;
     private RadioButton rb1, rb2, rb3, rb4;
     private Button nextBtn;
@@ -45,6 +45,7 @@ public class ResultsActivity extends AppCompatActivity {
     boolean answered;
     private CountDownTimer countDownTimer;
     private ProgressBar progressBar;
+    private ProgressBar questionProgress;
 
     private QuestionModel[] data;
     private String title;
@@ -55,19 +56,25 @@ public class ResultsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results);
-
+        setContentView(R.layout.activity_quiz);
         Intent i = getIntent();
         answers = i.getStringArrayListExtra("answers");
         title = i.getStringExtra("title");
+        score = i.getIntExtra("score", 0);
         data = (QuestionModel[]) i.getSerializableExtra("data");
 
         questionList = new ArrayList<>();
         timer = findViewById(R.id.time);
         progressBar = findViewById(R.id.progress);
+        questionProgress = findViewById(R.id.question_progress);
         progressBar.setProgress(0);
 
+        timer.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.INVISIBLE);
+        questionProgress.setVisibility(View.INVISIBLE);
+
         question = findViewById(R.id.question);
+        questionNumber = findViewById(R.id.question_number);
         image = findViewById(R.id.image);
 
         radioGroup = findViewById(R.id.rdg);
@@ -159,6 +166,7 @@ public class ResultsActivity extends AppCompatActivity {
         if (qCounter < totalQuestions){
 //            currentQuestion = questionList.get(qCounter);
             currentQuestion = data[qCounter];
+            questionNumber.setText(String.format("Score %s/%s", Integer.toString(score), data.length ));
             question.setText(currentQuestion.getQuestion());
             image.setImageResource(currentQuestion.getImage());
             rb1.setText(currentQuestion.getOption1());
