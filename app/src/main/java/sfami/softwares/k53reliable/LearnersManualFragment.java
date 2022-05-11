@@ -72,7 +72,7 @@ public class LearnersManualFragment extends Fragment {
 //        Sample AdMob InterstitialAd ID: ca-app-pub-3940256099942544/1033173712
 //        Production AdMob InterstitialAd ID: ca-app-pub-2673466865976859/7429685266
 
-        InterstitialAd.load(getContext(),"ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(getContext(), getString(R.string.InterstitialAd_sample), adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
@@ -103,9 +103,6 @@ public class LearnersManualFragment extends Fragment {
 
         dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.dialog_box);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//        }
-//        dialog.getWindow().setBackgroundDrawableResource(R.drawable.background);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
         dialog.getWindow().getAttributes().windowAnimations = R.style.animation;

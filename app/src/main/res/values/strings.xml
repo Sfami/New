@@ -11,7 +11,10 @@
     <string name="ScrollView">View</string>
     <string name="production_banner">ca-app-pub-2673466865976859/4595730258</string>
     <string name="sample_banner">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="welcome_dialog">All material in this app is adapted from the NATIS offocial website. \nEnjoy!</string>
+<!--    <string name="welcome_dialog">All material in this app is adapted from the NATIS offocial website. \nEnjoy!</string>-->
+    <string name="welcome_dialog">Let\'s help you get prepared for your K53 learner\'s test. \nEnjoy!</string>
     <string name="btn_submit">Submit</string>
     <string name="btn_next">Next</string>
+    <string name="InterstitialAd_sample">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="InterstitialAd_production">ca-app-pub-2673466865976859/7429685266</string>
 </resources>
