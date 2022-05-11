@@ -64,4 +64,12 @@ public class QuestionModel implements Serializable {
     public void setCorrectAnsNo(int correctAnsNo) {
         this.correctAnsNo = correctAnsNo;
     }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
 }

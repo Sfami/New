@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,7 +25,7 @@ import java.util.List;
 public class QuizActivity extends AppCompatActivity {
 
     private List<QuestionModel> questionList;
-    private TextView timer, question;
+    private TextView timer, question, questionNumber;
     private RadioGroup radioGroup;
     private RadioButton rb1, rb2, rb3, rb4;
     private Button nextBtn;
@@ -45,6 +46,8 @@ public class QuizActivity extends AppCompatActivity {
     private String title;
 
     private QuestionModel[] data;
+    private ImageView image;
+    private ProgressBar questionProgress;
 
 
     @Override
@@ -63,6 +66,9 @@ public class QuizActivity extends AppCompatActivity {
         progressBar.setProgress(0);
 
         question = findViewById(R.id.question);
+        questionNumber = findViewById(R.id.question_number);
+        questionProgress = findViewById(R.id.question_progress);
+        image = findViewById(R.id.image);
         radioGroup = findViewById(R.id.rdg);
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
@@ -152,6 +158,11 @@ public class QuizActivity extends AppCompatActivity {
 //            currentQuestion = questionList.get(qCounter);
             currentQuestion = data[qCounter];
             question.setText(currentQuestion.getQuestion());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                questionProgress.setProgress(ticks);
+            }
+            questionNumber.setText(String.format("Question %s of %s", qCounter + 1, data.length));
+            image.setImageResource(currentQuestion.getImage());
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
             rb3.setText(currentQuestion.getOption3());

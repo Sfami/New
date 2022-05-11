@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -48,6 +49,7 @@ public class ResultsActivity extends AppCompatActivity {
     private QuestionModel[] data;
     private String title;
     private AdView mAdView;
+    private ImageView image;
 
 
     @Override
@@ -66,6 +68,8 @@ public class ResultsActivity extends AppCompatActivity {
         progressBar.setProgress(0);
 
         question = findViewById(R.id.question);
+        image = findViewById(R.id.image);
+
         radioGroup = findViewById(R.id.rdg);
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
@@ -156,6 +160,7 @@ public class ResultsActivity extends AppCompatActivity {
 //            currentQuestion = questionList.get(qCounter);
             currentQuestion = data[qCounter];
             question.setText(currentQuestion.getQuestion());
+            image.setImageResource(currentQuestion.getImage());
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
             rb3.setText(currentQuestion.getOption3());
