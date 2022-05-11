@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_background"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-2673466865976859/4595730258" />
+        app:adUnitId="@string/production_banner" />
 
 
 

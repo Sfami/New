@@ -90,7 +90,8 @@ public class QuizActivity extends AppCompatActivity {
         dfRbColor = rb1.getTextColors();
 
         addQuestions();
-        totalQuestions = questionList.size();
+//        totalQuestions = questionList.size();
+        totalQuestions = data.length;
         answers = new ArrayList<>();
         showNextQuestion();
 
@@ -132,15 +133,19 @@ public class QuizActivity extends AppCompatActivity {
         switch (currentQuestion.getCorrectAnsNo()){
             case 1:
                 rb1.setTextColor(Color.GREEN);
+                rb1.isChecked();
                 break;
             case 2:
                 rb2.setTextColor(Color.GREEN);
+                rb1.isChecked();
                 break;
             case 3:
                 rb3.setTextColor(Color.GREEN);
+                rb1.isChecked();
                 break;
             case 4:
                 rb4.setTextColor(Color.GREEN);
+                rb1.isChecked();
                 break;
         }
         if (qCounter < totalQuestions){
@@ -195,7 +200,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
     private void timer() {
-        countDownTimer = new CountDownTimer(20000, 1000) {
+        countDownTimer = new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long l) {
                 String string = Long.toString((l/1000));
@@ -278,6 +283,7 @@ public class QuizActivity extends AppCompatActivity {
         faqs.putExtra("score", score);
         faqs.putExtra("title", title);
         faqs.putExtra("answers", answers);
+        faqs.putExtra("data", data);
         startActivity(faqs);
     }
 

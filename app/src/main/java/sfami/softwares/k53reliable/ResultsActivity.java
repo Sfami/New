@@ -61,6 +61,9 @@ public class ResultsActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private ProgressBar progressBar;
 
+    private QuestionModel[] data;
+    private String title;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,8 @@ public class ResultsActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         answers = i.getStringArrayListExtra("answers");
+        title = i.getStringExtra("title");
+        data = (QuestionModel[]) i.getSerializableExtra("data");
 
         questionList = new ArrayList<>();
         timer = findViewById(R.id.time);
@@ -86,7 +91,8 @@ public class ResultsActivity extends AppCompatActivity {
         dfRbColor = rb1.getTextColors();
 
         addQuestions();
-        totalQuestions = questionList.size();
+//        totalQuestions = questionList.size();
+        totalQuestions = data.length;
         showNextQuestion();
         populateWithAnswers();
 
@@ -158,7 +164,8 @@ public class ResultsActivity extends AppCompatActivity {
         rb4.setTextColor(dfRbColor);
 
         if (qCounter < totalQuestions){
-            currentQuestion = questionList.get(qCounter);
+//            currentQuestion = questionList.get(qCounter);
+            currentQuestion = data[qCounter];
             question.setText(currentQuestion.getQuestion());
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
