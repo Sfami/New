@@ -69,10 +69,6 @@ public class ResultsActivity extends AppCompatActivity {
         questionProgress = findViewById(R.id.question_progress);
         progressBar.setProgress(0);
 
-        timer.setVisibility(View.INVISIBLE);
-        progressBar.setVisibility(View.INVISIBLE);
-        questionProgress.setVisibility(View.INVISIBLE);
-
         question = findViewById(R.id.question);
         questionNumber = findViewById(R.id.question_number);
         image = findViewById(R.id.image);
@@ -86,6 +82,11 @@ public class ResultsActivity extends AppCompatActivity {
 
         dfRbColor = rb1.getTextColors();
 
+//        timer.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.INVISIBLE);
+        questionProgress.setVisibility(View.INVISIBLE);
+//        questionNumber.setVisibility(View.INVISIBLE);
+        
         addQuestions();
 //        totalQuestions = questionList.size();
         totalQuestions = data.length;
@@ -166,7 +167,8 @@ public class ResultsActivity extends AppCompatActivity {
         if (qCounter < totalQuestions){
 //            currentQuestion = questionList.get(qCounter);
             currentQuestion = data[qCounter];
-            questionNumber.setText(String.format("Score %s/%s", Integer.toString(score), data.length ));
+            timer.setText(String.format("Score %s/%s", Integer.toString(score), data.length ));
+            questionNumber.setText(String.format("Question %s of %s", qCounter + 1, data.length));
             question.setText(currentQuestion.getQuestion());
             image.setImageResource(currentQuestion.getImage());
             rb1.setText(currentQuestion.getOption1());

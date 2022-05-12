@@ -49,7 +49,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
                             android:text="Movie Name"
+                            android:fontFamily="@font/roboto_condensed_bold"
                             android:textColor="#000"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -62,7 +64,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
-                            android:fontFamily="monospace"
+                            android:fontFamily="@font/roboto_condensed_regular"
                             android:text="Regulatory\nWarning\nGuidance\nTemporary\nRoad Markings"
                             android:textColor="#000"
                             android:textStyle="bold"

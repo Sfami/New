@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/drawable/baseline_local_library_24.xml" value="0.156" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/activity_controls.xml" value="0.1" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/activity_fragments.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/activity_quiz.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/activity_results.xml" value="0.14023086789226166" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/activity_road_signs_main.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/activity_specific_road_sign.xml" value="0.17083333333333334" />
+        <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/activity_view_results.xml" value="0.14023086789226166" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/fragment_general_road_rules.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/fragment_information_signs.xml" value="0.19462465245597776" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/fragment_learn.xml" value="0.1" />

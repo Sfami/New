@@ -15,10 +15,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     public static final String TESTS_TABLE = "TESTS_TABLE";
+    public static final String COLUMN_ID = "ID";
     public static final String COLUMN_TEST_NAME = "TEST_NAME";
     public static final String COLUMN_TEST_SCORE = "TEST_SCORE";
     public static final String COLUMN_TEST_TOTAL = "TEST_TOTAL";
-    public static final String COLUMN_ID = "ID";
+    private static final String COLUMN_TEST_QUESTIONS = "TEST_QUESTIONS";
+    private static final String COLUMN_TEST_ANSWERS = "TEST_ANSWERS";
 
     public DataBaseHelper(@Nullable Context context) {
         super(context, "tests.db", null, 1);
@@ -30,7 +32,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUMN_TEST_NAME + " TEXT, "
                 + COLUMN_TEST_SCORE + " INT, "
-                + COLUMN_TEST_TOTAL + " INT)";
+                + COLUMN_TEST_TOTAL + " INT, "
+                + COLUMN_TEST_QUESTIONS + " TEXT, "
+                + COLUMN_TEST_ANSWERS + " TEXT)";
         db.execSQL(createTableStatement);
     }
 
@@ -45,6 +49,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_TEST_NAME, testResultModel.getTestName());
         cv.put(COLUMN_TEST_SCORE, testResultModel.getScore());
         cv.put(COLUMN_TEST_TOTAL, testResultModel.getTotal());
+        cv.put(COLUMN_TEST_QUESTIONS, testResultModel.getData().toString());
+        cv.put(COLUMN_TEST_ANSWERS, testResultModel.getAnswers().toString());
         // id is auto-increment so we do not need to pass it.
         long insert = db.insert(TESTS_TABLE, null, cv);
         boolean success = insert != -1;
@@ -64,7 +70,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String testName = cursor.getString(1);
                 int testScore = cursor.getInt(2);
                 int testTotal = cursor.getInt(3);
-                TestResultModel resultModel = new TestResultModel(testId, testName, testScore, testTotal);
+                String testQuestions = cursor.getString(4);
+                String testAnswers = cursor.getString(5);
+                TestResultModel resultModel = new TestResultModel(testId, testName, testScore, testTotal, testQuestions, testAnswers);
                 returnList.add(resultModel);
             } while (cursor.moveToNext());
         }

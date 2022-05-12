@@ -67,21 +67,22 @@ public class MainActivity extends AppCompatActivity {
                 new MyRoadRuleData(GlobalElements.dummyRule),
         };
 
-        String toolbarTitle = String.format("FAQs (%s)", myRoadRuleData.length);
+        String toolbarTitle = String.format("Some FAQs", "");
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(toolbarTitle);
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setDisplayShowHomeEnabled(true);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
 
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
 
         learnersManualFragment = new LearnersManualFragment(myRoadRuleData);
         driversManualFragment = new DriversManualFragment(myDriverFAQs);
-        moreFragment = new MoreFragment();
+//        moreFragment = new MoreFragment();
 
         tabLayout.setupWithViewPager(viewPager);
+
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
         viewPagerAdapter.addFragment(learnersManualFragment, "LEARNER'S");
@@ -89,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
 //        viewPagerAdapter.addFragment(moreFragment, "MORE");
         viewPager.setAdapter(viewPagerAdapter);
 
+        tabLayout.getTabAt(0).setIcon(R.drawable.baseline_directions_car_filled_24);
+        tabLayout.getTabAt(1).setIcon(R.drawable.baseline_school_24);
     }
 
     private class ViewPagerAdapter extends FragmentPagerAdapter {

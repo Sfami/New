@@ -9,86 +9,91 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.K53Reliable">
-
+        <activity
+            android:name=".ViewResultsActivity"
+            android:exported="false" />
         <activity
             android:name=".QuizActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".FragmentsActivity" />
+            android:parentActivityName=".FragmentsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ResultsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".FragmentsActivity" />
+            android:parentActivityName=".FragmentsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RoadSignsMainActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".FragmentsActivity" />
+            android:parentActivityName=".FragmentsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RoadRulesMainActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".FragmentsActivity" />
+            android:parentActivityName=".FragmentsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ControlsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".FragmentsActivity" />
+            android:parentActivityName=".FragmentsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RoadSignsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".RoadSignsMainActivity" />
+            android:parentActivityName=".RoadSignsMainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RoadRulesActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".RoadRulesMainActivity" />
+            android:parentActivityName=".RoadRulesMainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RegulatoryRoadSignsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".RoadSignsMainActivity" />
+            android:parentActivityName=".RoadSignsMainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GuidanceRoadSignsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".RoadSignsMainActivity" />
+            android:parentActivityName=".RoadSignsMainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".WarningRoadSignsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".RoadSignsMainActivity" />
+            android:parentActivityName=".RoadSignsMainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".TemporaryRoadSignsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".RoadSignsMainActivity" />
+            android:parentActivityName=".RoadSignsMainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RoadMarkingRoadSignsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".RoadSignsMainActivity" />
+            android:parentActivityName=".RoadSignsMainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".FragmentsActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        </activity> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <!-- Production AdMob app ID: ca-app-pub-2673466865976859~6894590531 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

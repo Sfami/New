@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="STOP"
                 android:textAlignment="center"
                 android:textColor="#000"
@@ -59,7 +60,7 @@
                     android:layout_margin="10dp"
                     android:textStyle="bold"
                     android:textSize="14sp"
-                    android:fontFamily="monospace"
+                    android:fontFamily="@font/roboto_condensed_regular"
                     android:text="@string/Message" />
 
 

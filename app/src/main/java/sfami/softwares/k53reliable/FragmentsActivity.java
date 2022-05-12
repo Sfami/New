@@ -80,12 +80,15 @@ public class FragmentsActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
-        viewPagerAdapter.addFragment(testFragment, "TEST");
+        viewPagerAdapter.addFragment(testFragment, "TESTS");
         viewPagerAdapter.addFragment(learnFragment, "LEARN");
         viewPagerAdapter.addFragment(progressFragment, "PROGRESS");
 
         viewPager.setAdapter(viewPagerAdapter);
 
+        tabLayout.getTabAt(0).setIcon(R.drawable.baseline_quiz_24);
+        tabLayout.getTabAt(1).setIcon(R.drawable.baseline_local_library_24);
+        tabLayout.getTabAt(2).setIcon(R.drawable.baseline_insights_24);
     }
 
     private class ViewPagerAdapter extends FragmentPagerAdapter {

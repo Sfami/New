@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
@@ -42,12 +43,14 @@ public class QuizActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private ProgressBar progressBar;
 
-    private ArrayList<String> answers;
+    private ArrayList<String> questions, answers, options;
+
     private String title;
 
     private QuestionModel[] data;
     private ImageView image;
     private ProgressBar questionProgress;
+    int progress = 0;
 
 
     @Override
@@ -59,11 +62,10 @@ public class QuizActivity extends AppCompatActivity {
         title = i.getStringExtra("title");
         data = (QuestionModel[]) i.getSerializableExtra("data");
 
-
         questionList = new ArrayList<>();
         timer = findViewById(R.id.time);
         progressBar = findViewById(R.id.progress);
-        progressBar.setProgress(0);
+        progressBar.setProgress(progress);
 
         question = findViewById(R.id.question);
         questionNumber = findViewById(R.id.question_number);
@@ -82,6 +84,8 @@ public class QuizActivity extends AppCompatActivity {
 //        totalQuestions = questionList.size();
         totalQuestions = data.length;
         answers = new ArrayList<>();
+        questions = new ArrayList<>();
+        options = new ArrayList<>();
         showNextQuestion();
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +149,14 @@ public class QuizActivity extends AppCompatActivity {
         }
 
     }
-
+    private void updateQuestionProgress(){
+        int step = 100 / data.length;
+        progress = step * (qCounter + 1);
+        if (qCounter + 1 == data.length) progress = 100;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            questionProgress.setProgress(progress);
+        }
+    }
     private void showNextQuestion() {
         radioGroup.clearCheck();
         rb1.setTextColor(dfRbColor);
@@ -158,9 +169,8 @@ public class QuizActivity extends AppCompatActivity {
 //            currentQuestion = questionList.get(qCounter);
             currentQuestion = data[qCounter];
             question.setText(currentQuestion.getQuestion());
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                questionProgress.setProgress(ticks);
-            }
+//            questions.add();
+            updateQuestionProgress();
             questionNumber.setText(String.format("Question %s of %s", qCounter + 1, data.length));
             image.setImageResource(currentQuestion.getImage());
             rb1.setText(currentQuestion.getOption1());
@@ -220,13 +230,13 @@ public class QuizActivity extends AppCompatActivity {
 
     private void saveTestResults(){
         TestResultModel results;
-        results = new TestResultModel(-1, "This test", 0, 0);
+        results = new TestResultModel(-1, "This test", 0, 0, "questions", "answers");
         try {
-            results = new TestResultModel(-1, title.toString(), score, totalQuestions);
+            results = new TestResultModel(-1, title, score, totalQuestions, Arrays.toString(data), answers.toString());
             Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
         } catch (Exception e){
             Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-            results = new TestResultModel(-1, "error", 0, 0);
+            results = new TestResultModel(-1, title, score, totalQuestions, Arrays.toString(data), answers.toString());
         }
         DataBaseHelper dataBaseHelper = new DataBaseHelper(QuizActivity.this);
         boolean success = dataBaseHelper.addOne(results);
@@ -262,15 +272,6 @@ public class QuizActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-
-    private void startResultsActivity(String title, MyRoadSignData[] data, ArrayList<String> answersArray, ArrayList<String> correctAnswersArray) {
-        Intent faqs = new Intent(this, ResultsActivity.class);
-        faqs.putExtra("title", title);
-        faqs.putExtra("data", data);
-        faqs.putExtra("answers", answersArray);
-        faqs.putExtra("correctAnswers", correctAnswersArray);
-        startActivity(faqs);
-    }
 
     public void startResultsActivity(){
         Intent faqs = new Intent(this, ResultsActivity.class);
