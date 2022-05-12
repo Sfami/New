@@ -6,35 +6,39 @@
     app:cardCornerRadius="10dp"
     android:layout_margin="10dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/purple_700">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:background="@color/purple_500"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textName"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Welcome"
             android:gravity="center"
-            android:textColor="#000"
-            android:textSize="18sp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textdate"
+            android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="@string/welcome_dialog"
             android:gravity="center"
             android:textStyle="bold"
-            android:fontFamily="monospace"
-            android:textSize="14sp" />
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,6 +57,7 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:text="Cancel"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:textStyle="bold" />
 
             <Button
@@ -64,6 +69,7 @@
                 android:padding="10dp"
                 android:layout_marginStart="10dp"
                 android:text="Okay"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:textStyle="bold" />
 
         </LinearLayout>
