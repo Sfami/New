@@ -107,8 +107,14 @@ public class LearnersManualFragment extends Fragment {
         dialog.setCancelable(false);
         dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
 
+
+        TextView title = dialog.findViewById(R.id.title);
+        TextView message = dialog.findViewById(R.id.message);
+
         Button cancel = dialog.findViewById(R.id.cancel);
         Button okay = dialog.findViewById(R.id.okay);
+
+
 
         okay.setOnClickListener(new View.OnClickListener() {
             @Override

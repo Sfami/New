@@ -1,6 +1,7 @@
 package sfami.softwares.k53reliable;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -8,7 +9,9 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -18,6 +21,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.rewarded.RewardedAd;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,6 +58,12 @@ public class QuizActivity extends AppCompatActivity {
     private ImageView image;
     private ProgressBar questionProgress;
     int progress = 0;
+
+    private AdView mAdView;
+    private MyRoadRuleData[] myRoadRuleData;
+    private InterstitialAd mInterstitialAd;
+    private RewardedAd mRewardedAd;
+    private Dialog dialog;
 
 
     @Override
@@ -245,31 +258,72 @@ public class QuizActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
-        builder.setMessage("Do you want to exit ?");
-        builder.setTitle("Warning !");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+        dialog.show();
+
+        dialog = new Dialog(QuizActivity.this);
+        dialog.setContentView(R.layout.dialog_box);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+
+        TextView title = dialog.findViewById(R.id.title);
+        TextView message = dialog.findViewById(R.id.message);
+
+        Button cancel = dialog.findViewById(R.id.cancel);
+        Button okay = dialog.findViewById(R.id.okay);
+
+        title.setText("Warning!");
+        message.setText("Do you want to exit ?");
+
+
+        okay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                // When the user click yes button
-                // then app will close
-                finish();
-//                startFragmentsActivity(score);
+            public void onClick(View view) {
+                dialog.dismiss();
+                startFragmentsActivity();
+                if (mInterstitialAd != null) {
+                    mInterstitialAd.show(QuizActivity.this);
+                } else {
+                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
+                }
             }
         });
 
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.cancel();
+            public void onClick(View view) {
+                dialog.dismiss();
             }
         });
 
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
+//        builder.setMessage("Do you want to exit ?");
+//        builder.setTitle("Warning !");
+//        builder.setCancelable(false);
+//        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which)
+//            {
+//                // When the user click yes button
+//                // then app will close
+//                finish();
+////                startFragmentsActivity(score);
+//            }
+//        });
+//
+//        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which)
+//            {
+//                dialog.cancel();
+//            }
+//        });
+//
+//        AlertDialog alertDialog = builder.create();
+//        alertDialog.show();
     }
 
 
@@ -282,9 +336,9 @@ public class QuizActivity extends AppCompatActivity {
         startActivity(faqs);
     }
 
-    public void startFragmentsActivity(Integer score){
+    public void startFragmentsActivity(){
         Intent faqs = new Intent(this, FragmentsActivity.class);
-        faqs.putExtra("score", score);
+//        faqs.putExtra("score", score);
         startActivity(faqs);
     }
 }
