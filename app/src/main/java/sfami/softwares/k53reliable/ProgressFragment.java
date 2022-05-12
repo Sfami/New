@@ -49,6 +49,7 @@ public class ProgressFragment extends Fragment {
         MyProgressFragmentAdapter myProgressFragmentAdapter = new MyProgressFragmentAdapter(myRoadSignData,this.getActivity());
         recyclerView.setAdapter(myProgressFragmentAdapter);
         button = view.findViewById(R.id.button);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -26,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:text="Movie Name"
                 android:textColor="#000"
                 android:textSize="18sp"
@@ -38,8 +39,8 @@
                 android:layout_margin="5dp"
                 android:text="Movie Date"
                 android:textStyle="bold"
-                android:fontFamily="monospace"
-                android:textSize="14sp" />
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:textSize="16sp" />
 
         </LinearLayout>
 

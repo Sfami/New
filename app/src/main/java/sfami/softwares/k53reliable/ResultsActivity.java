@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -25,7 +26,7 @@ import java.util.List;
 public class ResultsActivity extends AppCompatActivity {
 
     private List<QuestionModel> questionList;
-    private TextView timer, question;
+    private TextView timer, question, questionNumber;
     private RadioGroup radioGroup;
     private RadioButton rb1, rb2, rb3, rb4;
     private Button nextBtn;
@@ -44,28 +45,34 @@ public class ResultsActivity extends AppCompatActivity {
     boolean answered;
     private CountDownTimer countDownTimer;
     private ProgressBar progressBar;
+    private ProgressBar questionProgress;
 
     private QuestionModel[] data;
     private String title;
     private AdView mAdView;
+    private ImageView image;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results);
-
+        setContentView(R.layout.activity_quiz);
         Intent i = getIntent();
         answers = i.getStringArrayListExtra("answers");
         title = i.getStringExtra("title");
+        score = i.getIntExtra("score", 0);
         data = (QuestionModel[]) i.getSerializableExtra("data");
 
         questionList = new ArrayList<>();
         timer = findViewById(R.id.time);
         progressBar = findViewById(R.id.progress);
+        questionProgress = findViewById(R.id.question_progress);
         progressBar.setProgress(0);
 
         question = findViewById(R.id.question);
+        questionNumber = findViewById(R.id.question_number);
+        image = findViewById(R.id.image);
+
         radioGroup = findViewById(R.id.rdg);
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
@@ -75,6 +82,11 @@ public class ResultsActivity extends AppCompatActivity {
 
         dfRbColor = rb1.getTextColors();
 
+//        timer.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.INVISIBLE);
+        questionProgress.setVisibility(View.INVISIBLE);
+//        questionNumber.setVisibility(View.INVISIBLE);
+        
         addQuestions();
 //        totalQuestions = questionList.size();
         totalQuestions = data.length;
@@ -155,7 +167,10 @@ public class ResultsActivity extends AppCompatActivity {
         if (qCounter < totalQuestions){
 //            currentQuestion = questionList.get(qCounter);
             currentQuestion = data[qCounter];
+            timer.setText(String.format("Score %s/%s", Integer.toString(score), data.length ));
+            questionNumber.setText(String.format("Question %s of %s", qCounter + 1, data.length));
             question.setText(currentQuestion.getQuestion());
+            image.setImageResource(currentQuestion.getImage());
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
             rb3.setText(currentQuestion.getOption3());

@@ -27,6 +27,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_condensed_bold"
                     android:text="Question 1"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
@@ -61,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Message"
                 android:textSize="16sp"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"/>
 
@@ -91,7 +92,7 @@
                     android:layout_gravity="center"
                     android:textStyle="bold"
                     android:textSize="14sp"
-                    android:fontFamily="monospace"
+                    android:fontFamily="@font/roboto_condensed_regular"
                     android:text="Mirrors, indicators, steering wheel" />
             </LinearLayout>
             <LinearLayout

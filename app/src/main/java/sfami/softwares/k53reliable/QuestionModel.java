@@ -17,6 +17,19 @@ public class QuestionModel implements Serializable {
         this.image = image;
     }
 
+    @Override
+    public String toString() {
+        return "QuestionModel{" +
+                "question='" + question + '\'' +
+                ", option1='" + option1 + '\'' +
+                ", option2='" + option2 + '\'' +
+                ", option3='" + option3 + '\'' +
+                ", option4='" + option4 + '\'' +
+                ", correctAnsNo=" + correctAnsNo +
+                ", image=" + image +
+                '}';
+    }
+
     public String getQuestion() {
         return question;
     }
@@ -63,5 +76,13 @@ public class QuestionModel implements Serializable {
 
     public void setCorrectAnsNo(int correctAnsNo) {
         this.correctAnsNo = correctAnsNo;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }
