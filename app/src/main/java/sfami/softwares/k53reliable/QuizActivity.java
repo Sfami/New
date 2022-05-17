@@ -259,9 +259,8 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        dialog.show();
-
         dialog = new Dialog(QuizActivity.this);
+        dialog.show();
         dialog.setContentView(R.layout.dialog_box);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
