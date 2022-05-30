@@ -1,22 +1,18 @@
 package sfami.softwares.k53reliable;
 
-import java.util.ArrayList;
-
 public class TestResultModel {
 
     private Integer id;
     private String testName;
     private Integer score;
     private Integer total;
-    private String data;
     private String answers;
 
-    public TestResultModel(Integer id, String testName, Integer score, Integer total, String data, String answers) {
+    public TestResultModel(Integer id, String testName, Integer score, Integer total, String answers) {
         this.id = id;
         this.testName = testName;
         this.score = score;
         this.total = total;
-        this.data = data;
         this.answers = answers;
     }
 
@@ -54,13 +50,6 @@ public class TestResultModel {
                 '}';
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
 
     public String getAnswers() {
         return answers;

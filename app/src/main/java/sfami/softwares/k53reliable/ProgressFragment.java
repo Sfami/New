@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ProgressFragment extends Fragment {
 
-    private final List<TestResultModel> myRoadSignData;
+    private final List<TestResultModel> myTestsResultsData;
 
     private int count = 0;
     private AdView mAdView;
@@ -28,9 +28,9 @@ public class ProgressFragment extends Fragment {
     private String PACKAGE_NAME = "sfami.softwares.k53reliable";
 
 
-    public ProgressFragment(List<TestResultModel> myRoadSignData) {
+    public ProgressFragment(List<TestResultModel> myTestsResultsData) {
         // Required empty public constructor
-        this.myRoadSignData = myRoadSignData;
+        this.myTestsResultsData = myTestsResultsData;
     }
 
 
@@ -45,8 +45,7 @@ public class ProgressFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
-        MyProgressFragmentAdapter myProgressFragmentAdapter = new MyProgressFragmentAdapter(myRoadSignData,this.getActivity());
+        MyProgressFragmentAdapter myProgressFragmentAdapter = new MyProgressFragmentAdapter(myTestsResultsData,this.getActivity());
         recyclerView.setAdapter(myProgressFragmentAdapter);
         button = view.findViewById(R.id.button);
 

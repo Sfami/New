@@ -29,7 +29,7 @@
                 android:gravity="center"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:text="10:22"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.512"
@@ -62,7 +62,7 @@
                 android:layout_marginTop="5dp"
                 android:text="@string/question_number"
                 android:textStyle="bold"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/white"
                 android:fontFamily="monospace"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center"
@@ -189,7 +189,7 @@
                     android:padding="5dp"
                     android:shadowColor="@color/white"
                     android:text="Check"
-                    android:textColor="@color/teal_200" />
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 

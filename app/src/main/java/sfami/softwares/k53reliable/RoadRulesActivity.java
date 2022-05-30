@@ -24,25 +24,6 @@ public class RoadRulesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_road_rules);
-//        MyRoadSignData[] myRoadSignData = new MyRoadSignData[]{
-//                new MyRoadSignData("General Rules","Regulatory road signs are used to regulate the actions of road users.", R.drawable.yield),
-//                new MyRoadSignData("Overtaking, Lanes, Freeway","Used to alert drivers to dangerous situations on or bordering the roadway.",R.drawable.info),
-//                new MyRoadSignData("Direction Indicators, Road Lanes","Provided to help navigate our increasingly complex and developing road network.",R.drawable.guidance),
-//                new MyRoadSignData("Speed","2019 film",R.drawable.temporary),
-//                new MyRoadSignData("Parking and Stopping Areas","2012 film",R.drawable.road_markings),
-//                new MyRoadSignData("Reflectors","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("View and Visibility","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Lights, Number Plates","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Steering","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Brake, Tyres","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Fuel Tank, Engine","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Vehicle Length, Height, and Width","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Transporting Goods","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Towing, Vehicle Combinations","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Destruction Vehicles","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Recklessness and Negligence On the Road","2012 film",R.drawable.good_deeds),
-//                new MyRoadSignData("Noise On The Road","2012 film",R.drawable.good_deeds),
-//        };
 
 
         Intent intent = getIntent();
