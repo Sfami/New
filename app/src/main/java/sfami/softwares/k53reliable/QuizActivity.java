@@ -1,8 +1,6 @@
 package sfami.softwares.k53reliable;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -27,7 +25,6 @@ import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
@@ -93,6 +90,7 @@ public class QuizActivity extends AppCompatActivity {
 
         dfRbColor = rb1.getTextColors();
 
+
         addQuestions();
 //        totalQuestions = questionList.size();
         totalQuestions = data.length;
@@ -138,20 +136,20 @@ public class QuizActivity extends AppCompatActivity {
 
         switch (currentQuestion.getCorrectAnsNo()){
             case 1:
-                rb1.setTextColor(Color.GREEN);
+                rb1.setTextColor(Color.BLUE);
                 rb1.isChecked();
                 break;
             case 2:
-                rb2.setTextColor(Color.GREEN);
-                rb1.isChecked();
+                rb2.setTextColor(Color.BLUE);
+                rb2.isChecked();
                 break;
             case 3:
-                rb3.setTextColor(Color.GREEN);
-                rb1.isChecked();
+                rb3.setTextColor(Color.BLUE);
+                rb3.isChecked();
                 break;
             case 4:
-                rb4.setTextColor(Color.GREEN);
-                rb1.isChecked();
+                rb4.setTextColor(Color.BLUE);
+                rb4.isChecked();
                 break;
         }
         if (qCounter < totalQuestions){
@@ -199,7 +197,7 @@ public class QuizActivity extends AppCompatActivity {
 
             if (answers.size() > 0) {
                 saveTestResults();
-                Toast.makeText(QuizActivity.this, "Results saved.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(QuizActivity.this, "Results saved.", Toast.LENGTH_SHORT).show();
                 startResultsActivity();
             }
             else finish();
@@ -243,13 +241,13 @@ public class QuizActivity extends AppCompatActivity {
 
     private void saveTestResults(){
         TestResultModel results;
-        results = new TestResultModel(-1, "This test", 0, 0, "questions", "answers");
+        results = new TestResultModel(-1, "This test", 0, 0, "questions");
         try {
-            results = new TestResultModel(-1, title, score, totalQuestions, Arrays.toString(data), answers.toString());
+            results = new TestResultModel(-1, title, score, totalQuestions, answers.toString());
             Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
         } catch (Exception e){
             Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-            results = new TestResultModel(-1, title, score, totalQuestions, Arrays.toString(data), answers.toString());
+            results = new TestResultModel(-1, title, score, totalQuestions, answers.toString());
         }
         DataBaseHelper dataBaseHelper = new DataBaseHelper(QuizActivity.this);
         boolean success = dataBaseHelper.addOne(results);
@@ -259,9 +257,8 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        dialog.show();
-
         dialog = new Dialog(QuizActivity.this);
+        dialog.show();
         dialog.setContentView(R.layout.dialog_box);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);

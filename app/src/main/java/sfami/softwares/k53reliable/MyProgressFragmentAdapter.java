@@ -13,16 +13,50 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyProgressFragmentAdapter extends RecyclerView.Adapter<MyProgressFragmentAdapter.ViewHolder> {
 
     List<TestResultModel> myTestResultsData;
     Context context;
+    ArrayList<Integer> roadSignsTestsScores = new ArrayList<>();
+    ArrayList<Integer> roadRulesTestsScores = new ArrayList<>();
+    ArrayList<Integer> controlsTestsScores = new ArrayList<>();
+    ArrayList<Integer> K53TestsScores = new ArrayList<>();
+    ArrayList<String> averageScores = new ArrayList<>();
 
     public MyProgressFragmentAdapter(List<TestResultModel> myTestResultsData, Activity activity) {
         this.myTestResultsData = myTestResultsData;
         this.context = activity;
+        setScores();
+    }
+
+    public void setScores(){
+        for (int i = 0; i < myTestResultsData.size(); i++) {
+            if (myTestResultsData.get(i).getTestName().equals("Controls Test")){
+                controlsTestsScores.add(myTestResultsData.get(i).getScore());
+            }
+            if (myTestResultsData.get(i).getTestName().equals("Road Signs Test")){
+                roadSignsTestsScores.add(myTestResultsData.get(i).getScore());
+            }
+            if (myTestResultsData.get(i).getTestName().equals("Road Rules Test")){
+                roadRulesTestsScores.add(myTestResultsData.get(i).getScore());
+            }
+            if (myTestResultsData.get(i).getTestName().equals("K53 Test")){
+                K53TestsScores.add(myTestResultsData.get(i).getScore());
+            }
+        }
+    }
+
+    private String getAverageScore(ArrayList<Integer> scores){
+        String avgScore = "";
+        int totalScore = 0;
+        for (int i = 0; i < scores.size(); i++) {
+            totalScore += scores.get(i);
+        }
+        avgScore = String.valueOf(totalScore / Double.parseDouble(Integer.toString(scores.size())));
+        return avgScore;
     }
 
 
@@ -38,37 +72,51 @@ public class MyProgressFragmentAdapter extends RecyclerView.Adapter<MyProgressFr
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final TestResultModel myRoadSignDataList = myTestResultsData.get(position);
-        holder.test.setText(myRoadSignDataList.getTestName().toString());
-        holder.score.setText(myRoadSignDataList.getScore().toString());
+        final TestResultModel myTestResultsDataList = myTestResultsData.get(position);
+
+        if (myTestResultsDataList.getTestName().equals("Controls Test")){
+            holder.averageScore.setText(getAverageScore(controlsTestsScores) + " / " +myTestResultsDataList.getTotal().toString());
+        }
+        if (myTestResultsDataList.getTestName().equals("Road Signs Test")){
+            holder.averageScore.setText(getAverageScore(roadSignsTestsScores) + " / " +myTestResultsDataList.getTotal().toString());
+        }
+        if (myTestResultsDataList.getTestName().equals("Road Rules Test")){
+            holder.averageScore.setText(getAverageScore(roadRulesTestsScores) + " / " +myTestResultsDataList.getTotal().toString());
+        }
+        if (myTestResultsDataList.getTestName().equals("K53 Test")){
+            holder.averageScore.setText(getAverageScore(K53TestsScores) + " / " +myTestResultsDataList.getTotal().toString());
+        }
+
+        holder.test.setText(myTestResultsDataList.getTestName().toString());
+        holder.score.setText(myTestResultsDataList.getScore().toString() + " / " +myTestResultsDataList.getTotal().toString());
         // TO-DO: Create average score functionality.
-        holder.averageScore.setText(myRoadSignDataList.getScore().toString());
+//        holder.averageScore.setText(myTestResultsDataList.getScore().toString());
         // TO-DO: Create image for this card.
         int img = 0;
-        if (myRoadSignDataList.getScore() > 4) img = R.drawable.gold;
-        else if (myRoadSignDataList.getScore() > 2 && myRoadSignDataList.getScore() < 5 ) img = R.drawable.silver;
+        if (myTestResultsDataList.getScore() > 4) img = R.drawable.gold;
+        else if (myTestResultsDataList.getScore() > 2 && myTestResultsDataList.getScore() < 5 ) img = R.drawable.silver;
         else img = R.drawable.bronze;
         holder.image.setImageResource(img);
 
         holder.viewResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), myRoadSignDataList.getAnswers(), Toast.LENGTH_LONG).show();
+                Toast.makeText(view.getContext(), myTestResultsDataList.getAnswers(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(view.getContext(), ViewResultsActivity.class);
-                intent.putExtra("title", myRoadSignDataList.getTestName());
-                intent.putExtra("answers", myRoadSignDataList.getAnswers());
-                intent.putExtra("score", myRoadSignDataList.getScore());
+                intent.putExtra("title", myTestResultsDataList.getTestName());
+                intent.putExtra("answers", myTestResultsDataList.getAnswers());
+                intent.putExtra("score", myTestResultsDataList.getScore());
                 QuestionModel[] d = null;
-                if (myRoadSignDataList.getTestName().equals("Controls Test")){
+                if (myTestResultsDataList.getTestName().equals("Controls Test")){
                     d = GlobalElements.vehicleControlsQuestions;
                 }
-                if (myRoadSignDataList.getTestName().equals("Road Signs Test")){
+                if (myTestResultsDataList.getTestName().equals("Road Signs Test")){
                     d = GlobalElements.roadSignsQuestions;
                 }
-                if (myRoadSignDataList.getTestName().equals("Road Rules Test")){
+                if (myTestResultsDataList.getTestName().equals("Road Rules Test")){
                     d = GlobalElements.roadRulesQuestions;
                 }
-                if (myRoadSignDataList.getTestName().equals("K53 Test")){
+                if (myTestResultsDataList.getTestName().equals("K53 Test")){
                     d = GlobalElements.roadRulesQuestions;
                 }
                 
@@ -93,7 +141,6 @@ public class MyProgressFragmentAdapter extends RecyclerView.Adapter<MyProgressFr
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             test = itemView.findViewById(R.id.test);
             score = itemView.findViewById(R.id.score);
             averageScore = itemView.findViewById(R.id.average_score);
