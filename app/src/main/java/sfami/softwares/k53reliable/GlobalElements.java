@@ -1411,25 +1411,11 @@ public class GlobalElements {
     public static Sign guidanceMarkingsSign = new Sign(guidanceMarkingsSignName, guidanceMarkingsSignDescription, guidanceMarkingsSignPurpose, guidanceMarkingsSignWhere, guidanceMarkingsSignAction, guidanceMarkingsSignImage);
 
 
-//    public static String SignName = "Road Markings";
-//    public static String Description = "I am here.";
-//    public static String Purpose = "Stop";
-//    public static String Action = "Stop";
-//    public static String Where = "Stop";
-//    public static Integer Image = R.drawable.pedestrian_crossing;
-//    public static Sign Sign = new Sign(parkSignName, parkSignDescription, parkSignPurpose, parkSignWhere, parkSignAction, parkSignImage);
-
-//    public static String SignName = "Stop";
-//    public static String Description = "I am here.";
-//    public static String Purpose = "Stop";
-//    public static String Action = "Stop";
-//    public static String Where = "Stop";
-//    public static Integer Image = R.drawable.pedestrian_crossing;
-//    public static Sign Sign = new Sign(parkSignName, parkSignDescription, parkSignPurpose, parkSignWhere, parkSignAction, parkSignImage);
-
     /*
      * Menu
      * */
+
+
     public static String roadSignsSignName = "Road Signs";
     public static String roadSignsDescription = "Learn about all the road signs controls that you will need to know to pass the K53 learner's test.";
     public static String roadSignsPurpose = "Stop";
@@ -1453,16 +1439,6 @@ public class GlobalElements {
     public static String controlsWhere = "Stop";
     public static Integer controlsImage = R.drawable.controls;
     public static Sign controlsSign = new Sign(controlsTitle, controlsDescription, controlsPurpose, controlsWhere, controlsAction, controlsImage);
-
-
-//    public static String Title = "Stop";
-//    public static String Description = "I am here.";
-//    public static String Purpose = "Stop";
-//    public static String Action = "Stop";
-//    public static String Where = "Stop";
-//    public static Integer Image = R.drawable.pedestrian_crossing;
-//    public static Sign Sign = new Sign(parkSignName, parkSignDescription, parkSignPurpose, parkSignWhere, parkSignAction, parkSignImage);
-
 
 
     /*
@@ -1745,9 +1721,6 @@ public class GlobalElements {
     public static Integer overallLengthOfVehicleRulesImage = 0;
     public static Rule overallLengthOfVehicleRules = new Rule(overallLengthOfVehicleRulesTitle, overallLengthOfVehicleRulesInstruction, overallLengthOfVehicleRulesImage);
 
-
-
-
     public static String overallHeightOfVehicleRulesTitle = "OVERALL HEIGHT OF VEHICLE";
     public static String overallHeightOfVehicleRulesInstruction = "1. The following motor vehicles may not be used on a public road together with any load thereon, if the overall height-\n" + bulletSymbol +
             " in the case of a double-deck bus exceeds 4,65 metres; and\n" + bulletSymbol +
@@ -1934,7 +1907,6 @@ public class GlobalElements {
     public static Integer parkingRulesImage = 0;
     public static Rule parkingRules = new Rule(parkingRulesTitle, parkingRulesInstruction, parkingRulesImage);
 
-
     public static String stoppingRulesTitle = "STOPPING";
     public static String stoppingRulesInstruction = "1. No person shall stop a vehicle on the roadway of a public road-\n" + bulletSymbol +
             " except in order to avoid an accident,\n" + bulletSymbol +
@@ -1950,9 +1922,6 @@ public class GlobalElements {
             " in any other place where the stopping of a vehicle would constitute a danger or an obstruction to other traffic.\n";
     public static Integer stoppingRulesImage = 0;
     public static Rule stoppingRules = new Rule(stoppingRulesTitle, stoppingRulesInstruction, stoppingRulesImage);
-
-
-
 
     public static String generalDutiesOfDriverRulesTitle = "GENERAL DUTIES OF DRIVER/RIDER";
     public static String generalDutiesOfDriverRulesInstruction = "1. No person driving a vehicle on a public road shall-\n" + bulletSymbol +
@@ -1977,8 +1946,6 @@ public class GlobalElements {
     public static Integer generalDutiesOfDriverRulesImage = 0;
     public static Rule generalDutiesOfDriverRules = new Rule(generalDutiesOfDriverRulesTitle, generalDutiesOfDriverRulesInstruction, generalDutiesOfDriverRulesImage);
 
-
-
     public static String dutiesRelatingToMotorcyclesRulesTitle = "DUTIES RELATING TO MOTORCYCLES";
     public static String dutiesRelatingToMotorcyclesRulesInstruction = "1. When riding any motorcycle on a public road -\n" + bulletSymbol +
             " A rider may not disobey any road traffic sign or rule of the road unless so ordered to do so by a traffic officer.\n" + bulletSymbol +
@@ -1996,24 +1963,16 @@ public class GlobalElements {
     public static Integer dutiesRelatingToMotorcyclesRulesImage = 0;
     public static Rule dutiesRelatingToMotorcyclesRules = new Rule(dutiesRelatingToMotorcyclesRulesTitle, dutiesRelatingToMotorcyclesRulesInstruction, dutiesRelatingToMotorcyclesRulesImage);
 
-
-
     public static String motorcycleSideCarRulesTitle = "MANNER IN WHICH SIDE CAR TO BE ATTACHED TO MOTORCYCLE";
     public static String motorcycleSideCarRulesInstruction = "1. No person shall use a motorcycle with sidecar on a public road, unless such sidecar is attached to the left side of the motorcycle.\n\n" +
             "2. No sidecar may be attached to a motorcycle having an engine with a cylinder capacity of less than 50 cubic centimetres.\n";
     public static Integer motorcycleSideCarRulesImage = 0;
     public static Rule motorcycleSideCarRules = new Rule(motorcycleSideCarRulesTitle, motorcycleSideCarRulesInstruction, motorcycleSideCarRulesImage);
 
-
-
-
     public static String cellphonesRulesTitle = "CELLPHONES";
     public static String cellphonesRulesInstruction = "1. No person shall drive/ride a vehicle on a public road while holding a cellular or mobile telephone or any other communication device in one or both hands or with any other part of the body.\n";
     public static Integer cellphonesRulesImage = 0;
     public static Rule cellphonesRules = new Rule(cellphonesRulesTitle, cellphonesRulesInstruction, cellphonesRulesImage);
-
-
-
 
     public static String pedestriansRightOfWayRulesTitle = "PEDESTRIANS RIGHT OF WAY";
     public static String pedestriansRightOfWayRulesInstruction = "1. The driver/rider of a vehicle must yield right of way, slow down or stop, if necessary in order to yield right of way to a pedestrian crossing a roadway within a pedestrian crossing.\n\n" +
@@ -2022,16 +1981,12 @@ public class GlobalElements {
     public static Integer pedestriansRightOfWayRulesImage = 0;
     public static Rule pedestriansRightOfWayRules = new Rule(pedestriansRightOfWayRulesTitle, pedestriansRightOfWayRulesInstruction, pedestriansRightOfWayRulesImage);
 
-
-
     public static String abandonedVehiclesRulesTitle = "VEHICLE LEFT / ABANDONED";
     public static String abandonedVehiclesRulesInstruction = "1. Any vehicle left for a continuous period of more than;\n" + bulletSymbol +
             " 24 hours in the same place on a public road outside an urban area;\n" + bulletSymbol +
             " 7 days in the same place on a public road within an urban area, shall be deemed to been abandoned by the owner.\n";
     public static Integer abandonedVehiclesRulesImage = 0;
     public static Rule abandonedVehiclesRules = new Rule(abandonedVehiclesRulesTitle, abandonedVehiclesRulesInstruction, abandonedVehiclesRulesImage);
-
-
 
     public static String damageToPublicRoadsRulesTitle = "DAMAGE TO PUBLIC ROADS";
     public static String damageToPublicRoadsRulesInstruction = "1. You may not;\n" + bulletSymbol +
@@ -2040,8 +1995,6 @@ public class GlobalElements {
             " use any vehicle or thing or move any vehicle or thing on a roadway in a manner causing damage thereto.\n";
     public static Integer damageToPublicRoadsRulesImage = 0;
     public static Rule damageToPublicRoadsRules = new Rule(damageToPublicRoadsRulesTitle, damageToPublicRoadsRulesInstruction, damageToPublicRoadsRulesImage);
-
-
 
     public static String freewaysRulesTitle = "FREEWAYS";
     public static String freewaysRulesInstruction = "1. The following vehicles may not be used on a freeway—\n" + bulletSymbol +
@@ -2063,9 +2016,6 @@ public class GlobalElements {
     public static Integer freewaysRulesImage = 0;
     public static Rule freewaysRules = new Rule(freewaysRulesTitle, freewaysRulesInstruction, freewaysRulesImage);
 
-
-
-
     public static String towingRulesTitle = "TOWING";
     public static String towingRulesInstruction = "1. No person shall use any motorcycle to tow another vehicle.\n\n" +
             "2. No person shall be allowed to tow another vehicle on a public road—\n" + bulletSymbol +
@@ -2078,8 +2028,6 @@ public class GlobalElements {
     public static Integer towingRulesImage = 0;
     public static Rule towingRules = new Rule(towingRulesTitle, towingRulesInstruction, towingRulesImage);
 
-
-
     public static String combinationOfMotorVehiclesRulesTitle = "RESTRICTION ON COMBINATION OF MOTOR VEHICLES";
     public static String combinationOfMotorVehiclesRulesInstruction = "1. A combination of motor vehicles is restricted to a drawing vehicle, and—\n" + bulletSymbol +
             " a maximum of two trailers;\n" + bulletSymbol +
@@ -2088,15 +2036,11 @@ public class GlobalElements {
     public static Integer combinationOfMotorVehiclesRulesImage = 0;
     public static Rule combinationOfMotorVehiclesRules = new Rule(combinationOfMotorVehiclesRulesTitle, combinationOfMotorVehiclesRulesInstruction, combinationOfMotorVehiclesRulesImage);
 
-
-
     public static String enteringPublicRoadRulesTitle = "CROSSING/ENTERING PUBLIC ROAD";
     public static String enteringPublicRoadRulesInstruction = "1. The driver/rider of a vehicle shall not cross a public road unless the road is clear of moving traffic for a sufficient distance to allow him or her to cross the road without obstructing or endangering any traffic.\n\n" +
             "2. The driver/rider of a vehicle shall not enter a public road unless he or she can do so with safety to himself or herself and other traffic.\n";
     public static Integer enteringPublicRoadRulesImage = 0;
     public static Rule enteringPublicRoadRules = new Rule(enteringPublicRoadRulesTitle, enteringPublicRoadRulesInstruction, enteringPublicRoadRulesImage);
-
-
 
     public static String compulsoryStopsRulesTitle = "COMPULSORY STOPS";
     public static String compulsoryStopsRulesInstruction = "1. The driver/rider of a vehicle on a public road shall stop such vehicle —\n" + bulletSymbol +
@@ -2105,9 +2049,6 @@ public class GlobalElements {
             " when animals are seen crossing a road and driver/rider may only move when all the animals have crossed and the road is safe to continue driving.";
     public static Integer compulsoryStopsRulesImage = 0;
     public static Rule compulsoryStopsRules = new Rule(compulsoryStopsRulesTitle, compulsoryStopsRulesInstruction, compulsoryStopsRulesImage);
-
-
-
 
     public static String tyresRulesTitle = "TYRES";
     public static String tyresRulesInstruction = "Light Motor Vehicle\n\n" +
@@ -2119,9 +2060,6 @@ public class GlobalElements {
             " which is equipped with a retreated tyre\n";
     public static Integer tyresRulesImage = 0;
     public static Rule tyresRules = new Rule(tyresRulesTitle, tyresRulesInstruction, tyresRulesImage);
-
-
-
 
     public static String accidentsRulesTitle = "ACCIDENTS";
     public static String accidentsRulesInstruction = "1. Any driver/rider of a motor vehicle involved in an accident or who contributes to any accident must –\n" +  bulletSymbol +
@@ -2137,15 +2075,10 @@ public class GlobalElements {
     public static Integer accidentsRulesImage = 0;
     public static Rule accidentsRules = new Rule(accidentsRulesTitle, accidentsRulesInstruction, accidentsRulesImage);
 
-
-
-
     public static String inconsiderateDrivingRulesTitle = "INCONSIDERATE DRIVING";
     public static String inconsiderateDrivingRulesInstruction = "1. No person shall drive a vehicle on a public road without reasonable consideration for any other person using the road.";
     public static Integer inconsiderateDrivingRulesImage = 0;
     public static Rule inconsiderateDrivingRules = new Rule(inconsiderateDrivingRulesTitle, inconsiderateDrivingRulesInstruction, inconsiderateDrivingRulesImage);
-
-
 
     public static String recklessDrivingRulesTitle = "RECKLESS OR NEGLIGENT DRIVING";
     public static String recklessDrivingRulesInstruction = "1. No person shall drive a vehicle on a public road -\n" + bulletSymbol +
@@ -2153,8 +2086,6 @@ public class GlobalElements {
             " in a manner that wilfully disregard the safety of persons or property.";
     public static Integer recklessDrivingRulesImage = 0;
     public static Rule recklessDrivingRules = new Rule(recklessDrivingRulesTitle, recklessDrivingRulesInstruction, recklessDrivingRulesImage);
-
-
 
     public static String drivingUnderTheInfluenceRulesTitle = "DRIVING WHILE UNDER THE INFLUENCE OF INTOXICATING LIQUOR OR DRUGS";
     public static String drivingUnderTheInfluenceRulesInstruction = "1. No person shall drive a motor vehicle on a public road while the concentration of alcohol in a person’s body is:\n" +  bulletSymbol +
@@ -2167,13 +2098,6 @@ public class GlobalElements {
     public static Integer drivingUnderTheInfluenceRulesImage = 0;
     public static Rule drivingUnderTheInfluenceRules = new Rule(drivingUnderTheInfluenceRulesTitle, drivingUnderTheInfluenceRulesInstruction, drivingUnderTheInfluenceRulesImage);
 
-
-
-
-
-
-
-
     public static String generalRoadRulesTitle = "General Rules";
     public static String generalRoadRulesInstruction = "Stop";
     public static Integer generalRoadRulesImage = 0;
@@ -2183,8 +2107,7 @@ public class GlobalElements {
     public static String overTakingLanesFreewayRulesInstruction = "Stop";
     public static Integer overTakingLanesFreewayRulesImage = 0;
     public static Rule overTakingLanesFreewayRules = new Rule(generalRoadRulesTitle, generalRoadRulesInstruction, generalRoadRulesImage);
-
-
+    
     public static String speedRulesTitle = "Speed";
     public static String speedRulesInstruction = "Stop";
     public static Integer speedRulesImage = 0;
@@ -2194,6 +2117,7 @@ public class GlobalElements {
     public static String parkingAndStoppingAreasRulesInstruction = "Stop";
     public static Integer parkingAndStoppingAreasRulesImage = null;
     public static Rule parkingAndStoppingAreasRules = new Rule(generalRoadRulesTitle, generalRoadRulesInstruction, generalRoadRulesImage);
+
 
 
 

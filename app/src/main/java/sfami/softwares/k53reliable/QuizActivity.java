@@ -85,7 +85,7 @@ public class QuizActivity extends AppCompatActivity {
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
         rb3 = findViewById(R.id.rb3);
-        rb4 = findViewById(R.id.rb4);
+//        rb4 = findViewById(R.id.rb4);
         nextBtn = findViewById(R.id.next);
 
         dfRbColor = rb1.getTextColors();
@@ -103,7 +103,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (answered == false){
-                    if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()){
+                    if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked()){
                         checkAnswer();
                         countDownTimer.cancel();
                         updateCountdownUI();
@@ -132,7 +132,7 @@ public class QuizActivity extends AppCompatActivity {
         rb1.setTextColor(Color.RED);
         rb2.setTextColor(Color.RED);
         rb3.setTextColor(Color.RED);
-        rb4.setTextColor(Color.RED);
+//        rb4.setTextColor(Color.RED);
 
         switch (currentQuestion.getCorrectAnsNo()){
             case 1:
@@ -147,10 +147,10 @@ public class QuizActivity extends AppCompatActivity {
                 rb3.setTextColor(Color.BLUE);
                 rb3.isChecked();
                 break;
-            case 4:
-                rb4.setTextColor(Color.BLUE);
-                rb4.isChecked();
-                break;
+//            case 4:
+//                rb4.setTextColor(Color.BLUE);
+//                rb4.isChecked();
+//                break;
         }
         if (qCounter < totalQuestions){
             nextBtn.setText(R.string.btn_next);
@@ -173,7 +173,7 @@ public class QuizActivity extends AppCompatActivity {
         rb1.setTextColor(dfRbColor);
         rb2.setTextColor(dfRbColor);
         rb3.setTextColor(dfRbColor);
-        rb4.setTextColor(dfRbColor);
+//        rb4.setTextColor(dfRbColor);
 
         if (qCounter < totalQuestions){
             timer();
@@ -187,7 +187,7 @@ public class QuizActivity extends AppCompatActivity {
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
             rb3.setText(currentQuestion.getOption3());
-            rb4.setText(currentQuestion.getOption4());
+//            rb4.setText(currentQuestion.getOption4());
             qCounter++;
             nextBtn.setText("Check");
             answered = false;

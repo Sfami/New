@@ -136,6 +136,7 @@ public class LearnersManualFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 
