@@ -44,46 +44,46 @@ public class RoadSignsMainActivity extends AppCompatActivity {
 //        };
 
         MyRoadSignData[] myRegulatorySignsData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.controlSignsSign),
-                new MyRoadSignData(GlobalElements.commandSignsSign),
-                new MyRoadSignData(GlobalElements.prohibitionsSignsSign),
-                new MyRoadSignData(GlobalElements.reservationSignsSign),
-                new MyRoadSignData(GlobalElements.comprehensiveSignsSign),
-                new MyRoadSignData(GlobalElements.secondarySignsSign),
-                new MyRoadSignData(GlobalElements.deRestrictionSignsSign),
+                new MyRoadSignData(RoadSigns.controlSignsSign),
+                new MyRoadSignData(RoadSigns.commandSignsSign),
+                new MyRoadSignData(RoadSigns.prohibitionsSignsSign),
+                new MyRoadSignData(RoadSigns.reservationSignsSign),
+                new MyRoadSignData(RoadSigns.comprehensiveSignsSign),
+                new MyRoadSignData(RoadSigns.secondarySignsSign),
+                new MyRoadSignData(RoadSigns.deRestrictionSignsSign),
         };
 
         MyRoadSignData[] myWarningSignsData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.roadLayoutSignsSign),
-                new MyRoadSignData(GlobalElements.directionOfMovementSignsSign),
-                new MyRoadSignData(GlobalElements.symbolicSignsSign),
+                new MyRoadSignData(RoadSigns.roadLayoutSignsSign),
+                new MyRoadSignData(RoadSigns.directionOfMovementSignsSign),
+                new MyRoadSignData(RoadSigns.symbolicSignsSign),
         };
 
         MyRoadSignData[] myGuidanceSignsData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.routeMarkersSign),
-                new MyRoadSignData(GlobalElements.directionSignsSign),
-                new MyRoadSignData(GlobalElements.diagrammaticSignsSign),
+                new MyRoadSignData(RoadSigns.routeMarkersSign),
+                new MyRoadSignData(RoadSigns.directionSignsSign),
+                new MyRoadSignData(RoadSigns.diagrammaticSignsSign),
         };
 
         MyRoadSignData[] myRoadMarkingData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.regulatoryMarkingsSign),
-                new MyRoadSignData(GlobalElements.warningMarkingsSign),
-                new MyRoadSignData(GlobalElements.guidanceMarkingsSign),
+                new MyRoadSignData(RoadSigns.regulatoryMarkingsSign),
+                new MyRoadSignData(RoadSigns.warningMarkingsSign),
+                new MyRoadSignData(RoadSigns.guidanceMarkingsSign),
         };
 
         MyRoadSignData[] myTrafficSignalsSignsData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.trafficLightsSign),
-                new MyRoadSignData(GlobalElements.otherRegulatorySignalsSign),
+                new MyRoadSignData(RoadSigns.trafficLightsSign),
+                new MyRoadSignData(RoadSigns.otherRegulatorySignalsSign),
         };
 
         MyRoadSignData[] myTemporarySignsData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.exampleOfTemporarySignsSign),
+                new MyRoadSignData(RoadSigns.exampleOfTemporarySignsSign),
         };
 
 
 
         MyRoadSignData[] myInformationSignsData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.informationSignsSign),
+                new MyRoadSignData(RoadSigns.informationSignsSign),
         };
 
 

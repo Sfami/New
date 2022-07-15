@@ -47,13 +47,13 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
                     Intent intent = new Intent(context, RoadSignsMainActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
-                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
-                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
-                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
-                            new MyRoadSignData(GlobalElements.proceedSignalSign),
-                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
-                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
-                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFrontSignalSign),
+                            new MyRoadSignData(RoadSigns.stopRearSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(RoadSigns.proceedSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.proceedFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.warningFlagSignalSign),
                     };
                     intent.putExtra("data", d);
                     context.startActivity(intent);
@@ -62,13 +62,13 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
                     Intent intent = new Intent(context, RoadRulesMainActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
-                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
-                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
-                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
-                            new MyRoadSignData(GlobalElements.proceedSignalSign),
-                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
-                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
-                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFrontSignalSign),
+                            new MyRoadSignData(RoadSigns.stopRearSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(RoadSigns.proceedSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.proceedFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.warningFlagSignalSign),
                     };
                     intent.putExtra("data", d);
                     context.startActivity(intent);
@@ -77,13 +77,13 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
                     Intent intent = new Intent(context, ControlsActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
-                            new MyRoadSignData(GlobalElements.stopFrontSignalSign),
-                            new MyRoadSignData(GlobalElements.stopRearSignalSign),
-                            new MyRoadSignData(GlobalElements.stopFrontAndRearSignalSign),
-                            new MyRoadSignData(GlobalElements.proceedSignalSign),
-                            new MyRoadSignData(GlobalElements.stopFlagSignalSign),
-                            new MyRoadSignData(GlobalElements.proceedFlagSignalSign),
-                            new MyRoadSignData(GlobalElements.warningFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFrontSignalSign),
+                            new MyRoadSignData(RoadSigns.stopRearSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFrontAndRearSignalSign),
+                            new MyRoadSignData(RoadSigns.proceedSignalSign),
+                            new MyRoadSignData(RoadSigns.stopFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.proceedFlagSignalSign),
+                            new MyRoadSignData(RoadSigns.warningFlagSignalSign),
                     };
                     intent.putExtra("data", d);
                     context.startActivity(intent);
@@ -98,28 +98,28 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
                 if (myRoadSignDataList.getSignName().equals("Book Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
-                    QuestionModel[] d = GlobalElements.roadRulesQuestions;
+                    QuestionModel[] d = Questions.roadRulesQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Controls Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
-                    QuestionModel[] d = GlobalElements.vehicleControlsQuestions;
+                    QuestionModel[] d = Questions.vehicleControlsQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Road Signs Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
-                    QuestionModel[] d = GlobalElements.roadSignsQuestions;
+                    QuestionModel[] d = Questions.roadSignsQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
                 if (myRoadSignDataList.getSignName().equals("Road Rules Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
                     intent.putExtra("title", myRoadSignDataList.getSignName());
-                    QuestionModel[] d = GlobalElements.roadRulesQuestions;
+                    QuestionModel[] d = Questions.roadRulesQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }

@@ -85,14 +85,12 @@ public class QuizActivity extends AppCompatActivity {
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
         rb3 = findViewById(R.id.rb3);
-//        rb4 = findViewById(R.id.rb4);
         nextBtn = findViewById(R.id.next);
 
         dfRbColor = rb1.getTextColors();
 
 
         addQuestions();
-//        totalQuestions = questionList.size();
         totalQuestions = data.length;
         answers = new ArrayList<>();
         questions = new ArrayList<>();
@@ -132,7 +130,6 @@ public class QuizActivity extends AppCompatActivity {
         rb1.setTextColor(Color.RED);
         rb2.setTextColor(Color.RED);
         rb3.setTextColor(Color.RED);
-//        rb4.setTextColor(Color.RED);
 
         switch (currentQuestion.getCorrectAnsNo()){
             case 1:
@@ -147,10 +144,6 @@ public class QuizActivity extends AppCompatActivity {
                 rb3.setTextColor(Color.BLUE);
                 rb3.isChecked();
                 break;
-//            case 4:
-//                rb4.setTextColor(Color.BLUE);
-//                rb4.isChecked();
-//                break;
         }
         if (qCounter < totalQuestions){
             nextBtn.setText(R.string.btn_next);
@@ -173,21 +166,17 @@ public class QuizActivity extends AppCompatActivity {
         rb1.setTextColor(dfRbColor);
         rb2.setTextColor(dfRbColor);
         rb3.setTextColor(dfRbColor);
-//        rb4.setTextColor(dfRbColor);
 
         if (qCounter < totalQuestions){
             timer();
-//            currentQuestion = questionList.get(qCounter);
             currentQuestion = data[qCounter];
             question.setText(currentQuestion.getQuestion());
-//            questions.add();
             updateQuestionProgress();
             questionNumber.setText(String.format("Question %s of %s", qCounter + 1, data.length));
             image.setImageResource(currentQuestion.getImage());
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
             rb3.setText(currentQuestion.getOption3());
-//            rb4.setText(currentQuestion.getOption4());
             qCounter++;
             nextBtn.setText("Check");
             answered = false;
@@ -197,7 +186,6 @@ public class QuizActivity extends AppCompatActivity {
 
             if (answers.size() > 0) {
                 saveTestResults();
-//                Toast.makeText(QuizActivity.this, "Results saved.", Toast.LENGTH_SHORT).show();
                 startResultsActivity();
             }
             else finish();
@@ -230,7 +218,6 @@ public class QuizActivity extends AppCompatActivity {
             public void onFinish() {
                 finish();
 //                showNextQuestion();
-//                updateCountdownUI();
             }
         }.start();
     }
@@ -244,14 +231,14 @@ public class QuizActivity extends AppCompatActivity {
         results = new TestResultModel(-1, "This test", 0, 0, "questions");
         try {
             results = new TestResultModel(-1, title, score, totalQuestions, answers.toString());
-            Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(QuizActivity.this, results.getTotal().toString(), Toast.LENGTH_SHORT).show();
         } catch (Exception e){
-            Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+//            Toast.makeText(QuizActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             results = new TestResultModel(-1, title, score, totalQuestions, answers.toString());
         }
         DataBaseHelper dataBaseHelper = new DataBaseHelper(QuizActivity.this);
         boolean success = dataBaseHelper.addOne(results);
-        Toast.makeText(QuizActivity.this, "Success = " + success, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(QuizActivity.this, "Success = " + success, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -295,32 +282,6 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
-//        builder.setMessage("Do you want to exit ?");
-//        builder.setTitle("Warning !");
-//        builder.setCancelable(false);
-//        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which)
-//            {
-//                // When the user click yes button
-//                // then app will close
-//                finish();
-////                startFragmentsActivity(score);
-//            }
-//        });
-//
-//        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which)
-//            {
-//                dialog.cancel();
-//            }
-//        });
-//
-//        AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
     }
 
 
@@ -335,7 +296,6 @@ public class QuizActivity extends AppCompatActivity {
 
     public void startFragmentsActivity(){
         Intent faqs = new Intent(this, FragmentsActivity.class);
-//        faqs.putExtra("score", score);
         startActivity(faqs);
     }
 }

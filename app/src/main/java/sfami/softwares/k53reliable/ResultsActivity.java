@@ -28,14 +28,12 @@ public class ResultsActivity extends AppCompatActivity {
     private List<QuestionModel> questionList;
     private TextView timer, question, questionNumber;
     private RadioGroup radioGroup;
-    private RadioButton rb1, rb2, rb3, rb4;
+    private RadioButton rb1, rb2, rb3;
     private Button nextBtn;
 
     int totalQuestions;
     int qCounter = 0;
     int score = 0;
-    int ticks = 0;
-    int index = 0;
 
     private QuestionModel currentQuestion;
     private int currentAnswerNo;
@@ -77,18 +75,14 @@ public class ResultsActivity extends AppCompatActivity {
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
         rb3 = findViewById(R.id.rb3);
-//        rb4 = findViewById(R.id.rb4);
         nextBtn = findViewById(R.id.next);
 
         dfRbColor = rb1.getTextColors();
 
-//        timer.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.INVISIBLE);
         questionProgress.setVisibility(View.INVISIBLE);
-//        questionNumber.setVisibility(View.INVISIBLE);
-        
+
         addQuestions();
-//        totalQuestions = questionList.size();
         totalQuestions = data.length;
         showNextQuestion();
         populateWithAnswers();
@@ -115,7 +109,6 @@ public class ResultsActivity extends AppCompatActivity {
         rb1.setTextColor(Color.RED);
         rb2.setTextColor(Color.RED);
         rb3.setTextColor(Color.RED);
-//        rb4.setTextColor(Color.RED);
 
         switch (currentQuestion.getCorrectAnsNo()){
             case 1:
@@ -127,9 +120,6 @@ public class ResultsActivity extends AppCompatActivity {
             case 3:
                 rb3.setTextColor(Color.GREEN);
                 break;
-//            case 4:
-//                rb4.setTextColor(Color.GREEN);
-//                break;
         }
 
         switch (currentAnswerNo){
@@ -142,9 +132,6 @@ public class ResultsActivity extends AppCompatActivity {
             case 3:
                 rb3.setChecked(true);
                 break;
-//            case 4:
-//                rb4.setChecked(true);
-//                break;
         }
 
         if (qCounter < totalQuestions){
@@ -162,10 +149,8 @@ public class ResultsActivity extends AppCompatActivity {
         rb1.setTextColor(dfRbColor);
         rb2.setTextColor(dfRbColor);
         rb3.setTextColor(dfRbColor);
-//        rb4.setTextColor(dfRbColor);
 
         if (qCounter < totalQuestions){
-//            currentQuestion = questionList.get(qCounter);
             currentQuestion = data[qCounter];
             timer.setText(String.format("Score %s/%s", Integer.toString(score), data.length ));
             questionNumber.setText(String.format("Question %s of %s", qCounter + 1, data.length));
@@ -174,12 +159,10 @@ public class ResultsActivity extends AppCompatActivity {
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
             rb3.setText(currentQuestion.getOption3());
-//            rb4.setText(currentQuestion.getOption4());
             qCounter++;
 
         }
         else {
-//            nextBtn.setText(R.string.btn_submit);
             finish();
         }
     }
