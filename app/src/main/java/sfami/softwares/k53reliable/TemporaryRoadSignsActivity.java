@@ -33,7 +33,7 @@ public class TemporaryRoadSignsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_road_signs);
 
         MyRoadSignData[] myRoadSignData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.exampleOfTemporarySignsSign)
+                new MyRoadSignData(RoadSigns.exampleOfTemporarySignsSign)
         };
 
         Intent intent = getIntent();
