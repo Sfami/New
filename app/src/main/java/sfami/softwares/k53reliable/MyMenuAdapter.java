@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,17 +34,17 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final MyRoadSignData myRoadSignDataList = myRoadSignData[position];
-        holder.textViewTitle.setText(myRoadSignDataList.getSignName());
-        holder.textViewDescription.setText(myRoadSignDataList.getSignDescriptions());
-        holder.movieImage.setImageResource(myRoadSignDataList.getSignImage());
+        holder.textViewTitle.setText(myRoadSignDataList.getName());
+        holder.textViewDescription.setText(myRoadSignDataList.getDescription());
+        holder.movieImage.setImageResource(myRoadSignDataList.getImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (myRoadSignDataList.getSignName().equals("Road Signs")){
+                if (myRoadSignDataList.getName().equals("Road Signs")){
                     Intent intent = new Intent(context, RoadSignsMainActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.stopFrontSignalSign),
                             new MyRoadSignData(RoadSigns.stopRearSignalSign),
@@ -58,9 +57,9 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals("Road Rules")){
+                if (myRoadSignDataList.getName().equals("Road Rules")){
                     Intent intent = new Intent(context, RoadRulesMainActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.stopFrontSignalSign),
                             new MyRoadSignData(RoadSigns.stopRearSignalSign),
@@ -73,9 +72,9 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals("Controls")){
+                if (myRoadSignDataList.getName().equals("Controls")){
                     Intent intent = new Intent(context, ControlsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.stopFrontSignalSign),
                             new MyRoadSignData(RoadSigns.stopRearSignalSign),
@@ -88,37 +87,37 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter.ViewHolder
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals("K53 Test")){
+                if (myRoadSignDataList.getName().equals("K53 Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     QuestionModel[] d = GlobalElements.K53TestQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals("Book Test")){
+                if (myRoadSignDataList.getName().equals("Book Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     QuestionModel[] d = Questions.roadRulesQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals("Controls Test")){
+                if (myRoadSignDataList.getName().equals("Controls Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     QuestionModel[] d = Questions.vehicleControlsQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals("Road Signs Test")){
+                if (myRoadSignDataList.getName().equals("Road Signs Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     QuestionModel[] d = Questions.roadSignsQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals("Road Rules Test")){
+                if (myRoadSignDataList.getName().equals("Road Rules Test")){
                     Intent intent = new Intent(context, QuizActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     QuestionModel[] d = Questions.roadRulesQuestions;
                     intent.putExtra("data", d);
                     context.startActivity(intent);

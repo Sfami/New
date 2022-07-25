@@ -1,11 +1,8 @@
 package sfami.softwares.k53reliable;
 
-import static android.content.ContentValues.TAG;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.ViewHolder> {
 
@@ -46,18 +38,18 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final MyRoadSignData myRoadSignDataList = myRoadSignData[position];
-        holder.textViewTitle.setText(myRoadSignDataList.getSignName());
-        holder.textViewDescription.setText(myRoadSignDataList.getSignDescriptions());
-        holder.movieImage.setImageResource(myRoadSignDataList.getSignImage());
+        holder.textViewTitle.setText(myRoadSignDataList.getName());
+        holder.textViewDescription.setText(myRoadSignDataList.getDescription());
+        holder.movieImage.setImageResource(myRoadSignDataList.getImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, myRoadSignDataList.getSignName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, myRoadSignDataList.getName(), Toast.LENGTH_SHORT).show();
 
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.controlSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.controlSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.stopSign),
                             new MyRoadSignData(RoadSigns.stopOrYieldSign),
@@ -80,9 +72,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.commandSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.commandSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.minimumSpeedLimitSign),
                             new MyRoadSignData(RoadSigns.vehicleExceedingMassOnlySign),
@@ -111,9 +103,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.prohibitionsSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.prohibitionsSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.speedLimitSign),
                             new MyRoadSignData(RoadSigns.massLimitSign),
@@ -134,9 +126,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.reservationSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.reservationSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.busReservationSign),
                             new MyRoadSignData(RoadSigns.busLaneReservationSign),
@@ -152,9 +144,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.comprehensiveSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.comprehensiveSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.dualCarriagewayFreewayBeginsSign),
                             new MyRoadSignData(RoadSigns.singleCarriagewayFreewayBeginsSign),
@@ -168,9 +160,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.secondarySignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.secondarySignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.timeLimitSubgroupSign),
                             new MyRoadSignData(RoadSigns.maxStayDuringTwoPeriodsOrDaysSign),
@@ -187,9 +179,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.deRestrictionSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.deRestrictionSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.deRestrictionSignsSign),
                     };
@@ -202,9 +194,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     context.startActivity(intent);
                 }
 
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.roadLayoutSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.roadLayoutSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.crossroadSign),
                             new MyRoadSignData(RoadSigns.priorityCrossroadSign),
@@ -226,9 +218,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.directionOfMovementSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.directionOfMovementSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.trafficCircleSign),
                             new MyRoadSignData(RoadSigns.gentleCurveSign),
@@ -247,9 +239,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.symbolicSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.symbolicSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.symbolicSignsSign),
                             new MyRoadSignData(RoadSigns.pedestrianCrossingSign),
@@ -257,9 +249,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.routeMarkersSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.routeMarkersSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.advanceTrailblazerSign),
                             new MyRoadSignData(RoadSigns.overheadDirectionSign),
@@ -269,9 +261,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     intent.putExtra("data", d);
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.directionSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.directionSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.advanceExitDirectionSign),
                             new MyRoadSignData(RoadSigns.exitDirectionSign),
@@ -287,9 +279,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.diagrammaticSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.diagrammaticSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.lanesMergeSign),
                             new MyRoadSignData(RoadSigns.diagrammaticSignsSign),
@@ -302,9 +294,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.exampleOfTemporarySignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.exampleOfTemporarySignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.exampleOfTemporarySignsSign),
                     };
@@ -317,9 +309,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     context.startActivity(intent);
                 }
 
-                if (myRoadSignDataList.getSignName().equals("Regulatory Markings")){
+                if (myRoadSignDataList.getName().equals("Regulatory Markings")){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.roadMarkingsSign),
                     };
@@ -332,9 +324,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     context.startActivity(intent);
                 }
 
-                if (myRoadSignDataList.getSignName().equals("Warning Markings")){
+                if (myRoadSignDataList.getName().equals("Warning Markings")){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
 
                     };
@@ -347,9 +339,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     context.startActivity(intent);
                 }
 
-                if (myRoadSignDataList.getSignName().equals("Guidance Markings")){
+                if (myRoadSignDataList.getName().equals("Guidance Markings")){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
 
                     };
@@ -362,9 +354,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     context.startActivity(intent);
                 }
 
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.trafficLightsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.trafficLightsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
 
                     };
@@ -376,9 +368,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.otherRegulatorySignalsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.otherRegulatorySignalsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
                             new MyRoadSignData(RoadSigns.stopFrontSignalSign),
                             new MyRoadSignData(RoadSigns.stopRearSignalSign),
@@ -397,9 +389,9 @@ public class MyRoadSignAdapter extends RecyclerView.Adapter<MyRoadSignAdapter.Vi
                     context.startActivity(intent);
                 }
 
-                if (myRoadSignDataList.getSignName().equals(RoadSigns.informationSignsSignName)){
+                if (myRoadSignDataList.getName().equals(RoadSigns.informationSignsSignName)){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getSignName());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadSignData[] d = new MyRoadSignData[]{
 
                     };

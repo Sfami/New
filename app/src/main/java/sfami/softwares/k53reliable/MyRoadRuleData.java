@@ -4,37 +4,37 @@ import java.io.Serializable;
 
 public class MyRoadRuleData implements Serializable {
 
-    private String ruleTitle, ruleInstruction;
-    private Integer ruleImage;
+    private String name, instruction;
+    private Integer image;
 
     public MyRoadRuleData(Rule rule) {
-        this.ruleTitle = rule.title;
-        this.ruleInstruction = rule.instruction;
-        this.ruleImage = rule.image;
+        this.name = rule.title;
+        this.instruction = rule.instruction;
+        this.image = rule.image;
     }
 
-    public String getRuleTitle() {
-        return ruleTitle;
+    public String getName() {
+        return name;
     }
 
-    public void setRuleTitle(String ruleTitle) {
-        this.ruleTitle = ruleTitle;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getRuleInstruction() {
-        return ruleInstruction;
+    public String getInstruction() {
+        return instruction;
     }
 
-    public void setRuleInstruction(String ruleInstruction) {
-        this.ruleInstruction = ruleInstruction;
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
     }
 
-    public Integer getRuleImage() {
-        return ruleImage;
+    public Integer getImage() {
+        return image;
     }
 
-    public void setRuleImage(Integer movieImage) {
-        this.ruleImage = ruleImage;
+    public void setImage(Integer movieImage) {
+        this.image = image;
     }
 
 

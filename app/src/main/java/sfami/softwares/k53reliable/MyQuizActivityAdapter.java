@@ -38,11 +38,11 @@ public class MyQuizActivityAdapter extends RecyclerView.Adapter<MyQuizActivityAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final MyRoadSignData myRoadSignDataList = myRoadSignData[position];
-        holder.question.setText(myRoadSignDataList.getSignPurpose());
-        holder.ans1.setText(myRoadSignDataList.getSignAction());
-        holder.ans2.setText(myRoadSignDataList.getSignAction());
-        holder.ans3.setText(myRoadSignDataList.getSignAction());
-        holder.image.setImageResource(myRoadSignDataList.getSignImage());
+        holder.question.setText(myRoadSignDataList.getPurpose());
+        holder.ans1.setText(myRoadSignDataList.getAction());
+        holder.ans2.setText(myRoadSignDataList.getAction());
+        holder.ans3.setText(myRoadSignDataList.getAction());
+        holder.image.setImageResource(myRoadSignDataList.getImage());
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

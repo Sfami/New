@@ -20,9 +20,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,10 +57,7 @@ public class QuizActivity extends AppCompatActivity {
     private ProgressBar questionProgress;
     int progress = 0;
 
-    private AdView mAdView;
-    private MyRoadRuleData[] myRoadRuleData;
-    private InterstitialAd mInterstitialAd;
-    private RewardedAd mRewardedAd;
+
     private Dialog dialog;
 
 
@@ -267,11 +265,11 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View view) {
                 dialog.dismiss();
                 startFragmentsActivity();
-                if (mInterstitialAd != null) {
-                    mInterstitialAd.show(QuizActivity.this);
-                } else {
-                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-                }
+//                if (mInterstitialAd != null) {
+//                    mInterstitialAd.show(QuizActivity.this);
+//                } else {
+//                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
+//                }
             }
         });
 

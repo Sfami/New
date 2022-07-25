@@ -1,6 +1,7 @@
 package sfami.softwares.k53reliable;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ControlsActivity extends AppCompatActivity {
 
@@ -43,6 +49,17 @@ public class ControlsActivity extends AppCompatActivity {
 
         MyControlsAdapter myControlsAdapter = new MyControlsAdapter(myRoadSignData,this);
         recyclerView.setAdapter(myControlsAdapter);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(myRoadSignData);
+        Log.i("json", "");
+        Log.i("json", "");
+        Log.i("json", "");
+        Log.i("json", json);
+
+
+        Log.i("json", "");
+        Log.i("json", "");
 
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView = findViewById(R.id.adView);

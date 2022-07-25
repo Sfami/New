@@ -24,6 +24,11 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class DriversManualFragment extends Fragment {
 
@@ -51,6 +56,18 @@ public class DriversManualFragment extends Fragment {
 
         MyRoadRulesAdapter myRoadRulesAdapter = new MyRoadRulesAdapter(myRoadRuleData,this.getActivity());
         recyclerView.setAdapter(myRoadRulesAdapter);
+
+
+        Gson gson = new Gson();
+        String json = gson.toJson(myRoadRuleData);
+        Log.i("json", "");
+        Log.i("json", "");
+        Log.i("json", "");
+        Log.i("json", json);
+
+
+        Log.i("json", "");
+        Log.i("json", "");
 
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

@@ -4,65 +4,65 @@ import java.io.Serializable;
 
 public class MyRoadSignData implements Serializable {
 
-    private String signName, signDescriptions, signPurpose, signAction, signWhere;
-    private Integer signImage;
+    private String name,where, purpose, action, description;
+    private Integer image;
 
     public MyRoadSignData(Sign sign) {
-        this.signName = sign.name;
-        this.signDescriptions = sign.description;
-        this.signPurpose = sign.purpose;
-        this.signAction = sign.action;
-        this.signWhere = sign.where;
-        this.signImage = sign.sign;
+        this.name = sign.name;
+        this.description = sign.description;
+        this.purpose = sign.purpose;
+        this.action = sign.action;
+        this.where = sign.where;
+        this.image = sign.sign;
     }
 
 
-    public String getSignName() {
-        return signName;
+    public String getName() {
+        return name;
     }
 
-    public void setSignName(String signName) {
-        this.signName = signName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSignDescriptions() {
-        return signDescriptions;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSignDescriptions(String signDescriptions) {
-        this.signDescriptions = signDescriptions;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getSignPurpose() {
-        return signPurpose;
+    public String getPurpose() {
+        return purpose;
     }
 
-    public void setSignPurpose(String signPurpose) {
-        this.signPurpose = signPurpose;
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 
-    public Integer getSignImage() {
-        return signImage;
+    public Integer getImage() {
+        return image;
     }
 
-    public void setSignImage(Integer movieImage) {
-        this.signImage = signImage;
+    public void setImage(Integer movieImage) {
+        this.image = image;
     }
 
-    public String getSignAction() {
-        return signAction;
+    public String getAction() {
+        return action;
     }
 
-    public void setSignAction(String signName) {
-        this.signAction = signAction;
+    public void setAction(String signName) {
+        this.action = action;
     }
 
-    public String getSignWhere() {
-        return signWhere;
+    public String getWhere() {
+        return where;
     }
 
-    public void setSignWhere(String signName) {
-        this.signWhere = signWhere;
+    public void setWhere(String signName) {
+        this.where = where;
     }
 
 }
