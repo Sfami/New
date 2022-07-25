@@ -33,11 +33,11 @@ public class WarningRoadSignsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_road_signs);
 
         MyRoadSignData[] myRoadSignData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.roadLayoutSignsSign),
-                new MyRoadSignData(GlobalElements.directionOfMovementSignsSign),
-                new MyRoadSignData(GlobalElements.symbolicSignsSign),
-                new MyRoadSignData(GlobalElements.hazardMarkerSignsSign),
-                new MyRoadSignData(GlobalElements.informationSignsSign)
+                new MyRoadSignData(RoadSigns.roadLayoutSignsSign),
+                new MyRoadSignData(RoadSigns.directionOfMovementSignsSign),
+                new MyRoadSignData(RoadSigns.symbolicSignsSign),
+                new MyRoadSignData(RoadSigns.hazardMarkerSignsSign),
+                new MyRoadSignData(RoadSigns.informationSignsSign)
         };
 
         Intent intent = getIntent();

@@ -108,16 +108,16 @@ public class MyProgressFragmentAdapter extends RecyclerView.Adapter<MyProgressFr
                 intent.putExtra("score", myTestResultsDataList.getScore());
                 QuestionModel[] d = null;
                 if (myTestResultsDataList.getTestName().equals("Controls Test")){
-                    d = GlobalElements.vehicleControlsQuestions;
+                    d = Questions.vehicleControlsQuestions;
                 }
                 if (myTestResultsDataList.getTestName().equals("Road Signs Test")){
-                    d = GlobalElements.roadSignsQuestions;
+                    d = Questions.roadSignsQuestions;
                 }
                 if (myTestResultsDataList.getTestName().equals("Road Rules Test")){
-                    d = GlobalElements.roadRulesQuestions;
+                    d = Questions.roadRulesQuestions;
                 }
                 if (myTestResultsDataList.getTestName().equals("K53 Test")){
-                    d = GlobalElements.roadRulesQuestions;
+                    d = Questions.roadRulesQuestions;
                 }
                 
                 intent.putExtra("data", d);

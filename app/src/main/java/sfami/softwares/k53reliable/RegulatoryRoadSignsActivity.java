@@ -32,14 +32,14 @@ public class RegulatoryRoadSignsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_road_signs);
 
         MyRoadSignData[] myRoadSignData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.controlSignsSign),
-                new MyRoadSignData(GlobalElements.commandSignsSign),
-                new MyRoadSignData(GlobalElements.prohibitionsSignsSign),
-                new MyRoadSignData(GlobalElements.reservationSignsSign),
-                new MyRoadSignData(GlobalElements.comprehensiveSignsSign),
-                new MyRoadSignData(GlobalElements.secondarySignsSign),
-                new MyRoadSignData(GlobalElements.deRestrictionSignsSign),
-                new MyRoadSignData(GlobalElements.signalsSign),
+                new MyRoadSignData(RoadSigns.controlSignsSign),
+                new MyRoadSignData(RoadSigns.commandSignsSign),
+                new MyRoadSignData(RoadSigns.prohibitionsSignsSign),
+                new MyRoadSignData(RoadSigns.reservationSignsSign),
+                new MyRoadSignData(RoadSigns.comprehensiveSignsSign),
+                new MyRoadSignData(RoadSigns.secondarySignsSign),
+                new MyRoadSignData(RoadSigns.deRestrictionSignsSign),
+                new MyRoadSignData(RoadSigns.signalsSign),
         };
 
 

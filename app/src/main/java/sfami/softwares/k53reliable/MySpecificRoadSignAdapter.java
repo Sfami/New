@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,13 +15,6 @@ public class MySpecificRoadSignAdapter extends RecyclerView.Adapter<MySpecificRo
 
     MyRoadSignData[] myRoadSignData;
     Context context;
-//    MyRoadSignData[] d = new MyRoadSignData[]{
-//            new MyRoadSignData("General Duties of a Driver/Rider", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//            new MyRoadSignData("Pedestrians Right of Way", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//            new MyRoadSignData("Duties Relating to Motorcycles", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//            new MyRoadSignData("Crossing/Entering Public Road", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//            new MyRoadSignData("Roundabout and Mini-Traffic Circle", signName, signDescriptions, signPurpose, signAction, signWhere, signImage),
-//    };
 
     public MySpecificRoadSignAdapter(MyRoadSignData[] myRoadSignData, Activity activity) {
         this.myRoadSignData = myRoadSignData;
@@ -41,12 +33,12 @@ public class MySpecificRoadSignAdapter extends RecyclerView.Adapter<MySpecificRo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final MyRoadSignData myRoadSignDataList = myRoadSignData[position];
-        holder.title.setText(myRoadSignDataList.getSignName());
-        holder.description.setText(myRoadSignDataList.getSignDescriptions());
-//        holder.purpose.setText(myRoadSignDataList.getSignPurpose());
-//        holder.action.setText(myRoadSignDataList.getSignAction());
-//        holder.where.setText(myRoadSignDataList.getSignWhere());
-        holder.image.setImageResource(myRoadSignDataList.getSignImage());
+        holder.title.setText(myRoadSignDataList.getName());
+        holder.description.setText(myRoadSignDataList.getDescription());
+//        holder.purpose.setText(myRoadSignDataList.getPurpose());
+//        holder.action.setText(myRoadSignDataList.getAction());
+//        holder.where.setText(myRoadSignDataList.getWhere());
+        holder.image.setImageResource(myRoadSignDataList.getImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

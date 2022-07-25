@@ -41,14 +41,14 @@ public class GuidanceRoadSignsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_road_signs);
 
         MyRoadSignData[] myRoadSignData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.locationSignsSign),
-                new MyRoadSignData(GlobalElements.directionSignSymbolsSign),
-                new MyRoadSignData(GlobalElements.routeMarkersSign),
-                new MyRoadSignData(GlobalElements.directionSignsSign),
-                new MyRoadSignData(GlobalElements.tourismDirectionSignsSign),
-                new MyRoadSignData(GlobalElements.localDirectionSignsSign),
-                new MyRoadSignData(GlobalElements.diagrammaticSignsSign),
-                new MyRoadSignData(GlobalElements.variableMessageSignsSign),
+                new MyRoadSignData(RoadSigns.locationSignsSign),
+                new MyRoadSignData(RoadSigns.directionSignSymbolsSign),
+                new MyRoadSignData(RoadSigns.routeMarkersSign),
+                new MyRoadSignData(RoadSigns.directionSignsSign),
+                new MyRoadSignData(RoadSigns.tourismDirectionSignsSign),
+                new MyRoadSignData(RoadSigns.localDirectionSignsSign),
+                new MyRoadSignData(RoadSigns.diagrammaticSignsSign),
+                new MyRoadSignData(RoadSigns.variableMessageSignsSign),
         };
 
         Intent intent = getIntent();

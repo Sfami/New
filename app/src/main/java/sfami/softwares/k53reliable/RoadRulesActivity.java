@@ -2,6 +2,7 @@ package sfami.softwares.k53reliable;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -14,6 +15,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.gson.Gson;
 
 public class RoadRulesActivity extends AppCompatActivity {
 
@@ -43,6 +45,18 @@ public class RoadRulesActivity extends AppCompatActivity {
 
         MyRoadRulesAdapter myRoadRulesAdapter = new MyRoadRulesAdapter(myRoadRuleData,RoadRulesActivity.this);
         recyclerView.setAdapter(myRoadRulesAdapter);
+
+
+        Gson gson = new Gson();
+        String json = gson.toJson(myRoadRuleData);
+        Log.i("json", "");
+        Log.i("json", "");
+        Log.i("json", "");
+        Log.i("json", json);
+
+
+        Log.i("json", "");
+        Log.i("json", "");
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

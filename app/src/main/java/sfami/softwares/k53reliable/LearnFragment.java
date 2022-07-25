@@ -2,6 +2,7 @@ package sfami.softwares.k53reliable;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.gson.Gson;
 
 public class LearnFragment extends Fragment {
 
@@ -48,6 +50,17 @@ public class LearnFragment extends Fragment {
 
         MyMenuAdapter myMenuAdapter = new MyMenuAdapter(myRoadSignData,this.getActivity());
         recyclerView.setAdapter(myMenuAdapter);
+        Gson gson = new Gson();
+        String json = gson.toJson(myRoadSignData);
+        Log.i("json", "");
+        Log.i("json", "");
+        Log.i("json", "");
+        Log.i("json", json);
+
+
+        Log.i("json", "");
+        Log.i("json", "");
+
 
         mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

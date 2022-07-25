@@ -58,7 +58,6 @@ public class ProgressFragment extends Fragment {
                     // Initialize uri
                     Uri uri = Uri.parse("market://details?id=" + PACKAGE_NAME);
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
 
@@ -68,7 +67,6 @@ public class ProgressFragment extends Fragment {
                     // Initialize uri
                     Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=" + PACKAGE_NAME);
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }

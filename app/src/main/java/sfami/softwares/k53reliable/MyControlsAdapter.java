@@ -2,12 +2,10 @@ package sfami.softwares.k53reliable;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,8 +34,8 @@ public class MyControlsAdapter extends RecyclerView.Adapter<MyControlsAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final MyRoadRuleData myRoadSignDataList = myRoadRuleData[position];
-        holder.textViewName.setText(myRoadSignDataList.getRuleTitle());
-        holder.textViewDate.setText(myRoadSignDataList.getRuleInstruction());
+        holder.textViewName.setText(myRoadSignDataList.getName());
+        holder.textViewDate.setText(myRoadSignDataList.getInstruction());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

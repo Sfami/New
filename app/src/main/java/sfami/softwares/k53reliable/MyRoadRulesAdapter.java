@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.ViewHolder> {
@@ -37,16 +36,16 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final MyRoadRuleData myRoadSignDataList = myRoadRuleData[position];
-        holder.textViewName.setText(myRoadSignDataList.getRuleTitle());
-        holder.textViewDate.setText(myRoadSignDataList.getRuleInstruction());
+        holder.textViewName.setText(myRoadSignDataList.getName());
+        holder.textViewDate.setText(myRoadSignDataList.getInstruction());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, myRoadSignDataList.getRuleTitle(), Toast.LENGTH_SHORT).show();
-                if (myRoadSignDataList.getRuleTitle().equals("General road rules.")){
+                Toast.makeText(context, myRoadSignDataList.getName(), Toast.LENGTH_SHORT).show();
+                if (myRoadSignDataList.getName().equals("General road rules.")){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getRuleTitle());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadRuleData[] d = new MyRoadRuleData[]{
                             new MyRoadRuleData(GlobalElements.overTakingLanesFreewayRules),
                             new MyRoadRuleData(GlobalElements.parkingAndStoppingAreasRules),
@@ -63,9 +62,9 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                     context.startActivity(intent);
                 }
 
-                if (myRoadSignDataList.getRuleTitle().equals("General road rules.")){
+                if (myRoadSignDataList.getName().equals("General road rules.")){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getRuleTitle());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadRuleData[] d = new MyRoadRuleData[]{
                             new MyRoadRuleData(GlobalElements.overTakingLanesFreewayRules),
                             new MyRoadRuleData(GlobalElements.parkingAndStoppingAreasRules),
@@ -81,9 +80,9 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getRuleTitle().equals("General road rules.")){
+                if (myRoadSignDataList.getName().equals("General road rules.")){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getRuleTitle());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadRuleData[] d = new MyRoadRuleData[]{
                             new MyRoadRuleData(GlobalElements.overTakingLanesFreewayRules),
                             new MyRoadRuleData(GlobalElements.parkingAndStoppingAreasRules),
@@ -99,9 +98,9 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getRuleTitle().equals("General road rules.")){
+                if (myRoadSignDataList.getName().equals("General road rules.")){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getRuleTitle());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadRuleData[] d = new MyRoadRuleData[]{
                             new MyRoadRuleData(GlobalElements.overTakingLanesFreewayRules),
                             new MyRoadRuleData(GlobalElements.parkingAndStoppingAreasRules),
@@ -117,9 +116,9 @@ public class MyRoadRulesAdapter extends RecyclerView.Adapter<MyRoadRulesAdapter.
                     }
                     context.startActivity(intent);
                 }
-                if (myRoadSignDataList.getRuleTitle().equals("General road rules.")){
+                if (myRoadSignDataList.getName().equals("General road rules.")){
                     Intent intent = new Intent(context, RoadSignsActivity.class);
-                    intent.putExtra("title", myRoadSignDataList.getRuleTitle());
+                    intent.putExtra("title", myRoadSignDataList.getName());
                     MyRoadRuleData[] d = new MyRoadRuleData[]{
                             new MyRoadRuleData(GlobalElements.overTakingLanesFreewayRules),
                             new MyRoadRuleData(GlobalElements.parkingAndStoppingAreasRules),

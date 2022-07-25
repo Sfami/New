@@ -41,9 +41,9 @@ public class FragmentsActivity extends AppCompatActivity {
         }
 
         MyRoadSignData[] myLearnFragmentData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.roadSignsSign),
-                new MyRoadSignData(GlobalElements.roadRulesSign),
-                new MyRoadSignData(GlobalElements.controlsSign),
+                new MyRoadSignData(MenuElements.roadSignsSign),
+                new MyRoadSignData(MenuElements.roadRulesSign),
+                new MyRoadSignData(MenuElements.controlsSign),
         };
 
 

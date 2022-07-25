@@ -33,10 +33,10 @@ public class RoadMarkingRoadSignsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_road_signs);
 
         MyRoadSignData[] myRoadSignData = new MyRoadSignData[]{
-                new MyRoadSignData(GlobalElements.regulatorySign),
-                new MyRoadSignData(GlobalElements.warningSign),
-                new MyRoadSignData(GlobalElements.guidanceSign),
-                new MyRoadSignData(GlobalElements.exclusiveUseSymbolsSign),
+                new MyRoadSignData(RoadSigns.regulatorySign),
+                new MyRoadSignData(RoadSigns.warningSign),
+                new MyRoadSignData(RoadSigns.guidanceSign),
+                new MyRoadSignData(RoadSigns.exclusiveUseSymbolsSign),
         };
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
