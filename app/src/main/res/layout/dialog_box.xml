@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:background="@color/purple_500"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <TextView
@@ -24,7 +24,7 @@
             android:text="Welcome"
             android:gravity="center"
             android:fontFamily="@font/roboto_condensed_bold"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
             android:text="@string/welcome_dialog"
             android:gravity="center"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:fontFamily="@font/roboto_condensed_bold"
             android:textSize="16sp" />
 
@@ -56,6 +56,7 @@
                 android:layout_marginEnd="10dp"
                 android:gravity="center"
                 android:layout_gravity="center"
+                android:textColor="@color/white"
                 android:text="Cancel"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:textStyle="bold" />
@@ -68,6 +69,7 @@
                 android:layout_gravity="center"
                 android:padding="10dp"
                 android:layout_marginStart="10dp"
+                android:textColor="@color/white"
                 android:text="Okay"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:textStyle="bold" />

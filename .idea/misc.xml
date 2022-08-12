@@ -24,15 +24,20 @@
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/specific_road_sign_item_list.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/takal/OneDrive/Desktop/Orifha/Android/K53-Reliable/app/src/main/res/layout/test_score_item_list.xml" value="0.17083333333333334" />
         <entry key="app/src/main/res/layout/activity_control_road_signs.xml" value="0.3029891304347826" />
+        <entry key="app/src/main/res/layout/activity_controls.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_faqs.xml" value="0.10194624652455977" />
         <entry key="app/src/main/res/layout/activity_fragments.xml" value="0.3029891304347826" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2953125" />
-        <entry key="app/src/main/res/layout/activity_quiz.xml" value="0.1243209360635186" />
+        <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.10194624652455977" />
+        <entry key="app/src/main/res/layout/activity_quiz.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_results.xml" value="0.1243209360635186" />
         <entry key="app/src/main/res/layout/activity_road_rules_main.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_road_signs.xml" value="0.10194624652455977" />
         <entry key="app/src/main/res/layout/activity_road_signs_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_view_results.xml" value="0.2543822146216332" />
-        <entry key="app/src/main/res/layout/dialog_box.xml" value="0.3029891304347826" />
+        <entry key="app/src/main/res/layout/dialog_box.xml" value="0.22508038585209003" />
         <entry key="app/src/main/res/layout/fragment_drivers_manual.xml" value="0.3029891304347826" />
+        <entry key="app/src/main/res/layout/fragment_faqs.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_general_road_rules.xml" value="0.3029891304347826" />
         <entry key="app/src/main/res/layout/fragment_guidance_signs.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_information_signs.xml" value="0.3029891304347826" />
@@ -42,13 +47,17 @@
         <entry key="app/src/main/res/layout/fragment_progress.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/fragment_regulatory_signs.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_road_marking.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_road_signs.xml" value="0.10602821718683197" />
         <entry key="app/src/main/res/layout/fragment_temporary_signs.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_traffic_signals.xml" value="0.3029891304347826" />
         <entry key="app/src/main/res/layout/fragment_warning_signs.xml" value="0.3029891304347826" />
+        <entry key="app/src/main/res/layout/menu_item_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/quiz_question_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/road_rule_item_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/road_sign_item_list.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/specific_road_rule_item_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/specific_road_sign_item_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/test_score_item_list.xml" value="0.1" />
       </map>
     </option>
   </component>
