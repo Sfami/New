@@ -5,10 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +52,7 @@ public class QuestionDataBaseHelper extends SQLiteOpenHelper {
                 + COLUMN_OPTION2 + " TEXT, "
                 + COLUMN_OPTION3 + " TEXT, "
                 + COLUMN_OPTION4 + " TEXT, "
-                + COLUMN_IMAGE + " TEXT)";
+                + COLUMN_IMAGE + " BLOB)";
         db.execSQL(createTableStatement);
     }
 
@@ -72,7 +75,9 @@ public class QuestionDataBaseHelper extends SQLiteOpenHelper {
         }
         return true;
     }
+
     public boolean addOne(Question question){
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_QUESTION, question.getQuestion());
@@ -81,7 +86,15 @@ public class QuestionDataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_OPTION2, question.getOption2());
         cv.put(COLUMN_OPTION3, question.getOption3());
         cv.put(COLUMN_OPTION4, question.getOption4());
-        cv.put(COLUMN_IMAGE, question.getImageUrl());
+        byte[] bytesImage = null;
+        try {
+            question.getImage().compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+            bytesImage = byteArrayOutputStream.toByteArray();
+            cv.put(COLUMN_IMAGE, bytesImage);
+        } catch (Exception e) {
+            cv.put(COLUMN_IMAGE, bytesImage);
+            Log.i("FAILED IMAGE", question.getQuestion());
+        }
         // id is auto-increment so we do not need to pass it.
         long insert = db.insert(QUESTIONS_TABLE, null, cv);
         boolean success = insert != -1;
@@ -112,19 +125,25 @@ public class QuestionDataBaseHelper extends SQLiteOpenHelper {
                 String option2 = cursor.getString(3);
                 String option3 = cursor.getString(4);
                 String option4 = cursor.getString(5);
-                String imageUrl = cursor.getString(6);
-                Question q = new Question(question, correctAnsNo, option1, option2, option3, option4, imageUrl);
-                returnList.add(q);
+                byte[] bytesImage = cursor.getBlob(6);
+                try {
+                    Bitmap questionImage = BitmapFactory.decodeByteArray(bytesImage, 0, bytesImage.length);
+                    Question q = new Question(question, correctAnsNo, option1, option2, option3, option4, questionImage);
+                    returnList.add(q);
+                }
+                catch (Exception e){
+                    Log.i("Fix this", cursor.getString(0));
+                    Bitmap questionImage = null;
+                    Question q = new Question(question, correctAnsNo, option1, option2, option3, option4, questionImage);
+                    returnList.add(q);
+//                    e.printStackTrace();
+                }
             } while (cursor.moveToNext());
         }
         else ;
         cursor.close();
         db.close();
         return returnList;
-    }
-
-    public String getROAD_SIGNS_TABLE() {
-        return QUESTIONS_TABLE;
     }
 
     public String getDbName() {

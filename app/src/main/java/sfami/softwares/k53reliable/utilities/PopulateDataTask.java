@@ -21,6 +21,8 @@ public class PopulateDataTask extends AsyncTask<String, Void, String> {
     Activity activity;
     List<String[]> roadSignsInformation;
     List<String[]> testsInformation;
+    String[] roadRulesInformation;
+    String[] vehicleControlsInformation;
     ProgressDialog progressDialog;
     int progress = 0;
 
@@ -34,7 +36,6 @@ public class PopulateDataTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-
 //        progressDialog.setMax(roadSignsInformation.size() + testsInformation.size());
         progressDialog.setMessage("Download in progress...\nPlease wait...");
         progressDialog.show();
@@ -44,12 +45,18 @@ public class PopulateDataTask extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         roadSignsInformation = GlobalElements.getRoadSignsInformation();
         testsInformation = GlobalElements.getTestsInformation();
+        roadRulesInformation = GlobalElements.getRoadRulesInformation();
+        vehicleControlsInformation = GlobalElements.getVehicleControlsInformation();
+
         for (String[] info : roadSignsInformation) {
             getDataFromJsonFile(info);
         }
         for (String[] info : testsInformation) {
             getDataFromJsonFile(info);
         }
+        getDataFromJsonFile(roadRulesInformation);
+        getDataFromJsonFile(vehicleControlsInformation);
+
         return "Done loading data";
     }
 
@@ -78,10 +85,10 @@ public class PopulateDataTask extends AsyncTask<String, Void, String> {
                         Log.i("processing....", jsonFile);
                         DataProcessor processor = new DataProcessor(activity);
                         if (jsonFile.contains("signs/") || jsonFile.contains("menu/")) processor.processRoadSignsJSON(response, info);
-                        if (jsonFile.contains("rules/")) processor.processRoadRulesJSON(response, jsonFile);
-                        if (jsonFile.contains("vehicle-controls/")) processor.processVehicleControlsJSON(response, jsonFile);
+                        if (jsonFile.contains("rules/")) processor.processRoadRulesJSON(response, info);
+                        if (jsonFile.contains("vehicle-controls/")) processor.processVehicleControlsJSON(response, info);
                         if (jsonFile.contains("questions/")) {
-                            processor.processQuestionsJSON(response, jsonFile);
+                            processor.processQuestionsJSON(response, info);
                             processor.saveK53QuestionsInDatabase();
                         }
                     }

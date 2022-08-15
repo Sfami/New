@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +33,9 @@ import sfami.softwares.k53reliable.database.TestResultDataBaseHelper;
 
 public class QuizActivity extends AppCompatActivity {
 
-    private List<Question> questionList;
-    private TextView timer, question, questionNumber;
+    private TextView question, questionNumber;
     private RadioGroup radioGroup;
-    private RadioButton rb1, rb2, rb3, rb4;
-    private TextView ans1, ans2, ans3, ans4;
+    private RadioButton rb1, rb2, rb3;
     private Button nextBtn;
 
     int totalQuestions;
@@ -48,15 +45,11 @@ public class QuizActivity extends AppCompatActivity {
     private Question currentQuestion;
     ColorStateList dfRbColor;
     boolean answered;
-    private CountDownTimer countDownTimer;
-    private ProgressBar progressBar;
     private List<Question> questions;
     private ArrayList<String> answers;
-    private ArrayList<String> options;
     private String title;
     private ImageView image;
     private ProgressBar questionProgress;
-    int progress = 0;
     private Dialog dialog;
 
     private HashMap<String, String> databasesMap;
@@ -163,7 +156,7 @@ public class QuizActivity extends AppCompatActivity {
             questionNumber.setText(String.format("Question %s of %s", qCounter + 1, questions.size()));
 
             if (title.equals("Controls Test")) image.setImageResource(R.drawable.light_motor_manual_controls);
-            else image.setImageResource(0);
+            else image.setImageBitmap(currentQuestion.getImage());
 
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
@@ -197,6 +190,7 @@ public class QuizActivity extends AppCompatActivity {
             Log.d("ERROR", "DB Not Found");
         }
     }
+
 
     private void saveTestResults(){
         TestResult results;

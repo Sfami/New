@@ -11,9 +11,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import sfami.softwares.k53reliable.database.RoadRuleDataBaseHelper;
 import sfami.softwares.k53reliable.global.GlobalElements;
 import sfami.softwares.k53reliable.database.QuestionDataBaseHelper;
 import sfami.softwares.k53reliable.models.Question;
+import sfami.softwares.k53reliable.models.RoadRule;
 import sfami.softwares.k53reliable.models.RoadSign;
 
 public class DataProcessor {
@@ -24,39 +26,6 @@ public class DataProcessor {
         this.activity = activity;
     }
 
-    public void processRoadRulesJSON(String json, String jsonFile) throws JSONException {
-        JSONArray ja = new JSONArray(json);
-        ArrayList<Question> questions = new ArrayList<>();
-
-        for (int i = 0; i < ja.length(); i++) {
-            String q = ja.getJSONObject(i).get("question").toString();
-            String correctAnsNo = ja.getJSONObject(i).get("correctAnsNo").toString();
-            String option1 = ja.getJSONObject(i).get("option1").toString();
-            String option2 = ja.getJSONObject(i).get("option2").toString();
-            String option3 = ja.getJSONObject(i).get("option3").toString();
-            String option4 = ja.getJSONObject(i).get("option4").toString();
-            String imageUrl = ja.getJSONObject(i).get("imageUrl").toString();
-            Question question = new Question(q, correctAnsNo, option1, option2, option3, option4, imageUrl);
-            String dbName = "";
-            String tableName = "";
-            if (jsonFile.contains("road-rules-qs")) {
-                dbName = "rulesQs";
-                tableName = "RULES_QS";
-            }
-            if (jsonFile.contains("road-signs-qs")){
-                dbName = "signsQs";
-                tableName = "SIGNS_QS";
-            }
-            if (jsonFile.contains("vehicle-controls-qs")) {
-                dbName = "controlsQs";
-                tableName = "CONTROLS_QS";
-            }
-
-            QuestionDataBaseHelper dataBaseHelper = new QuestionDataBaseHelper(activity, dbName, tableName);
-            boolean success = dataBaseHelper.addOne(question);
-            questions.add(question);
-        }
-    }
 
     public String saveK53QuestionsInDatabase(){
         QuestionDataBaseHelper dataBaseHelper = new QuestionDataBaseHelper(activity, "roadSignsTest", GlobalElements.getDatabasesMap().get("roadSignsTest"));
@@ -70,45 +39,13 @@ public class DataProcessor {
         return dataBaseHelperK53.getDbName().replace(".db", "");
     }
 
-    public void processVehicleControlsJSON(String json, String jsonFile) throws JSONException, IOException {
+
+    public void processQuestionsJSON(String json, String[] info) throws JSONException {
 
         JSONArray ja = new JSONArray(json);
-        ArrayList<Question> questions = new ArrayList<>();
-        for (int i = 0; i < ja.length(); i++) {
-            String q = ja.getJSONObject(i).get("question").toString();
-            String correctAnsNo = ja.getJSONObject(i).get("correctAnsNo").toString();
-            String option1 = ja.getJSONObject(i).get("option1").toString();
-            String option2 = ja.getJSONObject(i).get("option2").toString();
-            String option3 = ja.getJSONObject(i).get("option3").toString();
-            String option4 = ja.getJSONObject(i).get("option4").toString();
-            String imageUrl = ja.getJSONObject(i).get("imageUrl").toString();
+        List<Question> questions = new ArrayList<>();
+        String[] imagesUrls = new String[ja.length()];
 
-            Question question = new Question(q, correctAnsNo, option1, option2, option3, option4, imageUrl);
-            String dbName = "";
-            String tableName = "";
-            if (jsonFile.contains("road-rules-qs")) {
-                dbName = "rulesQs";
-                tableName = "RULES_QS";
-            }
-            if (jsonFile.contains("road-signs-qs")){
-                dbName = "signsQs";
-                tableName = "SIGNS_QS";
-            }
-            if (jsonFile.contains("vehicle-controls-qs")) {
-                dbName = "controlsQs";
-                tableName = "CONTROLS_QS";
-            }
-            QuestionDataBaseHelper dataBaseHelper = new QuestionDataBaseHelper(activity, dbName, tableName);
-            boolean success = dataBaseHelper.addOne(question);
-            questions.add(question);
-        }
-    }
-
-
-    public void processQuestionsJSON(String json, String jsonFile) throws JSONException, IOException {
-
-        JSONArray ja = new JSONArray(json);
-        ArrayList<Question> questions = new ArrayList<>();
         for (int i = 0; i < ja.length(); i++) {
             String q = ja.getJSONObject(i).get("question").toString();
             String correctAnsNo = ja.getJSONObject(i).get("correctAnsNo").toString();
@@ -117,29 +54,13 @@ public class DataProcessor {
             String option3 = ja.getJSONObject(i).get("option3").toString();
             String option4 = ja.getJSONObject(i).get("option4").toString();
             String imageUrl = ja.getJSONObject(i).get("image").toString();
-            Question question = new Question(q, correctAnsNo, option1, option2, option3, option4, imageUrl);
-            String dbName = "";
-            String tableName = "";
-            if (jsonFile.contains("road-rules-qs")) {
-                dbName = "roadRulesTest";
-                tableName = "ROAD_RULES_TEST";
-            }
-            if (jsonFile.contains("road-signs-qs")){
-                dbName = "roadSignsTest";
-                tableName = "ROAD_SIGNS_TEST";
-            }
-            if (jsonFile.contains("vehicle-controls-qs")) {
-                dbName = "controlsTest";
-                tableName = "CONTROLS_TEST";
-            }
-            if (jsonFile.contains("vehicle-controls-qs")) {
-                dbName = "controlsTest";
-                tableName = "CONTROLS_TEST";
-            }
-            QuestionDataBaseHelper dataBaseHelper = new QuestionDataBaseHelper(activity, dbName, tableName);
-            boolean success = dataBaseHelper.addOne(question);
+            imagesUrls[i] = imageUrl;
+            Bitmap image = null;
+            Question question = new Question(q, correctAnsNo, option1, option2, option3, option4, image);
             questions.add(question);
         }
+        DownloadThread2 thread = new DownloadThread2(activity.getApplicationContext(), imagesUrls, questions, info);
+        thread.start();
     }
 
     public void processRoadSignsJSON(String response, String[] info) throws JSONException {
@@ -164,6 +85,46 @@ public class DataProcessor {
         }
         DownloadThread thread = new DownloadThread(activity.getApplicationContext(), imagesUrls, roadSigns, info);
         thread.start();
+    }
+
+    public void processRoadRulesJSON(String json, String[] info) throws JSONException {
+        JSONArray ja = new JSONArray(json);
+        List<RoadRule> roadRules = new ArrayList<>();
+
+        for (int i = 0; i < ja.length(); i++) {
+            String name = ja.getJSONObject(i).get("name").toString();
+            String instruction = ja.getJSONObject(i).get("instruction").toString();
+            Log.i("", name);
+            RoadRule roadRule = new RoadRule(name, instruction);
+            roadRules.add(roadRule);
+        }
+        RoadRuleDataBaseHelper dataBaseHelper = new RoadRuleDataBaseHelper(activity.getApplicationContext(), info[0], info[1]);
+        boolean success = dataBaseHelper.addMany(roadRules);
+
+        String ans = "";
+        if (success) ans = "SUCCESSFUL";
+        else ans = "FAILED";
+        Log.i("Saving to DB", ans + " " + info[0] + " " + info[1]);
+    }
+
+    public void processVehicleControlsJSON(String json, String[] info) throws JSONException {
+        JSONArray ja = new JSONArray(json);
+        List<RoadRule> vehicleControls = new ArrayList<>();
+        for (int i = 0; i < ja.length(); i++) {
+            String name = ja.getJSONObject(i).get("name").toString();
+            String description = ja.getJSONObject(i).get("description").toString();
+            Log.i("", name);
+            RoadRule vehicleControl = new RoadRule(name, description);
+            vehicleControls.add(vehicleControl);
+        }
+        RoadRuleDataBaseHelper dataBaseHelper = new RoadRuleDataBaseHelper(activity.getApplicationContext(), info[0], info[1]);
+        boolean success = dataBaseHelper.addMany(vehicleControls);
+
+        String ans = "";
+        if (success) ans = "SUCCESSFUL";
+        else ans = "FAILED";
+        Log.i("Saving to DB", ans + " " + info[0] + " " + info[1]);
+
     }
 
 

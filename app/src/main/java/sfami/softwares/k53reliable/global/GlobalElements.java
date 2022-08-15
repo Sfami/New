@@ -44,6 +44,8 @@ public class GlobalElements {
         databasesMap.put("roadSignsTest", "ROAD_SIGNS_TEST");
         databasesMap.put("controlsTest", "CONTROLS_TEST");
         databasesMap.put("k53Test", "K53_TEST");
+        databasesMap.put("roadRules", "ROAD_RULES");
+        databasesMap.put("vehicleControls", "VEHICLE_CONTROLS");
         return databasesMap;
     }
 
@@ -159,6 +161,14 @@ public class GlobalElements {
         information.add(new String[]{"k53Test", "K53_TEST", "no-json-for-this"});
 
         return information;
+    }
+
+    public static String[] getRoadRulesInformation() {
+        return new String[]{"roadRules", "ROAD_RULES", "rules/rules.json"};
+    }
+
+    public static String[] getVehicleControlsInformation() {
+        return new String[]{"vehicleControls", "VEHICLE_CONTROLS", "vehicle-controls/vehicle-controls.json"};
     }
 
 

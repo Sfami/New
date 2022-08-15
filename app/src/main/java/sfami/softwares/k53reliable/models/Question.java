@@ -1,33 +1,29 @@
 package sfami.softwares.k53reliable.models;
 
+import android.graphics.Bitmap;
+
 import java.io.Serializable;
 
 public class Question implements Serializable {
 
-    private String question, correctAnsNo, option1, option2, option3, option4, imageUrl;
+    private String question;
+    private String correctAnsNo;
+    private String option1;
+    private String option2;
+    private String option3;
+    private String option4;
+    private Bitmap image;
 
-    public Question(String question, String correctAnsNo , String option1, String option2, String option3, String option4, String imageUrl) {
+    public Question(String question, String correctAnsNo , String option1, String option2, String option3, String option4, Bitmap image) {
         this.question = question;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
         this.option4 = option4;
         this.correctAnsNo = correctAnsNo;
-        this.imageUrl = imageUrl;
+        this.image = image;
     }
 
-    @Override
-    public String toString() {
-        return "QuestionModel{" +
-                "question='" + question + '\'' +
-                ", option1='" + option1 + '\'' +
-                ", option2='" + option2 + '\'' +
-                ", option3='" + option3 + '\'' +
-                ", option4='" + option4 + '\'' +
-                ", correctAnsNo=" + correctAnsNo +
-                ", imageUrl=" + imageUrl +
-                '}';
-    }
 
     public String getQuestion() {
         return question;
@@ -77,11 +73,11 @@ public class Question implements Serializable {
         this.correctAnsNo = correctAnsNo;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public Bitmap getImage() {
+        return image;
     }
 
-    public void setImageUrl(String image) {
-        this.imageUrl = image;
+    public void setImage(Bitmap image) {
+        this.image = image;
     }
 }

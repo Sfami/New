@@ -6,21 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
+import java.util.List;
 
 import sfami.softwares.k53reliable.R;
 import sfami.softwares.k53reliable.models.RoadRule;
 
 public class RoadRulesAdapter extends RecyclerView.Adapter<RoadRulesAdapter.ViewHolder> {
 
-    ArrayList<RoadRule> myRoadRuleData;
+    List<RoadRule> myRoadRuleData;
     Context context;
 
-    public RoadRulesAdapter(ArrayList<RoadRule> myRoadRuleData, Activity activity) {
+    public RoadRulesAdapter(List<RoadRule> myRoadRuleData, Activity activity) {
         this.myRoadRuleData = myRoadRuleData;
         this.context = activity;
     }

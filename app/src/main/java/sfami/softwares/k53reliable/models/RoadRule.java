@@ -5,9 +5,9 @@ public class RoadRule {
     private final String name;
     private final String instruction;
 
-    public RoadRule(String name, String where) {
+    public RoadRule(String name, String instruction) {
         this.name = name;
-        this.instruction = where;
+        this.instruction = instruction;
     }
 
     public String getName() {
